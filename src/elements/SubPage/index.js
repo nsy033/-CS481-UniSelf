@@ -1,5 +1,6 @@
 import './style.css';
 import React, { useEffect, useState } from 'react';
+import * as ROUTES from '../../constants/routes';
 
 function SubPage() {
   const URLSplit = window.document.URL.split('/');
@@ -9,6 +10,10 @@ function SubPage() {
     <div>
       <h1> SubPage </h1>
       <h2> TimeZone: {timezone}</h2>
+
+      <div>
+        <a href={ROUTES.ROUTINE + '/wakeup'}> Wake Up </a>
+      </div>
     </div>
   );
 }
