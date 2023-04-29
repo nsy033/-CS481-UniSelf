@@ -36,3 +36,10 @@
     transform: rotate(360deg);
   }
 }
+
+.pageBox {
+    width: 100vw - 400px;
+    margin-left: 200px;
+    margin-right: 200px;
+    margin-top: 30px;
+}

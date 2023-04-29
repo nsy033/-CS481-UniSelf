@@ -6,7 +6,7 @@ function RoutinePage() {
   const routine = URLSplit[URLSplit.length - 1];
 
   return (
-    <div>
+    <div className="pageBox">
       <h1> RoutinePage </h1>
       <h2> Routine: {routine}</h2>
     </div>
