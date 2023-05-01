@@ -22,7 +22,7 @@ function Navbar() {
               href={ROUTES.MAIN}
               className={selectedType == 1 ? 'selected' : 'unselected'}
             >
-              Main
+              Home
             </a>
           </li>
           <li>

@@ -1,0 +1,82 @@
+button {
+    cursor: pointer;
+  }
+  
+.calendarContainer {
+    width: 500px;
+    height: 400px;
+    margin-top: 30px;
+    margin-left: -18px;
+}
+  
+.pagination {
+    display: -webkit-box;
+    align-self: center;
+    align-content: flex-end;
+    margin-left: auto;
+    font-size: 45px;
+    font-weight: 700;
+    color: #333333;
+    margin-left: -48px;
+}
+.pagination .monthName {
+    width: 100px;
+    text-align: center;
+}
+.pagination button {
+    margin: 0 20px;
+    border: none;
+    background: none;
+}
+ 
+  
+.week {
+    display: flex;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.week div{
+    width: calc(500px / 7);
+    height: calc(500px / 7);
+    float: left;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+
+.date div{
+    width: calc(500px / 7);
+    height: calc(500px / 7);
+    float: left;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    
+    margin-top: -10px;
+    margin-bottom: 5px;
+    color: #555555;
+    font-size: 16px;
+    font-weight: 400;
+}
+.date .today .outline{
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    float: left;
+
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    outline: 5px solid #E05634;
+    outline-offset: -3px;
+}
+
+.saturday {
+    color: #2D7AF6;
+}
+.sunday {
+    color: #DA6F68;
+}
