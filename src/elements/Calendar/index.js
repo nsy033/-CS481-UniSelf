@@ -1,5 +1,5 @@
 import './style.css';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Icon } from '@iconify/react';
 
 function Calendar() {
@@ -25,7 +25,23 @@ function Calendar() {
   lightFilling.background = colorsets[timezone][1];
   const grayFilling = JSON.parse(JSON.stringify(emptyFilling));
   grayFilling.background = colorsets['gray'];
-  if (timezone == 'night') deepFilling['color'] = '#FFFFFF';
+  if (timezone === 'night') deepFilling['color'] = '#FFFFFF';
+
+  function isLeapYear(year) {
+    if (year % 400 === 0) return true;
+    else if (year % 100 === 0) return false;
+    else if (year % 4 === 0) return true;
+    return false;
+  }
+
+  function computeDaysInMonth(month, year) {
+    if (month === 2) {
+      if (isLeapYear(year)) return 29;
+      else return 28;
+    } else if (month === 4 || month === 6 || month === 9 || month === 11)
+      return 30;
+    return 31;
+  }
 
   const today = {
     year: new Date().getFullYear(), //오늘 연도
@@ -63,16 +79,20 @@ function Calendar() {
     if (selectedMonth === 1) {
       setSelectedMonth(12);
       setSelectedYear(selectedYear - 1);
+      setDateTotalCount(computeDaysInMonth(12, selectedYear - 1));
     } else {
       setSelectedMonth(selectedMonth - 1);
+      setDateTotalCount(computeDaysInMonth(selectedMonth - 1, selectedYear));
     }
   };
   const goNextMonth = () => {
     if (selectedMonth === 12) {
       setSelectedMonth(1);
       setSelectedYear(selectedYear + 1);
+      setDateTotalCount(computeDaysInMonth(1, selectedYear + 1));
     } else {
       setSelectedMonth(selectedMonth + 1);
+      setDateTotalCount(computeDaysInMonth(selectedMonth + 1, selectedYear));
     }
   };
 
@@ -83,7 +103,7 @@ function Calendar() {
         <div
           key={weekday}
           className={
-            index == 0 ? 'sunday' : index == 6 ? 'saturday' : 'weekday'
+            index === 0 ? 'sunday' : index === 6 ? 'saturday' : 'weekday'
           }
         >
           {weekday}
@@ -107,13 +127,13 @@ function Calendar() {
             <div
               key={i}
               className={
-                today.year == selectedYear &&
-                today.month == selectedMonth &&
-                today.date == i
+                today.year === selectedYear &&
+                today.month === selectedMonth &&
+                today.date === i
                   ? 'today'
-                  : day == 0
+                  : day === 0
                   ? 'sunday'
-                  : day == 6
+                  : day === 6
                   ? 'saturday'
                   : 'weekday'
               }
@@ -124,9 +144,9 @@ function Calendar() {
                   new Date(selectedYear, selectedMonth - 1, i).getTime() >
                   new Date().getTime()
                     ? emptyFilling
-                    : achievement == 0
+                    : achievement === 0
                     ? grayFilling
-                    : achievement == 1
+                    : achievement === 1
                     ? lightFilling
                     : deepFilling
                 }
@@ -136,6 +156,7 @@ function Calendar() {
             </div>
           );
         }
+        break;
       } else {
         dates.push(<div key={weekday} className="weekday"></div>);
       }
