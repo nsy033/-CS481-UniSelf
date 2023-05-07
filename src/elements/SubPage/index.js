@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import * as ROUTES from '../../constants/routes';
 
 import Calendar from '../Calendar';
+import ComboChecker from '../ComboChecker';
 
 function SubPage() {
   const URLSplit = window.document.URL.split('/');
@@ -17,6 +18,7 @@ function SubPage() {
         <a href={ROUTES.ROUTINE + '/' + timezone + '/wakeup'}> Wake Up </a>
       </div>
       <Calendar />
+      <ComboChecker />
     </div>
   );
 }
