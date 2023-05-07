@@ -1,5 +1,7 @@
 import './style.css';
 import React, { useEffect, useState } from 'react';
+import FlowGraph from '../FlowGraph';
+import DetailGraph from '../DetailGraph'
 
 function RoutinePage() {
   const URLSplit = window.document.URL.split('/');
@@ -9,6 +11,8 @@ function RoutinePage() {
     <div className="pageBox">
       <h1> RoutinePage </h1>
       <h2> Routine: {routine}</h2>
+      <FlowGraph/>
+      <DetailGraph/>
     </div>
   );
 }
