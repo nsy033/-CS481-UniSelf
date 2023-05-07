@@ -50,9 +50,9 @@ function ComboChecker() {
   });
 
   return (
-    <div>
+    <div className="combo">
         <hr className="hrcontainer" />
-        <div>
+        <div className='combocontainer-box'>
             <div className="combocontainer">{displayCombos()}</div>
             <div className="combocontainer">{displayCombos()}</div>
         </div>
