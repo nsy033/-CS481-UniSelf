@@ -43,3 +43,17 @@
     margin-right: 200px;
     margin-top: 30px;
 }
+
+.box-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+:root {
+  --morning-deep-yellow: #FFCA2D;
+  --morning-light-yellow: #FFE9A9;
+  --day-deep-green: #8CD735;
+  --day-light-green: #D8EDC0;
+  --night-deep-blue: #3F51B5;
+  --night-light-blue: #CED3F0;
+}

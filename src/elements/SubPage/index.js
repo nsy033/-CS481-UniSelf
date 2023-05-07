@@ -15,6 +15,8 @@ function SubPage() {
 
       <div>
         <a href={ROUTES.ROUTINE + '/' + timezone + '/wakeup'}> Wake Up </a>
+        <br/>
+        <a href={ROUTES.ROUTINE + '/' + timezone + '/checkMailBox'}> Check Mail Box </a>
       </div>
       <Calendar />
     </div>
