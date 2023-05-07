@@ -1,0 +1,73 @@
+.Routines {
+    list-style: none;
+    width: 100%;
+}
+
+.RoutineList {
+    list-style: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.RoutineList li {
+    list-style: none;
+    display: flex;
+    text-align: center;
+    width: 303px;
+}
+
+.RoutineList li a {
+    transition: all 0.3s ease 0s;
+    
+}
+
+.RoutineButton{
+    border-radius: 20px;
+    padding-top: 5px;
+    padding-bottom: 3px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.morning {
+    width: 100%;
+    border-radius: 16px;
+    background: var(--morning-deep-yellow);
+    padding-top: 6px;
+    padding-left: 16px;
+    padding-bottom: 8px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.day {
+    width: 100%;
+    border-radius: 16px;
+    background: var(--day-deep-green);
+    padding-top: 6px;
+    padding-left: 16px;
+    padding-bottom: 8px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.night {
+    width: 100%;
+    border-radius: 16px;
+    background: var(--night-deep-blue);
+    padding-top: 6px;
+    padding-left: 16px;
+    padding-bottom: 8px;
+    font-weight: bold;
+    text-align: left;
+    color: white;
+}
+
+.sub-routines-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.sub-routines-box li {
+    padding-bottom: 10px;
+}

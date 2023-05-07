@@ -1,0 +1,7 @@
+.check {
+    border: solid 3px aqua;
+}
+
+.unboldHeading {
+    font-weight: normal;
+}
