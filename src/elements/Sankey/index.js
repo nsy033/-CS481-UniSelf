@@ -1,7 +1,7 @@
 import './style.css';
 import React, { useEffect, useState } from 'react';
 import Plot from 'react-plotly.js';
-import { COLORSETS } from '../../constants/colorset';
+import COLORSETS from '../../constants/colorset.js';
 
 function Sankey() {
     function addAlpha(color, opacity) {
