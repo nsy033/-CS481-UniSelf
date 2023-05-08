@@ -28,11 +28,51 @@ function ComboChecker() {
 
   if (timezone == 'night') deepFilling['color'] = '#FFFFFF';
 
-  const displayCombos = useCallback(() => {
+  const displayCombos1 = () => {
     let combos = [];
     combos.push(
         <div className="text">
             Wake up at 9AM
+        </div>
+    );
+    combos.push(
+        <div
+            className="rcorners1"
+            style={deepFilling}
+        >
+        </div>
+    );
+    combos.push(
+      <div
+          className="rcorners1"
+          style={deepFilling}
+      >
+      </div>
+  );
+    combos.push(
+        <div
+            className="rcorners1"
+            style={deepFilling}
+        >
+        </div>
+    );
+    combos.push(
+        <div
+          className="combotext"
+          style={deepText}
+        >
+            2 COMBO!
+        </div>
+    );
+
+    return combos;
+  };
+
+  const displayCombos2 = () => {
+    let combos = [];
+    combos.push(
+        <div className="text">
+            Check Mail Box
         </div>
     );
     combos.push(
@@ -59,14 +99,14 @@ function ComboChecker() {
     );
 
     return combos;
-  });
+  };
 
   return (
     <div>
         <hr className="hrcontainer" />
         <div>
-            <div className="combocontainer">{displayCombos()}</div>
-            <div className="combocontainer">{displayCombos()}</div>
+            <div className="combocontainer">{displayCombos1()}</div>
+            <div className="combocontainer">{displayCombos2()}</div>
         </div>
         <hr className="hrcontainer" />
     </div>
