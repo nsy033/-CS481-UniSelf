@@ -104,15 +104,9 @@ function ComboChecker() {
   return (
     <div className="combo">
         <hr className="hrcontainer" />
-<<<<<<< HEAD
         <div>
             <div className="combocontainer">{displayCombos1()}</div>
             <div className="combocontainer">{displayCombos2()}</div>
-=======
-        <div className='combocontainer-box'>
-            <div className="combocontainer">{displayCombos()}</div>
-            <div className="combocontainer">{displayCombos()}</div>
->>>>>>> origin/main
         </div>
         <hr className="hrcontainer" />
     </div>
