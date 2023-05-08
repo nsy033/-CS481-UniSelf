@@ -1,0 +1,6 @@
+.horizontalScroll {
+    display: -webkit-inline-box;
+    /* overflow-x: hidden; */
+    overflow-x: auto;
+    width: 100%;
+}

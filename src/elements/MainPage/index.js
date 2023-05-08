@@ -11,7 +11,7 @@ function MainPage() {
       <div className='box-container'>
         <div>
           <h2>My Daily Routines</h2>
-          <RoutineList/>
+          <RoutineList pageType={'mainPage'}/>
         </div>
         <Sankey/>
       </div>

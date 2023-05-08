@@ -7,10 +7,12 @@ function Navbar() {
   const potentialTimezone = URLSplit[URLSplit.length - 2];
 
   let selectedType = 1;
-  if (curPage == 'morning' || potentialTimezone == 'morning') selectedType = 2;
-  else if (curPage == 'day' || potentialTimezone == 'day') selectedType = 3;
-  else if (curPage == 'night' || potentialTimezone == 'night') selectedType = 4;
-  else if (curPage == 'companion') selectedType = 5;
+  if (curPage === 'morning' || potentialTimezone === 'morning')
+    selectedType = 2;
+  else if (curPage === 'day' || potentialTimezone === 'day') selectedType = 3;
+  else if (curPage === 'night' || potentialTimezone === 'night')
+    selectedType = 4;
+  else if (curPage === 'companion') selectedType = 5;
 
   return (
     <div className="Navbar">
@@ -20,7 +22,7 @@ function Navbar() {
           <li>
             <a
               href={ROUTES.MAIN}
-              className={selectedType == 1 ? 'selected' : 'unselected'}
+              className={selectedType === 1 ? 'selected' : 'unselected'}
             >
               Home
             </a>
@@ -28,7 +30,7 @@ function Navbar() {
           <li>
             <a
               href={ROUTES.SUB + '/morning'}
-              className={selectedType == 2 ? 'selected' : 'unselected'}
+              className={selectedType === 2 ? 'selected' : 'unselected'}
             >
               Morning
             </a>
@@ -36,7 +38,7 @@ function Navbar() {
           <li>
             <a
               href={ROUTES.SUB + '/day'}
-              className={selectedType == 3 ? 'selected' : 'unselected'}
+              className={selectedType === 3 ? 'selected' : 'unselected'}
             >
               Day
             </a>
@@ -44,7 +46,7 @@ function Navbar() {
           <li>
             <a
               href={ROUTES.SUB + '/night'}
-              className={selectedType == 4 ? 'selected' : 'unselected'}
+              className={selectedType === 4 ? 'selected' : 'unselected'}
             >
               Night
             </a>
@@ -52,7 +54,7 @@ function Navbar() {
           <li>
             <a
               href={ROUTES.COMPANION}
-              className={selectedType == 5 ? 'selected' : 'unselected'}
+              className={selectedType === 5 ? 'selected' : 'unselected'}
             >
               Companion
             </a>

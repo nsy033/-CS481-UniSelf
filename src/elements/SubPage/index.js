@@ -11,15 +11,22 @@ function SubPage() {
 
   return (
     <div className="pageBox">
-      <h1> SubPage </h1>
-      <h2> TimeZone: {timezone}</h2>
+      <div className="pageTitle">
+        All about <br /> <b>User</b>'s <b>{timezone.toUpperCase()} ROUTINE</b>
+        {timezone === 'morning' ? ' 🌻' : timezone === 'day' ? ' 🌈' : ' 🌙'}
+      </div>
+
+      <Calendar />
 
       <div>
         <a href={ROUTES.ROUTINE + '/' + timezone + '/wakeup'}> Wake Up </a>
-        <br/>
-        <a href={ROUTES.ROUTINE + '/' + timezone + '/checkMailBox'}> Check Mail Box </a>
+        <br />
+        <a href={ROUTES.ROUTINE + '/' + timezone + '/checkMailBox'}>
+          {' '}
+          Check Mail Box{' '}
+        </a>
       </div>
-      <Calendar />
+
       <ComboChecker />
     </div>
   );
