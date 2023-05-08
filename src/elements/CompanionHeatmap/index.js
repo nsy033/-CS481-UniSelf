@@ -1,33 +1,10 @@
 import './style.css';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useCallback } from 'react';
 
 import CompanionProfile from '../CompanionProfile';
 
 function CompanionHeatmap(props) {
-  const list = props.list;
-  const colorsets = {
-    morning: ['#FFCA2D', '#FFE9A9'],
-    day: ['#8CD735', '#D8EDC0'],
-    night: ['#3F51B5', '#CED3F0'],
-    gray: '#EEEEEE',
-  };
-  const [selectedTimezone, setSelectedTimezone] = useState('morning');
-
-  const emptyFilling = {
-    width: '50px',
-    height: '50px',
-    textAlign: 'center',
-    float: 'left',
-    background: '#FFFFFF',
-    borderRadius: '50%',
-  };
-  const deepFilling = JSON.parse(JSON.stringify(emptyFilling));
-  deepFilling.background = colorsets[selectedTimezone][0];
-  const lightFilling = JSON.parse(JSON.stringify(emptyFilling));
-  lightFilling.background = colorsets[selectedTimezone][1];
-  const grayFilling = JSON.parse(JSON.stringify(emptyFilling));
-  grayFilling.background = colorsets['gray'];
-  if (selectedTimezone === 'night') deepFilling['color'] = '#FFFFFF';
+  const { list, fillings, selectedTimezone } = props;
 
   const displayHeatRow = () => {
     const row = [];
@@ -38,11 +15,12 @@ function CompanionHeatmap(props) {
           className="outline"
           style={
             achievement === 0
-              ? grayFilling
+              ? fillings.gray
               : achievement === 1
-              ? lightFilling
-              : deepFilling
+              ? fillings.light
+              : fillings.deep
           }
+          key={day}
         ></div>
       );
     }
@@ -52,10 +30,6 @@ function CompanionHeatmap(props) {
 
   return (
     <div>
-      <button onClick={() => setSelectedTimezone('morning')}>MORNING</button>
-      <button onClick={() => setSelectedTimezone('day')}>DAY</button>
-      <button onClick={() => setSelectedTimezone('night')}>NIGHT</button>
-
       <div className="heatmapContainer">
         {list
           .filter((companion) => {
@@ -65,15 +39,17 @@ function CompanionHeatmap(props) {
             );
           })
           .map((companion) => (
-            <div className="heatUnit">
+            <div className="heatUnit" key={companion['name'] + '-unit'}>
               <CompanionProfile
                 info={companion}
                 isMe={companion['name'] === 'Me'}
                 timezone={selectedTimezone}
                 key={companion.name}
               />
-              <div className="emptySpace" />
-              <div className="heatRow">{displayHeatRow()}</div>
+              <div className="emptySpace" key={companion['name'] + '-empty'} />
+              <div className="heatRow" key={companion['name'] + '-row'}>
+                {displayHeatRow()}
+              </div>
             </div>
           ))}
       </div>

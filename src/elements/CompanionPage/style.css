@@ -44,3 +44,7 @@
     position: inherit;
 }
 */
+
+.heatmapView {
+    display: flex;
+}
