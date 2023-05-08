@@ -15,8 +15,17 @@ function ComboChecker() {
     float: 'left',
     background: '#FFFFFF',
   };
+
+  const emptyText = {
+    color: '#FFFFFF',
+  };
+
   const deepFilling = JSON.parse(JSON.stringify(emptyFilling));
   deepFilling.background = colorsets[timezone][0];
+
+  const deepText = JSON.parse(JSON.stringify(emptyText));
+  deepText.color = colorsets[timezone][0];
+
   if (timezone == 'night') deepFilling['color'] = '#FFFFFF';
 
   const displayCombos = useCallback(() => {
@@ -41,7 +50,10 @@ function ComboChecker() {
         </div>
     );
     combos.push(
-        <div className="comboyellow">
+        <div
+          className="combotext"
+          style={deepText}
+        >
             2 COMBO!
         </div>
     );
