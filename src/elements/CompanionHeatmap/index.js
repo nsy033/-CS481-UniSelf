@@ -29,30 +29,27 @@ function CompanionHeatmap(props) {
   };
 
   return (
-    <div>
-      <div className="heatmapContainer">
-        {list
-          .filter((companion) => {
-            return (
-              companion[selectedTimezone].length > 0 ||
-              companion['name'] === 'Me'
-            );
-          })
-          .map((companion) => (
-            <div className="heatUnit" key={companion['name'] + '-unit'}>
-              <CompanionProfile
-                info={companion}
-                isMe={companion['name'] === 'Me'}
-                timezone={selectedTimezone}
-                key={companion.name}
-              />
-              <div className="emptySpace" key={companion['name'] + '-empty'} />
-              <div className="heatRow" key={companion['name'] + '-row'}>
-                {displayHeatRow()}
-              </div>
+    <div className="heatmapContainer">
+      {list
+        .filter((companion) => {
+          return (
+            companion[selectedTimezone].length > 0 || companion['name'] === 'Me'
+          );
+        })
+        .map((companion) => (
+          <div className="heatUnit" key={companion['name'] + '-unit'}>
+            <CompanionProfile
+              info={companion}
+              isMe={companion['name'] === 'Me'}
+              timezone={selectedTimezone}
+              key={companion.name}
+            />
+            <div className="emptySpace" key={companion['name'] + '-empty'} />
+            <div className="heatRow" key={companion['name'] + '-row'}>
+              {displayHeatRow()}
             </div>
-          ))}
-      </div>
+          </div>
+        ))}
     </div>
   );
 }
