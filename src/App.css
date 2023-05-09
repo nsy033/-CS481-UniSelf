@@ -1,3 +1,5 @@
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
+
 .App {
   text-align: center;
 }
@@ -38,9 +40,9 @@
 }
 
 .pageBox {
-    width: 100vw - 400px;
-    margin-left: 200px;
-    margin-right: 200px;
+    width: 1112px;
+    margin-left: calc((100% - 1112px) / 2);
+    margin-right: calc((100% - 1112px) / 2);
     margin-top: 30px;
 }
 
