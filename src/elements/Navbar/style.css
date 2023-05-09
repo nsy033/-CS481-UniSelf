@@ -29,7 +29,7 @@ button {
 .NavbarHeader {
     display: flex;
     justify-content: flex-start;
-    align-items: end;
+    align-items: flex-end;
     height: 85px;
     
     padding-left: calc((100% - 1112px) / 2);
