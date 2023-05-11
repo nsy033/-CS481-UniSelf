@@ -1,5 +1,6 @@
 import './style.css';
 import React, { useCallback } from 'react';
+import * as ROUTES from '../../constants/routes';
 
 function ComboChecker() {
   const URLSplit = window.document.URL.split('/');
@@ -31,9 +32,7 @@ function ComboChecker() {
   const displayCombos1 = () => {
     let combos = [];
     combos.push(
-        <div className="text">
-            Wake up at 9AM
-        </div>
+        <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/wakeup'}> Wake Up at 9AM </a>
     );
     combos.push(
         <div
@@ -71,9 +70,7 @@ function ComboChecker() {
   const displayCombos2 = () => {
     let combos = [];
     combos.push(
-        <div className="text">
-            Check Mail Box
-        </div>
+        <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/wakeup'}> Check Mail Box </a>
     );
     combos.push(
         <div
@@ -104,7 +101,7 @@ function ComboChecker() {
   return (
     <div className="combo">
         <hr className="hrcontainer" />
-        <div>
+        <div className='combocontainer-box'>
             <div className="combocontainer">{displayCombos1()}</div>
             <div className="combocontainer">{displayCombos2()}</div>
         </div>
