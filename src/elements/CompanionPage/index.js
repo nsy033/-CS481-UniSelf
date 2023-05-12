@@ -1,14 +1,17 @@
 import './style.css';
 import React, { useEffect, useState } from 'react';
+import io from 'socket.io-client';
 import { Icon } from '@iconify/react';
 
-import companionList from './companion_list.json';
 import CompanionScroll from '../CompanionScroll';
 import CompanionHeatmap from '../CompanionHeatmap';
 import RoutineList from '../RoutineList';
 import COLORSETS from '../../constants/colorset.js';
 
 function CompanionPage() {
+  const socket = io('localhost:3001');
+  const [list, setList] = useState([]);
+
   const emptyFilling = {
     width: '50px',
     height: '50px',
@@ -24,6 +27,20 @@ function CompanionPage() {
   });
 
   const [selectedTimezone, setSelectedTimezone] = useState('morning');
+  const updateCompanionList = (newList) => {
+    socket.emit('updateCompanionList', newList);
+  };
+
+  useEffect(() => {
+    socket.on('connect', () => {
+      console.log('connected to server');
+      socket.emit('load');
+
+      socket.on('list', (data) => {
+        setList(data);
+      });
+    });
+  }, []);
 
   useEffect(() => {
     const deep = JSON.parse(JSON.stringify(emptyFilling));
@@ -77,18 +94,17 @@ function CompanionPage() {
           <Icon icon="material-symbols:add" color="#ccc" />
         </span>
       </div>
-      <CompanionScroll list={companionList} />
+      <CompanionScroll list={list} updateCompanionList={updateCompanionList} />
 
       <div className="emptySpace" />
 
       <div className="pageTitle">
         Take a look with <b>COMPANIONS' RECORD</b>
       </div>
-
       <div className="heatmapView">
         <RoutineList pageType="companionPage" setters={setters} />
         <CompanionHeatmap
-          list={companionList}
+          list={list}
           fillings={fillings}
           selectedTimezone={selectedTimezone}
         />
