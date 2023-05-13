@@ -3,9 +3,10 @@ import Plot from 'react-plotly.js';
 import './style.css';
 
 const URLSplit = window.document.URL.split('/');
-const timezone = 'morning';
-if (URLSplit.length >= 2) {
-  const timezone = URLSplit[URLSplit.length - 2];
+var timezone = 'morning';
+
+if (URLSplit.length >= 6) {
+  timezone = URLSplit[URLSplit.length - 2];
 }
 const colorsets = {
   morning: ['#FFCA2D', '#FFE9A9'],

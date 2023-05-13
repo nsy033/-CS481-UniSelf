@@ -60,7 +60,7 @@ function ComboChecker() {
           className="combotext"
           style={deepText}
         >
-            2 COMBO!
+            3 COMBO!
         </div>
     );
 

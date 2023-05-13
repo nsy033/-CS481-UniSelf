@@ -52,9 +52,9 @@ import React from 'react';
 import Plot from 'react-plotly.js';
 
 const URLSplit = window.document.URL.split('/');
-const timezone = 'morning';
-if (URLSplit.length >= 2) {
-  const timezone = URLSplit[URLSplit.length - 2];
+var timezone = 'morning';
+if (URLSplit.length >= 6) {
+  timezone = URLSplit[URLSplit.length - 2];
 }
 const colorsets = {
   morning: ['#FFCA2D', '#FFE9A9'],
@@ -109,11 +109,11 @@ var scatterplot = {
     //       }]},
     //         rangeslider: {}
     //     },
-    xaxis: {
-      tickformat: '%H:%M:%S',
-    },
+    // xaxis: {
+    //   tickformat: '%H:%M:%S',
+    // },
     yaxis: {
-      tickformat: '%H:%M:%S',
+      // tickformat: '%H:%M:%S',
       title: {
         text: 'Time',
         font: {
