@@ -16,11 +16,7 @@ function CompanionScroll(props) {
     }
   };
   const removeRequested = (name2Remove) => {
-    const newList = list
-      .filter(({ name }) => name !== name2Remove)
-      .map(({ name }) => {
-        return name;
-      });
+    const newList = list.filter(({ name }) => name !== name2Remove);
     updateCompanionList(newList);
   };
 
