@@ -3,9 +3,10 @@ import Plot from 'react-plotly.js';
 import './style.css';
 
 const URLSplit = window.document.URL.split('/');
-const timezone = 'morning';
-if (URLSplit.length >= 2) {
-  const timezone = URLSplit[URLSplit.length - 2];
+var timezone = 'morning';
+
+if (URLSplit.length >= 6) {
+  timezone = URLSplit[URLSplit.length - 2];
 }
 const colorsets = {
   morning: ['#FFCA2D', '#FFE9A9'],
@@ -28,11 +29,12 @@ var layout = {
   font: {
     size: 12
   },
-  // xaxis: {
-  //   title: {
-  //     text: 'xaxis'
-  //   }
-  // },
+  xaxis: {
+    title: {
+      text: 'Date'
+    },
+    rangeslider: {}
+  },
   yaxis: {
     // tickformat: '%H:%M:%S',
     title: {
@@ -43,17 +45,6 @@ var layout = {
     }
   }
 }
-  
-  // class FlowGraph extends React.Component {
-  //   render() {
-  //     return (
-  //       <Plot
-  //         data={[data]}
-  //         layout={[layout]}
-  //       />
-  //     );
-  //   }
-  // }
 
   function FlowGraph () {
     let flowgraph = [];
@@ -79,6 +70,12 @@ var layout = {
       layout={layout}
       />
     );
+
+    flowgraph.push(
+      <div className="comment">
+        * Aggregated by week
+      </div>
+    )
     return (flowgraph);
   }
 
