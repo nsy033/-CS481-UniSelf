@@ -29,11 +29,12 @@ var layout = {
   font: {
     size: 12
   },
-  // xaxis: {
-  //   title: {
-  //     text: 'xaxis'
-  //   }
-  // },
+  xaxis: {
+    title: {
+      text: 'Date'
+    },
+    rangeslider: {}
+  },
   yaxis: {
     // tickformat: '%H:%M:%S',
     title: {
@@ -44,17 +45,6 @@ var layout = {
     }
   }
 }
-  
-  // class FlowGraph extends React.Component {
-  //   render() {
-  //     return (
-  //       <Plot
-  //         data={[data]}
-  //         layout={[layout]}
-  //       />
-  //     );
-  //   }
-  // }
 
   function FlowGraph () {
     let flowgraph = [];
@@ -80,6 +70,12 @@ var layout = {
       layout={layout}
       />
     );
+
+    flowgraph.push(
+      <div className="comment">
+        * Aggregated by week
+      </div>
+    )
     return (flowgraph);
   }
 
