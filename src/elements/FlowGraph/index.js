@@ -11,8 +11,8 @@ const colorsets = {
 };
 
 var data = {
-    x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17],
-    y: [5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 2, 2, 2, 3, 3, 4],
+    x: ["2019-05-08", "2019-05-09", "2019-05-10", "2019-05-11", "2019-05-12", "2019-05-13", "2019-05-14"],
+    y: [5, 5, 5, 4, 3, 4, 4],
     fill: 'tozeroy',
     fillcolor: colorsets[timezone][0],
     type: 'scatter',
@@ -31,6 +31,7 @@ var layout = {
   //   }
   // },
   yaxis: {
+    // tickformat: '%H:%M:%S',
     title: {
       text: '# of Days',
       font: {
@@ -38,9 +39,6 @@ var layout = {
       }
     }
   }
-  // yaxis: {
-  //   tickformat: '%H:%M:%S'
-  // }
 }
   
   // class FlowGraph extends React.Component {
