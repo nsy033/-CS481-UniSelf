@@ -15,18 +15,7 @@ function SubPage() {
         All about <br /> <b>User</b>'s <b>{timezone.toUpperCase()} ROUTINE</b>
         {timezone === 'morning' ? ' 🌻' : timezone === 'day' ? ' 🌈' : ' 🌙'}
       </div>
-
       <Calendar />
-
-      <div>
-        <a href={ROUTES.ROUTINE + '/' + timezone + '/wakeup'}> Wake Up </a>
-        <br />
-        <a href={ROUTES.ROUTINE + '/' + timezone + '/checkMailBox'}>
-          {' '}
-          Check Mail Box{' '}
-        </a>
-      </div>
-
       <ComboChecker />
     </div>
   );
