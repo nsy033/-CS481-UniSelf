@@ -1,28 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './style.css';
-import DatePicker from 'react-datepicker';
+
+// import TimePicker from './timePicker';
+// import TimePickerModal from './timePickerModal';
+import TimePickerButton from './timePickerButton';
 
 function CreateModal({ setModalOpen, id, done, text }) {
 
   const closeModal = () => {
     setModalOpen(false);
-  };
-
-  const [startDate, setStartDate] = useState(new Date());
-
-  const TimePicker = () => {
-    const [startDate, setStartDate] = useState(new Date());
-    return (
-      <DatePicker
-        selected={startDate}
-        onChange={(date) => setStartDate(date)}
-        showTimeSelect
-        showTimeSelectOnly
-        timeIntervals={15}
-        timeCaption="Time"
-        dateFormat="h:mm aa"
-      />
-    );
   };
 
   return (
@@ -34,24 +20,22 @@ function CreateModal({ setModalOpen, id, done, text }) {
           <div className='customBlock'>
             <label>Routine</label>
             <hr/>
-            <select>
-              <option value="wakeUp">Wake up 🛏️</option>
-              <option value="goOut">Go out 🚪</option>
-              <option value="readNews">Read news 📰</option>
-              <option value="exercise">Exercise 🏃</option>
+            <select className='dropdownCustom'>
+              <option value="wakeUp">🛏️ Wake up</option>
+              <option value="goOut">🚪 Go out</option>
+              <option value="readNews">📰 Read news</option>
+              <option value="exercise" selected>🏃 Exercise</option>
             </select>
           </div>
           <div className='customBlock'>
             <label>Goal</label>
             <hr/>
-            <div>
-              <TimePicker/>
-            </div>
+            <TimePickerButton/>
           </div>
           <div className='customBlock'>
             <label>Adjstment Period</label>
             <hr/>
-            <select>
+            <select className='dropdownCustom'>
               <option value="none">None</option>
               <option value="oneWeek">1 week</option>
               <option value="twoWeek">2 weeks</option>
@@ -64,7 +48,7 @@ function CreateModal({ setModalOpen, id, done, text }) {
             <button className='xButton' onClick={closeModal}>
                 Cancel
             </button>
-            <button>Create</button>
+            <button className='oButton'>Create</button>
           </div>
       </div>
   );

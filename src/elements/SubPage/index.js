@@ -1,9 +1,7 @@
 import './style.css';
-import React, { useEffect, useState } from 'react';
-import * as ROUTES from '../../constants/routes';
+import React from 'react';
 
 import CreateButton from '../CreateRoutine/createButton';
-import CreateModal from '../CreateRoutine/createModal';
 
 import Calendar from '../Calendar';
 import ComboChecker from '../ComboChecker';

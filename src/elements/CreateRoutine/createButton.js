@@ -1,26 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import './style.css';
 import CreateModal from './createModal';
+import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
+import { Icon } from '@iconify/react';
 
 function CreateButton({ id, done, text }) {
-
-//   return (
-//     <div>
-//         <button>Add New Routine</button>
-//     </div>
-    
-    
-//   );
     const [modalOpen, setModalOpen] = useState(false);
 
-    // 모달창 노출
     const showModal = () => {
         setModalOpen(true);
     };
 
     return (
         <div className='createBox' align="right">
-            <button className='createButton' onClick={showModal}>Add New Routine</button>
+            <button className='createButton' onClick={showModal}>
+                <span>Add New Routine</span>
+                <KeyboardArrowDownRoundedIcon/>
+            </button>
             {modalOpen && <CreateModal setModalOpen={setModalOpen} />}
         </div>
     );
