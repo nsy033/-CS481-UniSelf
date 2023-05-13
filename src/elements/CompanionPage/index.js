@@ -1,6 +1,8 @@
 import './style.css';
+import all_users_routine from '../../jsons/all_users_routine';
+import companion_list from '../../jsons/companion_list';
+
 import React, { useEffect, useState } from 'react';
-import io from 'socket.io-client';
 import { Icon } from '@iconify/react';
 
 import CompanionScroll from '../CompanionScroll';
@@ -9,8 +11,13 @@ import RoutineList from '../RoutineList';
 import COLORSETS from '../../constants/colorset.js';
 
 function CompanionPage() {
-  const socket = io('localhost:3001');
-  const [list, setList] = useState([]);
+  const initialList = all_users_routine.filter(({ name }) =>
+    companion_list.includes(name)
+  );
+  const [list, setList] = useState(initialList);
+  const updateCompanionList = (newList) => {
+    setList(newList);
+  };
 
   const emptyFilling = {
     width: '50px',
@@ -27,21 +34,6 @@ function CompanionPage() {
   });
 
   const [selectedTimezone, setSelectedTimezone] = useState('morning');
-  const updateCompanionList = (newList) => {
-    socket.emit('updateCompanionList', newList);
-  };
-
-  useEffect(() => {
-    socket.on('connect', () => {
-      console.log('connected to server');
-      socket.emit('load');
-
-      socket.on('list', (data) => {
-        setList(data);
-      });
-    });
-  }, []);
-
   useEffect(() => {
     const deep = JSON.parse(JSON.stringify(emptyFilling));
     deep.background = COLORSETS['morning'][0];
@@ -88,7 +80,7 @@ function CompanionPage() {
         <span
           className="addIcon"
           onClick={() => {
-            alert('TODO: add/delete companion');
+            alert('TODO: add companion');
           }}
         >
           <Icon icon="material-symbols:add" color="#ccc" />

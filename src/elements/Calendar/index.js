@@ -44,14 +44,14 @@ function Calendar() {
   }
 
   const today = {
-    year: new Date().getFullYear(), //오늘 연도
-    month: new Date().getMonth() + 1, //오늘 월
-    date: new Date().getDate(), //오늘 날짜
-    day: new Date().getDay(), //오늘 요일
+    year: 2019, //오늘 연도
+    month: 5, //오늘 월
+    date: 14, //오늘 날짜
+    day: 0, //오늘 요일
   };
-  const weekdays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']; //일주일
-  const [selectedYear, setSelectedYear] = useState(today.year); //현재 선택된 연도
-  const [selectedMonth, setSelectedMonth] = useState(today.month); //현재 선택된 달
+  const weekdays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+  const [selectedYear, setSelectedYear] = useState(today.year);
+  const [selectedMonth, setSelectedMonth] = useState(today.month);
   const [dateTotalCount, setDateTotalCount] = useState(
     new Date(selectedYear, selectedMonth, 0).getDate()
   );
@@ -142,7 +142,7 @@ function Calendar() {
                 className="outline"
                 style={
                   new Date(selectedYear, selectedMonth - 1, i).getTime() >
-                  new Date().getTime()
+                  new Date(today.year, today.month - 1, today.date).getTime()
                     ? emptyFilling
                     : achievement === 0
                     ? grayFilling
