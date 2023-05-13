@@ -2,6 +2,9 @@ import './style.css';
 import React, { useEffect, useState } from 'react';
 import * as ROUTES from '../../constants/routes';
 
+import CreateButton from '../CreateRoutine/createButton';
+import CreateModal from '../CreateRoutine/createModal';
+
 import Calendar from '../Calendar';
 import ComboChecker from '../ComboChecker';
 
@@ -15,18 +18,12 @@ function SubPage() {
         All about <br /> <b>User</b>'s <b>{timezone.toUpperCase()} ROUTINE</b>
         {timezone === 'morning' ? ' 🌻' : timezone === 'day' ? ' 🌈' : ' 🌙'}
       </div>
-
-      <Calendar />
-
-      <div>
-        <a href={ROUTES.ROUTINE + '/' + timezone + '/wakeup'}> Wake Up </a>
-        <br />
-        <a href={ROUTES.ROUTINE + '/' + timezone + '/checkMailBox'}>
-          {' '}
-          Check Mail Box{' '}
-        </a>
+     
+      <div className='flexrow'>
+        <Calendar />
+        <CreateButton/>
       </div>
-
+      
       <ComboChecker />
     </div>
   );

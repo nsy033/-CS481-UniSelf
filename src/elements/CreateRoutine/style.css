@@ -1,0 +1,47 @@
+.createBox {
+    width: 458px;
+    height: 409px;
+    margin-top: 30px;
+}
+
+.modalTitle {
+    margin-top: 24px;
+}
+.createModal {
+    margin-top: 10px;
+    /* padding: 10px; */
+    display: flex;
+    flex-direction: column;
+    background-color: #EEEEEE;
+    border-radius: 16px;
+    width: 100%;
+}
+
+.createModal .modalBody {
+    display: flex;
+    flex-direction: column;
+}
+
+.createModal .modalBody .customBlock {
+    margin-top: 24px;
+    margin-left: 20px;
+    margin-right: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    padding-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 8px;
+}
+
+.modalFooter {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.createModal .xButton {
+    color: red;
+}
