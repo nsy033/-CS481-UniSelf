@@ -8,13 +8,16 @@ export default function CompanionDeleteModal(props) {
       <section>
         <main>
           Will you really remove <b>{header}</b> from your companion list?
+          <button
+            onClick={() => closeDeletemodal(false)}
+            className="closeXButtonRemove"
+          >
+            &times;
+          </button>
         </main>
         <footer>
           <button className="remove" onClick={() => closeDeletemodal(true)}>
             REMOVE
-          </button>
-          <button className="close" onClick={() => closeDeletemodal(false)}>
-            CLOSE
           </button>
         </footer>
       </section>

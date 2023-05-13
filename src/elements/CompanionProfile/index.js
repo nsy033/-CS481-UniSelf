@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Icon } from '@iconify/react';
 
 function CompanionProfile(props) {
-  const { info, isMe, timezone, requestRemoval } = props;
+  const { info, isMe, timezone, requestRemoval, clickable } = props;
   const timezoneColor =
     timezone === 'morning'
       ? '#FFCA2D'
@@ -25,10 +25,16 @@ function CompanionProfile(props) {
         <Icon
           icon={deleteHover ? 'mdi:minus-circle' : 'mdi:user-circle'}
           color={isMe ? timezoneColor : '#ccc'}
-          className="userIcon"
-          onClick={() => setDeleteModalOpen(true)}
-          onMouseEnter={() => setDeleteHover(true)}
-          onMouseLeave={() => setDeleteHover(false)}
+          className="userIcon-nonclick"
+          onClick={() => {
+            if (clickable) setDeleteModalOpen(true);
+          }}
+          onMouseEnter={() => {
+            if (clickable) setDeleteHover(true);
+          }}
+          onMouseLeave={() => {
+            if (clickable) setDeleteHover(false);
+          }}
         />
       </div>
       {deleteModalOpen ? (

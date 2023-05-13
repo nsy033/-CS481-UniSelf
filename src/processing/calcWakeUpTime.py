@@ -3,7 +3,7 @@ import plotly.express as px
 from datetime import timedelta, datetime
 
 print("Read csv files ...")
-users = ['P0701', 'P0702', 'P0703']
+users = ['P07' + str('%02d' % i) for i in range(1, 17)]
 
 # 2019/05/08 - #2019/05/14
 dates = [5572736000, 5573600000, 5574464000,
@@ -14,7 +14,7 @@ mergedDF = pd.DataFrame()
 for user in users:
     for date in dates:
         df = pd.read_csv(
-            './processing/dataset/%s/PhysicalActivityEventEntity-%d.csv' % (user, date))
+            './dataset/%s/PhysicalActivityEventEntity-%d.csv' % (user, date))
 
         df['userID'] = user
         df['datetime'] = pd.to_datetime(df['timestamp'], unit='ms')
@@ -23,6 +23,9 @@ for user in users:
         mergedDF = pd.concat([mergedDF, df], axis=0)
 
 mergedDF = mergedDF[mergedDF['type'] == 'ON_FOOT']
+
+print("Clear data ...")
+mergedDF = mergedDF.loc[(1557262800000 <= mergedDF['timestamp']) & (mergedDF['timestamp'] < 1557867600000)]
 
 print("Locate the first ON_FOOT event for each date ...")
 ret_csv = pd.DataFrame(columns=['userID', 'date', 'wakeUpTime'])
@@ -43,6 +46,6 @@ for idx, row in mergedDF.iterrows():
 ret_csv = ret_csv.reset_index(drop=True)
 
 print("Save the result file ...")
-ret_csv.to_csv("./processing/wakeUpTimes.csv", mode='w')
+ret_csv.to_csv("./wakeUpTimes.csv", mode='w')
 
 print("Done")
