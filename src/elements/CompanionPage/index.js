@@ -7,6 +7,7 @@ import { Icon } from '@iconify/react';
 
 import CompanionScroll from '../CompanionScroll';
 import CompanionHeatmap from '../CompanionHeatmap';
+import CompanionAddModal from '../CompanionAddModal';
 import RoutineList from '../RoutineList';
 import COLORSETS from '../../constants/colorset.js';
 
@@ -17,6 +18,14 @@ function CompanionPage() {
   const [list, setList] = useState(initialList);
   const updateCompanionList = (newList) => {
     setList(newList);
+  };
+  const [addModalOpen, setAddModalOpen] = useState(false);
+  const closeAddmodal = (willAdd, name) => {
+    setAddModalOpen(false);
+    if (willAdd) {
+      const newList = list;
+      updateCompanionList(newList);
+    }
   };
 
   const emptyFilling = {
@@ -77,14 +86,15 @@ function CompanionPage() {
     <div className="pageBox">
       <div className="pageTitle">
         My Routine companions 🙌
-        <span
-          className="addIcon"
-          onClick={() => {
-            alert('TODO: add companion');
-          }}
-        >
+        <span className="addIcon" onClick={() => setAddModalOpen(true)}>
           <Icon icon="material-symbols:add" color="#ccc" />
         </span>
+        {addModalOpen ? (
+          <CompanionAddModal
+            closeAddmodal={closeAddmodal}
+            timezoneColor={fillings.deep}
+          ></CompanionAddModal>
+        ) : null}
       </div>
       <CompanionScroll list={list} updateCompanionList={updateCompanionList} />
 
