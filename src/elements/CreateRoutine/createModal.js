@@ -4,8 +4,9 @@ import './style.css';
 // import TimePicker from './timePicker';
 // import TimePickerModal from './timePickerModal';
 import TimePickerButton from './timePickerButton';
+import TimePickerModal from './timePickerModal';
 
-function CreateModal({ setModalOpen, id, done, text }) {
+function CreateModal({ setModalOpen }) {
 
   const closeModal = () => {
     setModalOpen(false);
@@ -24,13 +25,14 @@ function CreateModal({ setModalOpen, id, done, text }) {
               <option value="wakeUp">🛏️ Wake up</option>
               <option value="goOut">🚪 Go out</option>
               <option value="readNews">📰 Read news</option>
-              <option value="exercise" selected>🏃 Exercise</option>
+              <option value="exercise">🏃 Exercise</option>
             </select>
           </div>
           <div className='customBlock'>
             <label>Goal</label>
             <hr/>
             <TimePickerButton/>
+            {/* <TimePickerModal/> */} {/* error occurrence point*/}
           </div>
           <div className='customBlock'>
             <label>Adjstment Period</label>

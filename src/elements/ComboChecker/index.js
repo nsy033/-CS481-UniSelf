@@ -4,7 +4,11 @@ import * as ROUTES from '../../constants/routes';
 
 function ComboChecker() {
   const URLSplit = window.document.URL.split('/');
-  const timezone = URLSplit[URLSplit.length - 1];
+  var timezone = 'morning'; // 기본값 지정
+  if (URLSplit.length >= 6) { // 범위 지정
+    timezone = URLSplit[URLSplit.length - 1];
+  }
+  
   const colorsets = {
     morning: ['#FFCA2D', '#FFE9A9'],
     day: ['#8CD735', '#D8EDC0'],
@@ -70,7 +74,7 @@ function ComboChecker() {
   const displayCombos2 = () => {
     let combos = [];
     combos.push(
-        <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/wakeup'}> Check Mail Box </a>
+        <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/checkMailBox'}> Check Mail Box </a>
     );
     combos.push(
         <div

@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import './style.css';
 import CreateModal from './createModal';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
-import { Icon } from '@iconify/react';
 
 function CreateButton({ id, done, text }) {
     const [modalOpen, setModalOpen] = useState(false);

@@ -8,7 +8,11 @@ import ComboChecker from '../ComboChecker';
 
 function SubPage() {
   const URLSplit = window.document.URL.split('/');
-  const timezone = URLSplit[URLSplit.length - 1];
+
+  var timezone = 'morning';
+  if (URLSplit.length >= 6) {
+    timezone = URLSplit[URLSplit.length - 2];
+  }
 
   return (
     <div className="pageBox">
@@ -21,7 +25,6 @@ function SubPage() {
         <Calendar />
         <CreateButton/>
       </div>
-      
       <ComboChecker />
     </div>
   );

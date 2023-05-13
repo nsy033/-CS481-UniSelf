@@ -2,20 +2,20 @@ import React, { useEffect, useState } from 'react';
 import './style.css';
 import TimePickerModal from './timePickerModal';
 
-function  TimePickerButton() {
-    const [modalOpen, setModalOpen] = useState(false);
+function TimePickerButton() {
+    const [pickerModalOpen, setPickerModalOpen] = useState(false);
 
-    const showModal = () => {
-        setModalOpen(true);
+    const showPickerModal = () => {
+        setPickerModalOpen(true);
     };
 
     return (
         <div className='timePickerBox' align="left">
             <b>More than</b>
-            <button className='timePickerButton' onClick={showModal}>
-                1hr 00min
+            <button className='timePickerButton' onClick={showPickerModal}>
+                <span>1hr 00min</span>
             </button>
-            {/* {modalOpen && <TimePickerModal setModalOpen={setModalOpen} />} */}
+            {pickerModalOpen && <TimePickerModal setPickerModalOpen={setPickerModalOpen} />}
         </div>
     );
 }
