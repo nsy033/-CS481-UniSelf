@@ -51,6 +51,14 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
 
+const URLSplit = window.document.URL.split('/');
+const timezone = URLSplit[URLSplit.length - 2];
+const colorsets = {
+  morning: ['#FFCA2D', '#FFE9A9'],
+  day: ['#8CD735', '#D8EDC0'],
+  night: ['#3F51B5', '#CED3F0'],
+};
+
 var scatterplot = {
     type: "scatter",
     x: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
@@ -58,17 +66,18 @@ var scatterplot = {
     y: ["08:17:22","08:18:14","08:18:00","08:09:00","08:32:00","08:16:20","08:14:29","08:14:31","08:32:00","08:39:00","08:29:00","08:27:00","08:28:00","08:24:00","08:19:00","08:32:00","08:32:00","08:39:00","08:29:00","08:27:00","08:28:00","08:24:00","08:25:00","08:26:45","08:19:20","08:26:00","08:28:00","08:20:00","08:17:22","08:31:00"].map(time => '2023-01-01 ' + time),
     mode: "markers+lines",
     line: {
-      color: 'FFCA2D', 
+      color: colorsets[timezone][0], 
       width: 2
     },
     marker: {
       size: 8,
-      color: ["FFCA2D", "FFCA2D", "FFCA2D", "FFCA2D", "FFFFFF", "FFCA2D", "FFCA2D", "FFCA2D", "FFFFFF", "FFFFFF", "FFCA2D", "FFCA2D", "FFCA2D", "FFCA2D", "FFCA2D", "FFFFFF", "FFFFFF", "FFFFFF", "FFCA2D", "FFCA2D", "FFCA2D", "FFCA2D", "FFCA2D", "FFCA2D", "FFCA2D", "FFCA2D", "FFCA2D", "FFCA2D", "FFCA2D", "FFCA2D", "FFCA2D", "FFFFFF"],
+      color: [colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], "FFFFFF", colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], "FFFFFF", "FFFFFF", colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], "FFFFFF", "FFFFFF", "FFFFFF", colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], colorsets[timezone][0], "FFFFFF"],
       line: {
-        color: 'FFCA2D',
+        color: colorsets[timezone][0],
         width: 2
       }
     },
+    name: 'wake up time',
   }
 
   var background = {
@@ -76,16 +85,15 @@ var scatterplot = {
     // y: [900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900, 900],
     y: ["08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00","08:30:00"].map(time => '2023-01-01 ' + time),
     fill: 'tozeroy',
-    fillcolor: 'FDF3CE',
+    fillcolor: colorsets[timezone][1],
     type: 'scatter',
     mode: 'none',
     name: 'Goal'
   }
     
   var layout = {
-    title: "Daily wake up time DETAILS",
     font: {
-      size: 10
+      size: 12
     },
     // xaxis: {
     //         rangeSelector: {buttons: [{
@@ -94,19 +102,32 @@ var scatterplot = {
     //         rangeslider: {}
     //     },
     yaxis: {
-      tickformat: '%H:%M:%S'
+      tickformat: '%H:%M:%S',
+      title: {
+        text: 'Time',
+        font: {
+          size: 16,
+        }
+      }
     }
   }
   
-  class DetailGraph extends React.Component {
-    render() {
-      return (
-        <Plot
-          data={[background, scatterplot]}
-          layout={[layout]}
-        />
-      );
-    }
+  function DetailGraph() {
+    let detailgraph = [];
+    detailgraph.push(
+      <div className="title">
+        Daily wake up time <b>DETAILS</b>
+      </div>
+    );
+
+    detailgraph.push(
+      <Plot
+        className="graphContainer"
+        data={[background, scatterplot]}
+        layout={layout}
+    />
+    )
+    return (detailgraph);
   }
 
   export default DetailGraph;
