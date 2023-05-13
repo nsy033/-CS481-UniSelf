@@ -24,26 +24,6 @@
 
     box-shadow: 0px 4px rgb(163, 163, 163, 0.1);
 }
-/* 
-.leftShadowOn {
-    margin-top: -10px;
-    height: 60px;
-    width: 30px;
-    background:linear-gradient(90deg, rgba(135, 135, 135, 0.4), transparent);
-    background-color:transparent; 
-    float: left;
-    position: inherit;
-}
-.rightShadowOn {
-    margin-top: -10px;
-    height: 60px;
-    width: 30px;
-    background:linear-gradient(270deg, rgba(135, 135, 135, 0.4), transparent);
-    background-color:transparent; 
-    float: right;
-    position: inherit;
-}
-*/
 
 .heatmapView {
     display: flex;

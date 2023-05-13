@@ -1,14 +1,33 @@
 import './style.css';
+import all_users_routine from '../../jsons/all_users_routine';
+import companion_list from '../../jsons/companion_list';
+
 import React, { useEffect, useState } from 'react';
 import { Icon } from '@iconify/react';
 
-import companionList from './companion_list.json';
 import CompanionScroll from '../CompanionScroll';
 import CompanionHeatmap from '../CompanionHeatmap';
+import CompanionAddModal from '../CompanionAddModal';
 import RoutineList from '../RoutineList';
 import COLORSETS from '../../constants/colorset.js';
 
 function CompanionPage() {
+  const initialList = all_users_routine.filter(({ name }) =>
+    companion_list.includes(name)
+  );
+  const [list, setList] = useState(initialList);
+  const updateCompanionList = (newList) => {
+    setList(newList);
+  };
+  const [addModalOpen, setAddModalOpen] = useState(false);
+  const closeAddmodal = (willAdd, name) => {
+    setAddModalOpen(false);
+    if (willAdd) {
+      const newList = list;
+      updateCompanionList(newList);
+    }
+  };
+
   const emptyFilling = {
     width: '50px',
     height: '50px',
@@ -24,7 +43,6 @@ function CompanionPage() {
   });
 
   const [selectedTimezone, setSelectedTimezone] = useState('morning');
-
   useEffect(() => {
     const deep = JSON.parse(JSON.stringify(emptyFilling));
     deep.background = COLORSETS['morning'][0];
@@ -68,27 +86,27 @@ function CompanionPage() {
     <div className="pageBox">
       <div className="pageTitle">
         My Routine companions 🙌
-        <span
-          className="addIcon"
-          onClick={() => {
-            alert('TODO: add/delete companion');
-          }}
-        >
+        <span className="addIcon" onClick={() => setAddModalOpen(true)}>
           <Icon icon="material-symbols:add" color="#ccc" />
         </span>
+        {addModalOpen ? (
+          <CompanionAddModal
+            closeAddmodal={closeAddmodal}
+            timezoneColor={fillings.deep}
+          ></CompanionAddModal>
+        ) : null}
       </div>
-      <CompanionScroll list={companionList} />
+      <CompanionScroll list={list} updateCompanionList={updateCompanionList} />
 
       <div className="emptySpace" />
 
       <div className="pageTitle">
         Take a look with <b>COMPANIONS' RECORD</b>
       </div>
-
       <div className="heatmapView">
         <RoutineList pageType="companionPage" setters={setters} />
         <CompanionHeatmap
-          list={companionList}
+          list={list}
           fillings={fillings}
           selectedTimezone={selectedTimezone}
         />
