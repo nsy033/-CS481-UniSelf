@@ -3,7 +3,10 @@ import Plot from 'react-plotly.js';
 import './style.css';
 
 const URLSplit = window.document.URL.split('/');
-const timezone = URLSplit[URLSplit.length - 2];
+const timezone = 'morning';
+if (URLSplit.length >= 2) {
+  const timezone = URLSplit[URLSplit.length - 2];
+}
 const colorsets = {
   morning: ['#FFCA2D', '#FFE9A9'],
   day: ['#8CD735', '#D8EDC0'],
@@ -57,18 +60,15 @@ var layout = {
     flowgraph.push(
       <div className="title">
         <b>ACHIEVEMENT LEVEL</b> flow
+      <div className="subtitle">
+        Move the slider to check your trend by period
+      </div>
       </div>
     );
 
     flowgraph.push(
       <div className="dateinfo">
         <b>23/01/02 - 23/04/28</b>
-      </div>
-    )
-
-    flowgraph.push(
-      <div className="subtitle">
-        Move the slider to check your trend by period
       </div>
     );
 
