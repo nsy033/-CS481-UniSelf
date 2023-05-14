@@ -18,5 +18,8 @@ mergedDF = mergedDF[["userID", "date", "CaloriesToday", "wakeUpTime"]]
 print(mergedDF)
 print("Save the result file ...")
 mergedDF.to_csv("../csvs/routineResults.csv", mode="w")
+mergedDF.set_index("date").to_json(
+    "../../routineInfos/routineResults.json", orient="index"
+)
 
 print("Done")
