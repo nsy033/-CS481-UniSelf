@@ -80,3 +80,7 @@ button {
 .sunday {
     color: #DA6F68;
 }
+
+#mouse-over-popover {
+    margin-left: 10px;
+}

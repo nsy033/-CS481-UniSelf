@@ -1,16 +1,24 @@
 import './style.css';
 import React, { useState, useCallback } from 'react';
+import COLORSETS from '../../constants/colorset';
+import Popover from '@mui/material/Popover';
+import Box from '@mui/material/Box';
 import { Icon } from '@iconify/react';
 
 function Calendar() {
   const URLSplit = window.document.URL.split('/');
   const timezone = URLSplit[URLSplit.length - 1];
-  const colorsets = {
-    morning: ['#FFCA2D', '#FFE9A9'],
-    day: ['#8CD735', '#D8EDC0'],
-    night: ['#3F51B5', '#CED3F0'],
-    gray: '#EEEEEE',
+
+  const [anchorEl, setAnchorEl] = useState(null);
+  const handlePopoverOpen = (event) => {
+    setAnchorEl(anchorEl ? null : event.currentTarget);
   };
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
+  const id = open ? 'simple-popper' : undefined;
+
   const emptyFilling = {
     width: '50px',
     height: '50px',
@@ -20,11 +28,11 @@ function Calendar() {
     borderRadius: '50%',
   };
   const deepFilling = JSON.parse(JSON.stringify(emptyFilling));
-  deepFilling.background = colorsets[timezone][0];
+  deepFilling.background = COLORSETS[timezone][0];
   const lightFilling = JSON.parse(JSON.stringify(emptyFilling));
-  lightFilling.background = colorsets[timezone][1];
+  lightFilling.background = COLORSETS[timezone][1];
   const grayFilling = JSON.parse(JSON.stringify(emptyFilling));
-  grayFilling.background = colorsets['gray'];
+  grayFilling.background = COLORSETS['gray'];
   if (timezone === 'night') deepFilling['color'] = '#FFFFFF';
 
   function isLeapYear(year) {
@@ -123,6 +131,9 @@ function Calendar() {
         for (let i = 1; i <= dateTotalCount; i++) {
           const day = new Date(selectedYear, selectedMonth - 1, i).getDay();
           const achievement = Math.floor(Math.random() * 3);
+          const fillingStyle =
+            new Date(selectedYear, selectedMonth - 1, i).getTime() >
+            new Date(today.year, today.month - 1, today.date).getTime();
           dates.push(
             <div
               key={i}
@@ -141,8 +152,7 @@ function Calendar() {
               <div
                 className="outline"
                 style={
-                  new Date(selectedYear, selectedMonth - 1, i).getTime() >
-                  new Date(today.year, today.month - 1, today.date).getTime()
+                  fillingStyle
                     ? emptyFilling
                     : achievement === 0
                     ? grayFilling
@@ -150,6 +160,8 @@ function Calendar() {
                     ? lightFilling
                     : deepFilling
                 }
+                onMouseEnter={fillingStyle ? null : handlePopoverOpen}
+                onMouseLeave={fillingStyle ? null : handlePopoverClose}
               >
                 {i}
               </div>
@@ -158,7 +170,7 @@ function Calendar() {
         }
         break;
       } else {
-        dates.push(<div key={weekday} className="weekday"></div>);
+        dates.push(<div key={weekday} className="emptyday"></div>);
       }
     }
 
@@ -179,6 +191,28 @@ function Calendar() {
 
       <div className="week">{displayWeekdays()}</div>
       <div className="date">{displayDates()}</div>
+      <Popover
+        id="mouse-over-popover"
+        sx={{
+          pointerEvents: 'none',
+        }}
+        open={open}
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: 'center',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        onClose={handlePopoverClose}
+        disableRestoreFocus
+      >
+        <Box sx={{ border: 0, p: 3, bgcolor: 'background.paper' }}>
+          The content of the Popper.
+        </Box>
+      </Popover>
     </div>
   );
 }
