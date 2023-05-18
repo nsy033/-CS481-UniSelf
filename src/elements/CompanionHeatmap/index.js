@@ -1,5 +1,5 @@
 import './style.css';
-import React, { useEffect, useState, useRef, useCallback } from 'react';
+import React from 'react';
 
 import CompanionProfile from '../CompanionProfile';
 
@@ -43,6 +43,7 @@ function CompanionHeatmap(props) {
               isMe={companion['name'] === 'Me'}
               timezone={selectedTimezone}
               key={companion.name}
+              clickable={false}
             />
             <div className="emptySpace" key={companion['name'] + '-empty'} />
             <div className="heatRow" key={companion['name'] + '-row'}>

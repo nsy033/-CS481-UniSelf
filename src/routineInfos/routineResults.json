@@ -1,0 +1,552 @@
+{
+  "2019-01-25": {
+    "userID": "P0701",
+    "CaloriesToday": 1381,
+    "wakeUpTime": "10:16:11.039000"
+  },
+  "2019-01-26": {
+    "userID": "P0701",
+    "CaloriesToday": 1772,
+    "wakeUpTime": "10:14:09.515000"
+  },
+  "2019-01-27": {
+    "userID": "P0701",
+    "CaloriesToday": 1618,
+    "wakeUpTime": "09:01:22.629000"
+  },
+  "2019-01-28": {
+    "userID": "P0701",
+    "CaloriesToday": 1771,
+    "wakeUpTime": "16:14:38.454000"
+  },
+  "2019-01-29": {
+    "userID": "P0701",
+    "CaloriesToday": 1560,
+    "wakeUpTime": "12:30:47.151000"
+  },
+  "2019-01-30": {
+    "userID": "P0701",
+    "CaloriesToday": 1698,
+    "wakeUpTime": "10:12:41.202000"
+  },
+  "2019-01-31": {
+    "userID": "P0701",
+    "CaloriesToday": 1326,
+    "wakeUpTime": "09:49:48.065000"
+  },
+  "2019-02-01": {
+    "userID": "P0701",
+    "CaloriesToday": 1456,
+    "wakeUpTime": "10:27:49.317000"
+  },
+  "2019-02-02": {
+    "userID": "P0701",
+    "CaloriesToday": 1375,
+    "wakeUpTime": "10:15:38.362000"
+  },
+  "2019-02-03": {
+    "userID": "P0701",
+    "CaloriesToday": 1380,
+    "wakeUpTime": "09:25:48.039000"
+  },
+  "2019-02-04": {
+    "userID": "P0701",
+    "CaloriesToday": 1599,
+    "wakeUpTime": "12:44:07.900000"
+  },
+  "2019-02-05": {
+    "userID": "P0701",
+    "CaloriesToday": 1319,
+    "wakeUpTime": "12:51:08.262000"
+  },
+  "2019-02-06": {
+    "userID": "P0701",
+    "CaloriesToday": 1418,
+    "wakeUpTime": "08:12:16.509000"
+  },
+  "2019-02-07": {
+    "userID": "P0701",
+    "CaloriesToday": 1491,
+    "wakeUpTime": "10:39:12.991000"
+  },
+  "2019-02-08": {
+    "userID": "P0701",
+    "CaloriesToday": 1492,
+    "wakeUpTime": "09:05:32.123000"
+  },
+  "2019-02-09": {
+    "userID": "P0701",
+    "CaloriesToday": 1270,
+    "wakeUpTime": "08:00:53.944000"
+  },
+  "2019-02-10": {
+    "userID": "P0701",
+    "CaloriesToday": 1148,
+    "wakeUpTime": "08:10:56.180000"
+  },
+  "2019-02-11": {
+    "userID": "P0701",
+    "CaloriesToday": 1133,
+    "wakeUpTime": "07:39:50.933000"
+  },
+  "2019-02-12": {
+    "userID": "P0701",
+    "CaloriesToday": 907,
+    "wakeUpTime": "08:51:46.696000"
+  },
+  "2019-02-13": {
+    "userID": "P0701",
+    "CaloriesToday": 474,
+    "wakeUpTime": "09:47:45.070000"
+  },
+  "2019-02-14": {
+    "userID": "P0701",
+    "CaloriesToday": 1808,
+    "wakeUpTime": "11:52:14.044000"
+  },
+  "2019-02-15": {
+    "userID": "P0701",
+    "CaloriesToday": 1950,
+    "wakeUpTime": "09:15:22.396000"
+  },
+  "2019-02-16": {
+    "userID": "P0701",
+    "CaloriesToday": 1951,
+    "wakeUpTime": "07:46:38.194000"
+  },
+  "2019-02-17": {
+    "userID": "P0701",
+    "CaloriesToday": 1639,
+    "wakeUpTime": "07:53:11.130000"
+  },
+  "2019-02-18": {
+    "userID": "P0701",
+    "CaloriesToday": 1698,
+    "wakeUpTime": "06:13:34.683000"
+  },
+  "2019-02-19": {
+    "userID": "P0701",
+    "CaloriesToday": 1650,
+    "wakeUpTime": "09:37:34.031000"
+  },
+  "2019-02-20": {
+    "userID": "P0701",
+    "CaloriesToday": 1520,
+    "wakeUpTime": "07:50:13.192000"
+  },
+  "2019-02-21": {
+    "userID": "P0701",
+    "CaloriesToday": 1693,
+    "wakeUpTime": "08:00:18.435000"
+  },
+  "2019-02-22": {
+    "userID": "P0701",
+    "CaloriesToday": 1703,
+    "wakeUpTime": "09:13:14.731000"
+  },
+  "2019-02-23": {
+    "userID": "P0701",
+    "CaloriesToday": 1730,
+    "wakeUpTime": "09:00:51.535000"
+  },
+  "2019-02-24": {
+    "userID": "P0701",
+    "CaloriesToday": 1853,
+    "wakeUpTime": "08:21:56.701000"
+  },
+  "2019-02-25": {
+    "userID": "P0701",
+    "CaloriesToday": 1714,
+    "wakeUpTime": "09:41:21.434000"
+  },
+  "2019-02-26": {
+    "userID": "P0701",
+    "CaloriesToday": 1779,
+    "wakeUpTime": "12:10:23.068000"
+  },
+  "2019-02-27": {
+    "userID": "P0701",
+    "CaloriesToday": 1235,
+    "wakeUpTime": "07:45:45.849000"
+  },
+  "2019-02-28": {
+    "userID": "P0701",
+    "CaloriesToday": 1871,
+    "wakeUpTime": "09:29:26.392000"
+  },
+  "2019-03-01": {
+    "userID": "P0701",
+    "CaloriesToday": 1932,
+    "wakeUpTime": "09:01:19.356000"
+  },
+  "2019-03-02": {
+    "userID": "P0701",
+    "CaloriesToday": 1933,
+    "wakeUpTime": "08:23:36.119000"
+  },
+  "2019-03-03": {
+    "userID": "P0701",
+    "CaloriesToday": 1975,
+    "wakeUpTime": "10:04:00.667000"
+  },
+  "2019-03-04": {
+    "userID": "P0701",
+    "CaloriesToday": 1976,
+    "wakeUpTime": "14:29:55.671000"
+  },
+  "2019-03-05": {
+    "userID": "P0701",
+    "CaloriesToday": 1277,
+    "wakeUpTime": "09:49:24.797000"
+  },
+  "2019-03-06": {
+    "userID": "P0701",
+    "CaloriesToday": 1458,
+    "wakeUpTime": "11:25:54.957000"
+  },
+  "2019-03-07": {
+    "userID": "P0701",
+    "CaloriesToday": 1513,
+    "wakeUpTime": "10:25:32.952000"
+  },
+  "2019-03-08": {
+    "userID": "P0701",
+    "CaloriesToday": 1702,
+    "wakeUpTime": "11:45:33.792000"
+  },
+  "2019-03-09": {
+    "userID": "P0701",
+    "CaloriesToday": 1704,
+    "wakeUpTime": "08:24:47.091000"
+  },
+  "2019-03-10": {
+    "userID": "P0701",
+    "CaloriesToday": 1241,
+    "wakeUpTime": "11:36:40.296000"
+  },
+  "2019-03-11": {
+    "userID": "P0701",
+    "CaloriesToday": 1626,
+    "wakeUpTime": "13:05:16.488000"
+  },
+  "2019-03-12": {
+    "userID": "P0701",
+    "CaloriesToday": 1626,
+    "wakeUpTime": "14:31:58.013000"
+  },
+  "2019-03-13": {
+    "userID": "P0701",
+    "CaloriesToday": 1129,
+    "wakeUpTime": "10:14:59.931000"
+  },
+  "2019-03-14": {
+    "userID": "P0701",
+    "CaloriesToday": 1234,
+    "wakeUpTime": "11:47:33.730000"
+  },
+  "2019-03-15": {
+    "userID": "P0701",
+    "CaloriesToday": 1303,
+    "wakeUpTime": "12:57:10.191000"
+  },
+  "2019-03-16": {
+    "userID": "P0701",
+    "CaloriesToday": 1749,
+    "wakeUpTime": "13:35:34.613000"
+  },
+  "2019-03-17": {
+    "userID": "P0701",
+    "CaloriesToday": 1911,
+    "wakeUpTime": "16:48:56.320000"
+  },
+  "2019-03-18": {
+    "userID": "P0701",
+    "CaloriesToday": 1976,
+    "wakeUpTime": "10:23:35.315000"
+  },
+  "2019-03-19": {
+    "userID": "P0701",
+    "CaloriesToday": 1244,
+    "wakeUpTime": "11:49:02.536000"
+  },
+  "2019-03-20": {
+    "userID": "P0701",
+    "CaloriesToday": 1468,
+    "wakeUpTime": "09:00:06.317000"
+  },
+  "2019-03-21": {
+    "userID": "P0701",
+    "CaloriesToday": 1764,
+    "wakeUpTime": "11:15:15.828000"
+  },
+  "2019-03-22": {
+    "userID": "P0701",
+    "CaloriesToday": 1766,
+    "wakeUpTime": "11:53:48.907000"
+  },
+  "2019-03-23": {
+    "userID": "P0701",
+    "CaloriesToday": 1763,
+    "wakeUpTime": "11:58:05.492000"
+  },
+  "2019-03-24": {
+    "userID": "P0701",
+    "CaloriesToday": 1871,
+    "wakeUpTime": "12:49:35.643000"
+  },
+  "2019-03-25": {
+    "userID": "P0701",
+    "CaloriesToday": 1872,
+    "wakeUpTime": "08:46:40.710000"
+  },
+  "2019-03-26": {
+    "userID": "P0701",
+    "CaloriesToday": 1759,
+    "wakeUpTime": "14:12:58.485000"
+  },
+  "2019-03-27": {
+    "userID": "P0701",
+    "CaloriesToday": 1845,
+    "wakeUpTime": "10:36:06.514000"
+  },
+  "2019-03-28": {
+    "userID": "P0701",
+    "CaloriesToday": 1795,
+    "wakeUpTime": "08:32:16.977000"
+  },
+  "2019-03-29": {
+    "userID": "P0701",
+    "CaloriesToday": 1837,
+    "wakeUpTime": "08:41:14.882000"
+  },
+  "2019-03-30": {
+    "userID": "P0701",
+    "CaloriesToday": 1887,
+    "wakeUpTime": "09:36:57.710000"
+  },
+  "2019-03-31": {
+    "userID": "P0701",
+    "CaloriesToday": 1906,
+    "wakeUpTime": "10:54:38.404000"
+  },
+  "2019-04-01": {
+    "userID": "P0701",
+    "CaloriesToday": 1907,
+    "wakeUpTime": "08:42:25.638000"
+  },
+  "2019-04-02": {
+    "userID": "P0701",
+    "CaloriesToday": 1831,
+    "wakeUpTime": "08:42:57.940000"
+  },
+  "2019-04-03": {
+    "userID": "P0701",
+    "CaloriesToday": 1665,
+    "wakeUpTime": "10:39:01.817000"
+  },
+  "2019-04-04": {
+    "userID": "P0701",
+    "CaloriesToday": 1722,
+    "wakeUpTime": "07:39:28.861000"
+  },
+  "2019-04-05": {
+    "userID": "P0701",
+    "CaloriesToday": 1487,
+    "wakeUpTime": "08:36:42.986000"
+  },
+  "2019-04-06": {
+    "userID": "P0701",
+    "CaloriesToday": 1887,
+    "wakeUpTime": "10:23:50.502000"
+  },
+  "2019-04-07": {
+    "userID": "P0701",
+    "CaloriesToday": 1692,
+    "wakeUpTime": "11:44:11.961000"
+  },
+  "2019-04-08": {
+    "userID": "P0701",
+    "CaloriesToday": 1508,
+    "wakeUpTime": "09:49:40.790000"
+  },
+  "2019-04-09": {
+    "userID": "P0701",
+    "CaloriesToday": 1838,
+    "wakeUpTime": "11:33:43.042000"
+  },
+  "2019-04-10": {
+    "userID": "P0701",
+    "CaloriesToday": 2202,
+    "wakeUpTime": "09:01:25.133000"
+  },
+  "2019-04-11": {
+    "userID": "P0701",
+    "CaloriesToday": 2203,
+    "wakeUpTime": "10:20:01.461000"
+  },
+  "2019-04-12": {
+    "userID": "P0701",
+    "CaloriesToday": 1354,
+    "wakeUpTime": "08:13:30.956000"
+  },
+  "2019-04-13": {
+    "userID": "P0701",
+    "CaloriesToday": 1764,
+    "wakeUpTime": "09:47:20.635000"
+  },
+  "2019-04-14": {
+    "userID": "P0701",
+    "CaloriesToday": 2018,
+    "wakeUpTime": "09:57:54.723000"
+  },
+  "2019-04-15": {
+    "userID": "P0701",
+    "CaloriesToday": 2019,
+    "wakeUpTime": "08:50:06.440000"
+  },
+  "2019-04-16": {
+    "userID": "P0701",
+    "CaloriesToday": 1709,
+    "wakeUpTime": "08:30:31.623000"
+  },
+  "2019-04-17": {
+    "userID": "P0701",
+    "CaloriesToday": 1408,
+    "wakeUpTime": "09:56:28.229000"
+  },
+  "2019-04-18": {
+    "userID": "P0701",
+    "CaloriesToday": 1258,
+    "wakeUpTime": "08:56:37.209000"
+  },
+  "2019-04-19": {
+    "userID": "P0701",
+    "CaloriesToday": 1523,
+    "wakeUpTime": "07:31:11.677000"
+  },
+  "2019-04-20": {
+    "userID": "P0701",
+    "CaloriesToday": 1204,
+    "wakeUpTime": "08:04:33.652000"
+  },
+  "2019-04-21": {
+    "userID": "P0701",
+    "CaloriesToday": 1343,
+    "wakeUpTime": "16:19:35.637000"
+  },
+  "2019-04-22": {
+    "userID": "P0701",
+    "CaloriesToday": 1517,
+    "wakeUpTime": "07:47:58.685000"
+  },
+  "2019-04-23": {
+    "userID": "P0701",
+    "CaloriesToday": 1384,
+    "wakeUpTime": "08:32:59.324000"
+  },
+  "2019-04-24": {
+    "userID": "P0701",
+    "CaloriesToday": 1796,
+    "wakeUpTime": "09:00:20.471000"
+  },
+  "2019-04-25": {
+    "userID": "P0701",
+    "CaloriesToday": 1803,
+    "wakeUpTime": "07:55:39.681000"
+  },
+  "2019-04-26": {
+    "userID": "P0701",
+    "CaloriesToday": 2026,
+    "wakeUpTime": "12:06:46.335000"
+  },
+  "2019-04-27": {
+    "userID": "P0701",
+    "CaloriesToday": 2026,
+    "wakeUpTime": "06:02:04.009000"
+  },
+  "2019-04-28": {
+    "userID": "P0701",
+    "CaloriesToday": 1897,
+    "wakeUpTime": "13:05:12.542000"
+  },
+  "2019-04-29": {
+    "userID": "P0701",
+    "CaloriesToday": 1750,
+    "wakeUpTime": "09:53:23.098000"
+  },
+  "2019-04-30": {
+    "userID": "P0701",
+    "CaloriesToday": 1927,
+    "wakeUpTime": "10:57:56.083000"
+  },
+  "2019-05-01": {
+    "userID": "P0701",
+    "CaloriesToday": 2011,
+    "wakeUpTime": "09:21:09.482000"
+  },
+  "2019-05-02": {
+    "userID": "P0701",
+    "CaloriesToday": 2012,
+    "wakeUpTime": "07:42:07.194000"
+  },
+  "2019-05-03": {
+    "userID": "P0701",
+    "CaloriesToday": 1698,
+    "wakeUpTime": "11:30:26.217000"
+  },
+  "2019-05-04": {
+    "userID": "P0701",
+    "CaloriesToday": 2009,
+    "wakeUpTime": "07:51:49.750000"
+  },
+  "2019-05-05": {
+    "userID": "P0701",
+    "CaloriesToday": 2011,
+    "wakeUpTime": "11:47:23.537000"
+  },
+  "2019-05-06": {
+    "userID": "P0701",
+    "CaloriesToday": 1904,
+    "wakeUpTime": "06:15:42.913000"
+  },
+  "2019-05-07": {
+    "userID": "P0701",
+    "CaloriesToday": 2009,
+    "wakeUpTime": "07:51:08.082000"
+  },
+  "2019-05-08": {
+    "userID": "P0701",
+    "CaloriesToday": 2123,
+    "wakeUpTime": "09:00:15.072000"
+  },
+  "2019-05-09": {
+    "userID": "P0701",
+    "CaloriesToday": 2146,
+    "wakeUpTime": "06:31:01.620000"
+  },
+  "2019-05-10": {
+    "userID": "P0701",
+    "CaloriesToday": 2387,
+    "wakeUpTime": "08:49:16.480000"
+  },
+  "2019-05-11": {
+    "userID": "P0701",
+    "CaloriesToday": 2391,
+    "wakeUpTime": "10:18:56.108000"
+  },
+  "2019-05-12": {
+    "userID": "P0701",
+    "CaloriesToday": 2176,
+    "wakeUpTime": "12:01:28.837000"
+  },
+  "2019-05-13": {
+    "userID": "P0701",
+    "CaloriesToday": 2045,
+    "wakeUpTime": "06:00:44.437000"
+  },
+  "2019-05-14": {
+    "userID": "P0701",
+    "CaloriesToday": 1963,
+    "wakeUpTime": "08:16:34.988000"
+  }
+}

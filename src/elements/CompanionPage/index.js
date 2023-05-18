@@ -1,6 +1,6 @@
 import './style.css';
-import all_users_routine from '../../jsons/all_users_routine';
-import companion_list from '../../jsons/companion_list';
+import allUsersRoutine from '../../routineInfos/allUsersRoutine';
+import companionList from '../../routineInfos/companionList';
 
 import React, { useEffect, useState } from 'react';
 import { Icon } from '@iconify/react';
@@ -8,24 +8,20 @@ import { Icon } from '@iconify/react';
 import CompanionScroll from '../CompanionScroll';
 import CompanionHeatmap from '../CompanionHeatmap';
 import CompanionAddModal from '../CompanionAddModal';
-import RoutineList from '../RoutineList';
 import COLORSETS from '../../constants/colorset.js';
+import TimezoneBtns from '../TimezoneBtns';
 
 function CompanionPage() {
-  const initialList = all_users_routine.filter(({ name }) =>
-    companion_list.includes(name)
+  const initialList = allUsersRoutine.filter(({ name }) =>
+    companionList.includes(name)
   );
   const [list, setList] = useState(initialList);
   const updateCompanionList = (newList) => {
     setList(newList);
   };
   const [addModalOpen, setAddModalOpen] = useState(false);
-  const closeAddmodal = (willAdd, name) => {
+  const closeAddmodal = () => {
     setAddModalOpen(false);
-    if (willAdd) {
-      const newList = list;
-      updateCompanionList(newList);
-    }
   };
 
   const emptyFilling = {
@@ -87,12 +83,19 @@ function CompanionPage() {
       <div className="pageTitle">
         My Routine companions 🙌
         <span className="addIcon" onClick={() => setAddModalOpen(true)}>
-          <Icon icon="material-symbols:add" color="#ccc" />
+          <Icon
+            icon="material-symbols:add"
+            color="#ccc"
+            className="addIconPlus"
+          />
         </span>
         {addModalOpen ? (
           <CompanionAddModal
             closeAddmodal={closeAddmodal}
             timezoneColor={fillings.deep}
+            allUsers={allUsersRoutine}
+            companionList={list}
+            updateCompanionList={updateCompanionList}
           ></CompanionAddModal>
         ) : null}
       </div>
@@ -104,12 +107,24 @@ function CompanionPage() {
         Take a look with <b>COMPANIONS' RECORD</b>
       </div>
       <div className="heatmapView">
-        <RoutineList pageType="companionPage" setters={setters} />
-        <CompanionHeatmap
-          list={list}
-          fillings={fillings}
-          selectedTimezone={selectedTimezone}
-        />
+        <div>
+          <div className="subtitle">* Select timezone to lookup</div>
+          <TimezoneBtns setters={setters} />
+        </div>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'flex-end',
+          }}
+        >
+          <div className="heatmapDate">19/05/08 - 19/05/14</div>
+          <CompanionHeatmap
+            list={list}
+            fillings={fillings}
+            selectedTimezone={selectedTimezone}
+          />
+        </div>
       </div>
     </div>
   );

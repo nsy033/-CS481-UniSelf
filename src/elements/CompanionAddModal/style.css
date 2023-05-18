@@ -64,23 +64,21 @@
     margin-left: 10px;
 }
 
-.close {
-    padding: 6px;
-    margin-bottom: 10px;
+.closeXButton {
+    font-size: 25px;
+    float: right;
+    margin-top: -10px;
+}
+
+.btnInAddModal {
+    padding: 8px;
+    margin-bottom: 5px;
     color: #fff;
     background: #c9c9c9;
     border-radius: 5px;
     font-size: 13px;
-    width: 100%;
-}
-.add {
-    padding: 6px;
-    margin-bottom: 10px;
-    color: #fff;
-    /* background: #E05634; */
-    border-radius: 5px;
-    font-size: 13px;
-    width: 100%;
+    width: 95%;
+    margin-right: 16px;
 }
 
 .modal.openModal {
@@ -89,22 +87,21 @@
     animation: modal-bg-show 0.3s;
 }
 
-
 @keyframes modal-show {
-from {
-    opacity: 0;
-    margin-top: -50px;
-}
-to {
-    opacity: 1;
-    margin-top: 0;
-}
+    from {
+        opacity: 0;
+        margin-top: -50px;
+    }
+    to {
+        opacity: 1;
+        margin-top: 0;
+    }
 }
 @keyframes modal-bg-show {
-from {
-    opacity: 0;
-}
-to {
-    opacity: 1;
-}
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
