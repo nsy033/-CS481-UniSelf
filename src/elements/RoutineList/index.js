@@ -1,6 +1,5 @@
 import './style.css';
-import React, { useEffect, useState } from 'react';
-import { COLORSETS } from '../../constants/colorset';
+import React from 'react';
 import * as ROUTES from '../../constants/routes';
 
 function RoutineList() {
