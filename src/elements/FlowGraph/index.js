@@ -1,101 +1,3 @@
-// import './style.css';
-// import React from 'react';
-// import Plot from 'react-plotly.js';
-// import routineResults from '../../routineInfos/routineResults';
-
-// const URLSplit = window.document.URL.split('/');
-// var timezone = 'morning';
-
-// if (URLSplit.length >= 6) {
-//   timezone = URLSplit[URLSplit.length - 2];
-// }
-// const colorsets = {
-//   morning: ['#FFCA2D', '#FFE9A9'],
-//   day: ['#8CD735', '#D8EDC0'],
-//   night: ['#3F51B5', '#CED3F0'],
-// };
-
-// const practicedDatesStr = Object.keys(routineResults);
-// const practicedDates = practicedDatesStr.map(
-//   (str) => new Date(str).toISOString().split('T')[0]
-// );
-
-// const wakeUpTimes = practicedDatesStr.map((str) => {
-//   const timeStr = routineResults[str].wakeUpTime;
-//   const [hours, minutes, seconds] = timeStr.split(':');
-//   return new Date(2019, 0, 1, hours, minutes, seconds);
-// });
-
-// var data = {
-//     // x: ["2019-05-08", "2019-05-09", "2019-05-10", "2019-05-11", "2019-05-12", "2019-05-13", "2019-05-14"],
-//     // y: [5, 5, 5, 4, 3, 4, 4],
-//     x: practicedDates,
-//     y: wakeUpTimes,
-//     // y: [5, 5, 5, 4, 3, 4, 4, 5, 2, 3, 4, 3, 5, 5, 5, 4, 3, 4, 4, 5, 2, 3, 4, 3, 5, 5, 5, 4, 3, 4, 4, 5, 2, 3, 4, 3, 5, 5, 5, 4, 3, 4, 4, 5, 2, 3, 4, 3, 5, 5, 5, 4, 3, 4, 4, 5, 2, 3, 4, 3, 5, 5, 5, 4, 3, 4, 4, 5, 2, 3, 4, 3, 5, 5, 5, 4, 3, 4, 4, 5, 2, 3, 4, 3, 5, 5, 5, 4, 3, 4, 4, 5, 2, 3, 4, 3, 5, 5, 5, 4, 3, 4, 4, 5, 2, 3, 4, 3, 5, 5, 5, 4, 3, 4, 4, 5, 2, 3, 4, 3, 5, 5, 5, 4, 3, 4, 4, 5, 2, 3, 4, 3, 5, 5, 5, 4, 3, 4, 4, 5, 2, 3, 4, 3, 5, 5, 5, 4, 3, 4, 4, 5, 2, 3, 4, 3, 5, 5, 5, 4, 3, 4, 4, 5, 2, 3, 4, 3, ],
-//     fill: 'tozeroy',
-//     fillcolor: colorsets[timezone][0],
-//     type: 'scatter',
-//     mode: 'none',
-//     name: 'Trace 2',
-//     line: {shape: 'spline'}
-// }
-
-// var layout = {
-//   font: {
-//     size: 12
-//   },
-//   xaxis: {
-//     title: {
-//       text: 'Date'
-//     },
-//     rangeslider: {}
-//   },
-//   yaxis: {
-//     // tickformat: '%H:%M:%S',
-//     title: {
-//       text: '# of Days',
-//       font: {
-//         size: 16,
-//       }
-//     }
-//   }
-// }
-
-//   function FlowGraph () {
-//     let flowgraph = [];
-//     flowgraph.push(
-//       <div className="title">
-//         <b>ACHIEVEMENT LEVEL</b> flow
-//       <div className="subtitle">
-//         Move the slider to check your trend by period
-//       </div>
-//       </div>
-//     );
-
-//     flowgraph.push(
-//       <div className="dateinfo">
-//         <b>23/01/02 - 23/04/28</b>
-//       </div>
-//     );
-
-//     flowgraph.push(
-//       <Plot
-//       className="graphContainer"
-//       data={[data]}
-//       layout={layout}
-//       />
-//     );
-
-//     flowgraph.push(
-//       <div className="comment">
-//         * Aggregated by week
-//       </div>
-//     )
-//     return (flowgraph);
-//   }
-
-//   export default FlowGraph;
-
 import './style.css';
 import React from 'react';
 import Plot from 'react-plotly.js';
@@ -121,7 +23,8 @@ const practicedDates = practicedDatesStr.map(
 // Get the unique year and week combination from the practicedDates
 const practicedWeeks = practicedDates.reduce((weeks, date) => {
   const [year, week] = getYearAndWeek(date);
-  const yearWeek = `${year}-${week}`;
+  // const yearWeek = `${year}-${week}`;
+  const yearWeek = `${week}`;
 
   if (!weeks.some((w) => w === yearWeek)) {
     weeks.push(yearWeek);
@@ -134,10 +37,12 @@ const practicedWeeks = practicedDates.reduce((weeks, date) => {
 
 // Filter and aggregate the wake up times for each week
 const aggregatedWakeUpTimes = practicedWeeks.map((week) => {
-  const [year, weekNumber] = week.split('-');
+  // const [year, weekNumber] = week.split('-');
+  const weekNumber = week;
   const weekDates = practicedDates.filter((date) => {
     const [dateYear, dateWeek] = getYearAndWeek(date);
-    return dateYear == year && dateWeek == weekNumber;
+    // return dateYear == year && dateWeek == weekNumber;
+    return dateWeek == weekNumber;
   });
 
   const weekWakeUpTimes = weekDates.map((date) => {
@@ -244,7 +149,7 @@ var layout = {
 
     flowgraph.push(
       <div className="dateinfo">
-        <b>23/01/02 - 23/04/28</b>
+        <b>19/01/25 - 19/05/14</b>
       </div>
     );
 

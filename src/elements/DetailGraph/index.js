@@ -1,53 +1,3 @@
-// import React from 'react';
-// import Plot from 'react-plotly.js';
-// import csvtojson from 'csvtojson';
-
-// class DetailGraph extends React.Component {
-//   constructor(props) {
-//     super(props);
-//     this.state = {
-//       wakeUpTimes: []
-//     }
-//   }
-
-//   componentDidMount() {
-//     // Load the CSV data and parse it into an array of objects
-//     csvtojson()
-//       .fromFile('wakeUpTimes.csv')
-//       .then(data => {
-//         this.setState({ wakeUpTimes: data });
-//       });
-//   }
-
-//   render() {
-//     // Map over the wakeUpTimes array to create the x and y arrays
-//     const x = this.state.wakeUpTimes.map(entry => entry.date);
-//     const y = this.state.wakeUpTimes.map(entry => entry.wakeUpTime);
-
-//     // Create the plot data and layout
-//     const data = {
-//       type: "scatter",
-//       x: x,
-//       y: y
-//     };
-//     const layout = {
-//       title: "Routine detail Graph",
-//       font: {
-//         size: 10
-//       }
-//     };
-
-//     return (
-//       <Plot
-//         data={[data]}
-//         layout={layout}
-//       />
-//     );
-//   }
-// }
-
-// export default DetailGraph;
-
 import React from 'react';
 import Plot from 'react-plotly.js';
 import routineResults from '../../routineInfos/routineResults';
@@ -120,12 +70,12 @@ var scatterplot = {
     font: {
       size: 12
     },
-    // xaxis: {
-    //         rangeSelector: {buttons: [{
-    //           step: 'all'
-    //       }]},
-    //         rangeslider: {}
-    //     },
+    xaxis: {
+          //   rangeSelector: {buttons: [{
+          //     step: 'all'
+          // }]},
+            rangeslider: {}
+        },
     // xaxis: {
     //   tickformat: '%H:%M:%S',
     // },
