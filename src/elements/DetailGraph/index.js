@@ -65,6 +65,10 @@ var scatterplot = {
     mode: 'none',
     name: 'Goal'
   }
+
+  const initial_range = [
+    '2019-04-14', '2019-05-15'
+  ]
     
   var layout = {
     font: {
@@ -74,7 +78,8 @@ var scatterplot = {
           //   rangeSelector: {buttons: [{
           //     step: 'all'
           // }]},
-            rangeslider: {}
+            rangeslider: {},
+            range: initial_range
         },
     // xaxis: {
     //   tickformat: '%H:%M:%S',
