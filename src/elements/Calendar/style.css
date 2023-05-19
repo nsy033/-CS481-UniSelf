@@ -84,3 +84,40 @@ button {
 #mouse-over-popover {
     margin-left: 10px;
 }
+
+.tooltipContentsContainer {
+    width: 450px;
+    height: 120px;
+    margin-top: 18px;
+    margin-left: 25px;
+}
+
+.tooltipTitle {
+    font-family: 'Pretendard';
+    font-size: 18px;
+}
+
+.tooltipTable {
+    font-family: 'Pretendard';
+    font-size: 16px;
+    margin-top: 10px;
+    color: #333333
+}
+.tooltipTable tr {
+    height: 30px;
+}
+
+.tooltipTable .firstCol{
+    width: 50px;
+}
+.tooltipTable .secondCol{
+    width: 190px;
+}
+.tooltipTable .thirdCol{
+    width: 200px;
+}
+.tooltipIcon {
+    width: 12px;
+    height: 12px;
+    border-radius: 12px;
+}
