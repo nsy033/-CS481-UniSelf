@@ -1,5 +1,5 @@
 import './style.css';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import FlowGraph from '../FlowGraph';
 import DetailGraph from '../DetailGraph'
 import { Icon } from '@iconify/react';

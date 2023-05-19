@@ -1,16 +1,18 @@
 import './style.css';
-import React, { useEffect, useState } from 'react';
-import * as ROUTES from '../../constants/routes';
+import React from 'react';
 
 import CreateButton from '../CreateRoutine/createButton';
-import CreateModal from '../CreateRoutine/createModal';
 
 import Calendar from '../Calendar';
 import ComboChecker from '../ComboChecker';
 
 function SubPage() {
   const URLSplit = window.document.URL.split('/');
-  const timezone = URLSplit[URLSplit.length - 1];
+
+  var timezone = 'morning';
+  if (URLSplit.length >= 6) {
+    timezone = URLSplit[URLSplit.length - 2];
+  }
 
   return (
     <div className="pageBox">
@@ -23,7 +25,6 @@ function SubPage() {
         <Calendar />
         <CreateButton/>
       </div>
-      
       <ComboChecker />
     </div>
   );
