@@ -1,19 +1,99 @@
 import './style.css';
 import React, { useState, useCallback } from 'react';
+import COLORSETS from '../../constants/colorset';
+import Popover from '@mui/material/Popover';
+import Box from '@mui/material/Box';
 import { Icon } from '@iconify/react';
+import routineResults from '../../routineInfos/routineResults';
 
 function Calendar() {
   const URLSplit = window.document.URL.split('/');
-  var timezone = 'morning'; // 기본값 지정
-  if (URLSplit.length >= 6) { // 범위 지정
-    timezone = URLSplit[URLSplit.length - 1];
-  }
-  const colorsets = {
-    morning: ['#FFCA2D', '#FFE9A9'],
-    day: ['#8CD735', '#D8EDC0'],
-    night: ['#3F51B5', '#CED3F0'],
-    gray: '#EEEEEE',
+  const timezone = URLSplit[URLSplit.length - 1];
+
+  const MonthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'June',
+    'July',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+  const weekdays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
+
+  const practicedDatesStr = Object.keys(routineResults);
+  const practicedDates = practicedDatesStr.map(
+    (str) => new Date(str).toISOString().split('T')[0]
+  );
+  const targetWakeUpTime = '10:00:00';
+  const targetCalories = 2000;
+
+  const [timezoneStr, setTimezoneStr] = useState(
+    timezone === 'morning'
+      ? 'Morning 🌻'
+      : timezone === 'day'
+      ? 'Day 🌈'
+      : 'Night 🌙'
+  );
+  const [dateStr, setDateStr] = useState('1st Jan');
+  const [tooltipIcon, setTooltipIcon] = useState([
+    COLORSETS['gray'],
+    COLORSETS['gray'],
+  ]);
+  const [actualWakeUpTime, setActualWakeUpTime] = useState('10:00');
+  const [actualCalories, setActualCalories] = useState(2000);
+  const [anchorEl, setAnchorEl] = useState(null);
+  const handlePopoverOpen = (event) => {
+    const hoveredDate = event.target.firstChild.data;
+    const lastChar = hoveredDate[hoveredDate.length - 1];
+    setDateStr(
+      `${hoveredDate}${
+        lastChar === '1'
+          ? 'st'
+          : lastChar === '2'
+          ? 'nd'
+          : lastChar === '3'
+          ? 'rd'
+          : 'th'
+      } ${MonthNames[selectedMonth - 1]}`
+    );
+
+    const thisDate = new Date(
+      new Date(selectedYear, selectedMonth - 1, hoveredDate) -
+        new Date().getTimezoneOffset() * 60000
+    );
+    const newTooltipIcon = [COLORSETS['gray'], COLORSETS['gray']];
+    const thisDateStr = thisDate.toISOString().split('T')[0];
+    if (practicedDates.includes(thisDateStr)) {
+      const jsonIdx = practicedDates.indexOf(thisDateStr);
+      const { CaloriesToday, wakeUpTime } =
+        routineResults[practicedDatesStr[jsonIdx]];
+
+      setActualWakeUpTime(wakeUpTime);
+      setActualCalories(CaloriesToday);
+
+      if (
+        new Date(thisDateStr + 'T' + wakeUpTime).getTime() <=
+        new Date(thisDateStr + 'T' + targetWakeUpTime).getTime()
+      )
+        newTooltipIcon[0] = COLORSETS[timezone][0];
+      if (CaloriesToday >= targetCalories)
+        newTooltipIcon[1] = COLORSETS[timezone][0];
+    }
+    setTooltipIcon(newTooltipIcon);
+
+    setAnchorEl(anchorEl ? null : event.currentTarget);
   };
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
+
   const emptyFilling = {
     width: '50px',
     height: '50px',
@@ -23,11 +103,11 @@ function Calendar() {
     borderRadius: '50%',
   };
   const deepFilling = JSON.parse(JSON.stringify(emptyFilling));
-  deepFilling.background = colorsets[timezone][0];
+  deepFilling.background = COLORSETS[timezone][0];
   const lightFilling = JSON.parse(JSON.stringify(emptyFilling));
-  lightFilling.background = colorsets[timezone][1];
+  lightFilling.background = COLORSETS[timezone][1];
   const grayFilling = JSON.parse(JSON.stringify(emptyFilling));
-  grayFilling.background = colorsets['gray'];
+  grayFilling.background = COLORSETS['gray'];
   if (timezone === 'night') deepFilling['color'] = '#FFFFFF';
 
   function isLeapYear(year) {
@@ -52,27 +132,12 @@ function Calendar() {
     date: 14, //오늘 날짜
     day: 0, //오늘 요일
   };
-  const weekdays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
   const [selectedYear, setSelectedYear] = useState(today.year);
   const [selectedMonth, setSelectedMonth] = useState(today.month);
   const [dateTotalCount, setDateTotalCount] = useState(
     new Date(selectedYear, selectedMonth, 0).getDate()
   );
 
-  const MonthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'June',
-    'July',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
   let years = [];
   let months = [];
   for (let i = today.year - 10; i < today.year + 10; i++) years.push(i);
@@ -121,11 +186,32 @@ function Calendar() {
     let dates = [];
 
     for (const weekday of weekdays) {
-      const firstDay = new Date(selectedYear, selectedMonth - 1, 1).getDay();
+      const firstDay = new Date(
+        new Date(selectedYear, selectedMonth - 1, 1) -
+          new Date().getTimezoneOffset() * 60000
+      ).getDay();
       if (weekdays[firstDay] === weekday) {
         for (let i = 1; i <= dateTotalCount; i++) {
-          const day = new Date(selectedYear, selectedMonth - 1, i).getDay();
-          const achievement = Math.floor(Math.random() * 3);
+          const thisDate = new Date(
+            new Date(selectedYear, selectedMonth - 1, i) -
+              new Date().getTimezoneOffset() * 60000
+          );
+          const day = thisDate.getDay();
+          let achievement = 0;
+          let isEmpty = true;
+          const thisDateStr = thisDate.toISOString().split('T')[0];
+          if (practicedDates.includes(thisDateStr)) {
+            isEmpty = false;
+            const jsonIdx = practicedDates.indexOf(thisDateStr);
+            const { CaloriesToday, wakeUpTime } =
+              routineResults[practicedDatesStr[jsonIdx]];
+            if (CaloriesToday >= targetCalories) achievement++;
+            if (
+              new Date(thisDateStr + 'T' + wakeUpTime).getTime() <=
+              new Date(thisDateStr + 'T' + targetWakeUpTime).getTime()
+            )
+              achievement++;
+          }
           dates.push(
             <div
               key={i}
@@ -144,8 +230,7 @@ function Calendar() {
               <div
                 className="outline"
                 style={
-                  new Date(selectedYear, selectedMonth - 1, i).getTime() >
-                  new Date(today.year, today.month - 1, today.date).getTime()
+                  isEmpty
                     ? emptyFilling
                     : achievement === 0
                     ? grayFilling
@@ -153,6 +238,8 @@ function Calendar() {
                     ? lightFilling
                     : deepFilling
                 }
+                onMouseEnter={isEmpty ? null : handlePopoverOpen}
+                onMouseLeave={isEmpty ? null : handlePopoverClose}
               >
                 {i}
               </div>
@@ -161,7 +248,7 @@ function Calendar() {
         }
         break;
       } else {
-        dates.push(<div key={weekday} className="weekday"></div>);
+        dates.push(<div key={weekday} className="emptyday"></div>);
       }
     }
 
@@ -182,6 +269,84 @@ function Calendar() {
 
       <div className="week">{displayWeekdays()}</div>
       <div className="date">{displayDates()}</div>
+      <Popover
+        id="mouse-over-popover"
+        sx={{
+          pointerEvents: 'none',
+        }}
+        open={open}
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: 'center',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        onClose={handlePopoverClose}
+        disableRestoreFocus
+      >
+        <Box
+          sx={{
+            border: 0,
+            width: '500px',
+            height: '150px',
+            bgcolor: 'background.paper',
+          }}
+        >
+          <div className="tooltipContentsContainer">
+            <div className="tooltipTitle">
+              How have your {timezoneStr} been on <b>{dateStr}</b>
+            </div>
+            <table className="tooltipTable">
+              <tbody>
+                <tr>
+                  <td className="firstCol"></td>
+                  <td className="secondCol">
+                    <b>My Goal</b>
+                  </td>
+                  <td className="thirdCol">
+                    <b>Actual Achievement</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="firstCol">
+                    <div
+                      className="tooltipIcon"
+                      style={{ background: tooltipIcon[0] }}
+                    >
+                      {' '}
+                    </div>
+                  </td>
+                  <td className="secondCol">
+                    Wake up at {targetWakeUpTime.slice(0, 5)}
+                  </td>
+                  <td className="thirdCol">
+                    Wake up at {actualWakeUpTime.slice(0, 5)}
+                  </td>
+                </tr>
+                <tr>
+                  <td className="firstCol">
+                    <div
+                      className="tooltipIcon"
+                      style={{ background: tooltipIcon[1] }}
+                    >
+                      {' '}
+                    </div>
+                  </td>
+                  <td className="secondCol">
+                    Consume {targetCalories} calories
+                  </td>
+                  <td className="thirdCol">
+                    Consume {actualCalories} calories
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </Box>
+      </Popover>
     </div>
   );
 }

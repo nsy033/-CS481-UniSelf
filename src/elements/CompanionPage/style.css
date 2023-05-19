@@ -24,8 +24,27 @@
 
     box-shadow: 0px 4px rgb(163, 163, 163, 0.1);
 }
+.addIconPlus :hover {
+    color: rgba(199, 199, 199, 0.5);
+    box-shadow: 0px 6px rgb(163, 163, 163, 0.2);
+    transition: all 0.3s;
+}
 
 .heatmapView {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+}
+
+.subtitle {
+    width: 100%;
+    font-size: 16px;
+    color: #666666;
+    margin-bottom: 15px;
+    margin-left: 5px;
+}
+
+.heatmapDate {
+    font-size: 16px;
+    font-weight: bolder;
+    color: #666666;
 }

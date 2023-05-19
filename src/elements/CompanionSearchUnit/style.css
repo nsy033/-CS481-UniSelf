@@ -1,0 +1,20 @@
+.searchedUserIcon {
+    width: 30px;
+    height: 30px;
+    margin-right: 8px;
+}
+.searchUnit-false {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+.searchUnit-true {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background: rgba(204, 204, 204, 0.2);
+}
+.searchUnitBox :hover {
+    background: rgba(204, 204, 204, 0.2);
+    transition: all 0.4s;
+}

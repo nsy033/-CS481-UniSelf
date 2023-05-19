@@ -39,17 +39,6 @@
     font-weight: bold;
     text-align: left;
 }
-.morning-simple {
-    width: 100%;
-    border-radius: 16px;
-    background: var(--morning-deep-yellow);
-    padding-top: 6px;
-    padding-left: 16px;
-    padding-bottom: 8px;
-    font-weight: bold;
-    text-align: left;
-    margin-bottom: 30px;
-}
 
 .day {
     width: 100%;
@@ -60,17 +49,6 @@
     padding-bottom: 8px;
     font-weight: bold;
     text-align: left;
-}
-.day-simple {
-    width: 100%;
-    border-radius: 16px;
-    background: var(--day-deep-green);
-    padding-top: 6px;
-    padding-left: 16px;
-    padding-bottom: 8px;
-    font-weight: bold;
-    text-align: left;
-    margin-bottom: 30px;
 }
 
 .night {
@@ -83,18 +61,6 @@
     font-weight: bold;
     text-align: left;
     color: white;
-}
-.night-simple {
-    width: 100%;
-    border-radius: 16px;
-    background: var(--night-deep-blue);
-    padding-top: 6px;
-    padding-left: 16px;
-    padding-bottom: 8px;
-    font-weight: bold;
-    text-align: left;
-    color: white;
-    margin-bottom: 30px;
 }
 
 .sub-routines-box {

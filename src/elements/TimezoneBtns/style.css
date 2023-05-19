@@ -1,0 +1,79 @@
+.timezoneBtn-box {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.morningBtn {
+    width: 90px;
+    height: 90px;
+    border-radius: 90px;
+    box-shadow: 4px 4px 4px rgb(163, 163, 163, 0.2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+    text-align: center;
+
+    margin-right: 15px;
+}
+.morningBtn-box :hover {
+    background: var(--morning-light-yellow);
+    transition: all 0.3s;
+}
+#morning-true {
+    border-radius: 90px;
+    background: var(--morning-deep-yellow);
+}
+
+.dayBtn {
+    width: 90px;
+    height: 90px;
+    border-radius: 90px;
+    box-shadow: 4px 4px 4px rgb(163, 163, 163, 0.2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+    text-align: center;
+
+    margin-right: 15px;
+}
+.dayBtn-box :hover {
+    background: var(--day-light-green);
+    transition: all 0.3s;
+}
+#day-true {
+    border-radius: 90px;
+    background: var(--day-deep-green);
+}
+
+.nightBtn {
+    width: 90px;
+    height: 90px;
+    border-radius: 90px;
+    box-shadow: 4px 4px 4px rgb(163, 163, 163, 0.2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-weight: bold;
+    text-align: center;
+
+    margin-right: 15px;
+}
+.nightBtn-box :hover {
+    background: var(--night-light-blue);
+    transition: all 0.3s;
+}
+#night-true {
+    border-radius: 90px;
+    background: var(--night-deep-blue);
+    color: white;
+}
+

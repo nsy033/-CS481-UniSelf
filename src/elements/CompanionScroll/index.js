@@ -1,5 +1,5 @@
 import './style.css';
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import CompanionProfile from '../CompanionProfile';
 
 function CompanionScroll(props) {
@@ -22,7 +22,10 @@ function CompanionScroll(props) {
 
   return (
     <div className="horizontalScroll" ref={scrollBox} onWheel={onWheel}>
-      {list
+      {JSON.parse(JSON.stringify(list))
+        .sort((a, b) => {
+          if (a.name < b.name) return -1;
+        })
         .filter((companion) => companion['name'] !== 'Me')
         .map((companion) => (
           <CompanionProfile
@@ -30,6 +33,7 @@ function CompanionScroll(props) {
             isMe={false}
             key={companion.name}
             requestRemoval={removeRequested}
+            clickable={true}
           />
         ))}
     </div>
