@@ -74,6 +74,14 @@ button {
     outline-offset: -3px;
 }
 
+.outline {
+    transition: all 0.3s ease 0s;
+}
+
+.outline:hover {
+    opacity: 0.5;
+}
+
 .saturday {
     color: #2D7AF6;
 }

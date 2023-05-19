@@ -17,16 +17,12 @@ function Navbar() {
   return (
     <div className="Navbar">
       <header className="NavbarHeader">
-        <div className="Logo">UniSelf</div>
+        <div style={{ marginBlock: '10px' }}>
+          <a href={ROUTES.MAIN} className="Logo">
+            UniSelf
+          </a>
+        </div>
         <ul className="Navlinks">
-          <li>
-            <a
-              href={ROUTES.MAIN}
-              className={selectedType === 1 ? 'selected' : 'unselected'}
-            >
-              Home
-            </a>
-          </li>
           <li>
             <a
               href={ROUTES.SUB + '/morning'}

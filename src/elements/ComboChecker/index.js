@@ -4,7 +4,6 @@ import * as ROUTES from '../../constants/routes';
 
 function ComboChecker() {
   const URLSplit = window.document.URL.split('/');
-  console.log(URLSplit);
   var timezone =
     URLSplit.length >= 5 ? URLSplit[URLSplit.length - 1] : 'morning';
 
