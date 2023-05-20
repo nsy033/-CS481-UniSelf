@@ -1,10 +1,10 @@
 import './style.css';
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import COLORSETS from '../../constants/colorset';
 import Popover from '@mui/material/Popover';
 import Box from '@mui/material/Box';
 import { Icon } from '@iconify/react';
-import routineResults from '../../routineInfos/routineResults';
+import morningRoutineResults from '../../routineInfos/morningRoutineResults';
 
 function Calendar() {
   const URLSplit = window.document.URL.split('/');
@@ -26,12 +26,32 @@ function Calendar() {
   ];
   const weekdays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
-  const practicedDatesStr = Object.keys(routineResults);
-  const practicedDates = practicedDatesStr.map(
-    (str) => new Date(str).toISOString().split('T')[0]
-  );
+  const [routineResults, setRoutineResults] = useState({});
+  const [practicedDatesStr, setPracticedDatesStr] = useState([]);
+  const [practicedDates, setPracticedDates] = useState([]);
+
+  useEffect(() => {
+    morningRoutineResults = morningRoutineResults.filter(
+      ({ userID }) => userID === 'USER1'
+    );
+    const routineRes = {};
+    morningRoutineResults.forEach(
+      ({ userID, date, totalTimeForeground, wakeUpTime }) => {
+        routineRes[date] = { totalTimeForeground, wakeUpTime };
+      }
+    );
+
+    const dateStr = Object.keys(routineRes);
+    const dates = dateStr.map(
+      (str) => new Date(str).toISOString().split('T')[0]
+    );
+    setRoutineResults(routineRes);
+    setPracticedDatesStr(dateStr);
+    setPracticedDates(dates);
+  }, []);
+
   const targetWakeUpTime = '10:00:00';
-  const targetCalories = 2000;
+  const targetSNSUsage = 2700000;
 
   const [timezoneStr, setTimezoneStr] = useState(
     timezone === 'morning'
@@ -46,7 +66,7 @@ function Calendar() {
     COLORSETS['gray'],
   ]);
   const [actualWakeUpTime, setActualWakeUpTime] = useState('10:00');
-  const [actualCalories, setActualCalories] = useState(2000);
+  const [actualSNSUsage, setActualSNSUsage] = useState(0);
   const [anchorEl, setAnchorEl] = useState(null);
   const handlePopoverOpen = (event) => {
     const hoveredDate = event.target.firstChild.data;
@@ -71,18 +91,18 @@ function Calendar() {
     const thisDateStr = thisDate.toISOString().split('T')[0];
     if (practicedDates.includes(thisDateStr)) {
       const jsonIdx = practicedDates.indexOf(thisDateStr);
-      const { CaloriesToday, wakeUpTime } =
+      const { totalTimeForeground, wakeUpTime } =
         routineResults[practicedDatesStr[jsonIdx]];
 
       setActualWakeUpTime(wakeUpTime);
-      setActualCalories(CaloriesToday);
+      setActualSNSUsage(totalTimeForeground);
 
       if (
         new Date(thisDateStr + 'T' + wakeUpTime).getTime() <=
         new Date(thisDateStr + 'T' + targetWakeUpTime).getTime()
       )
         newTooltipIcon[0] = COLORSETS[timezone][0];
-      if (CaloriesToday >= targetCalories)
+      if (totalTimeForeground <= targetSNSUsage)
         newTooltipIcon[1] = COLORSETS[timezone][0];
     }
     setTooltipIcon(newTooltipIcon);
@@ -203,9 +223,9 @@ function Calendar() {
           if (practicedDates.includes(thisDateStr)) {
             isEmpty = false;
             const jsonIdx = practicedDates.indexOf(thisDateStr);
-            const { CaloriesToday, wakeUpTime } =
+            const { totalTimeForeground, wakeUpTime } =
               routineResults[practicedDatesStr[jsonIdx]];
-            if (CaloriesToday >= targetCalories) achievement++;
+            if (totalTimeForeground <= targetSNSUsage) achievement++;
             if (
               new Date(thisDateStr + 'T' + wakeUpTime).getTime() <=
               new Date(thisDateStr + 'T' + targetWakeUpTime).getTime()
@@ -253,7 +273,7 @@ function Calendar() {
     }
 
     return dates;
-  }, [selectedYear, selectedMonth, dateTotalCount]);
+  }, [routineResults, selectedYear, selectedMonth, dateTotalCount]);
 
   return (
     <div className="calendarContainer">
@@ -336,10 +356,10 @@ function Calendar() {
                     </div>
                   </td>
                   <td className="secondCol">
-                    Consume {targetCalories} calories
+                    Less than {Math.floor(targetSNSUsage / 1000 / 60)} min.
                   </td>
                   <td className="thirdCol">
-                    Consume {actualCalories} calories
+                    Used {Math.floor(actualSNSUsage / 1000 / 60)} min.
                   </td>
                 </tr>
               </tbody>
