@@ -14,20 +14,28 @@
 
 .addIcon {
     display: flex;
-    width: 25px;
-    height: 25px;
+    width: 27px;
+    height: 27px;
     margin-left: 15px;
-    margin-top: 7px;
+    margin-top: 8px;
 
-    border-radius: 25px;
-    background-color: rgba(255, 255, 255);
-
-    box-shadow: 0px 4px rgb(163, 163, 163, 0.1);
+    border: 2px solid #ccc;
+    border-radius: 50px;
+    background: white;
+    color: #ccc;
 }
-.addIconPlus :hover {
-    color: rgba(199, 199, 199, 0.5);
-    box-shadow: 0px 6px rgb(163, 163, 163, 0.2);
+.addIcon :hover {
     transition: all 0.3s;
+    display: flex;
+    width: 30px;
+    height: 30px;
+
+    border-radius: 50px;
+    background: #ccc;
+    color: white;
+}
+.addIconPlus {
+    margin-top: -2px;
 }
 
 .heatmapView {

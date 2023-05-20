@@ -3,19 +3,28 @@ import React from 'react';
 
 import CompanionProfile from '../CompanionProfile';
 import morningRoutineResults from '../../routineInfos/morningRoutineResults';
+import dayRoutineResults from '../../routineInfos/dayRoutineResults';
 
 function CompanionHeatmap(props) {
   const { list, fillings, selectedTimezone } = props;
 
   const displayHeatRow = (rowForWhom) => {
-    let routineResults = morningRoutineResults.filter(
-      ({ userID }) => userID === rowForWhom
-    );
-    routineResults = routineResults.slice(routineResults.length - 7);
+    let routineResults;
+    if (selectedTimezone === 'morning') {
+      routineResults = morningRoutineResults.filter(
+        ({ userID }) => userID === rowForWhom
+      );
+    } else {
+      routineResults = dayRoutineResults.filter(
+        ({ userID }) => userID === rowForWhom
+      );
+    }
+    routineResults = routineResults.slice(routineResults.length - 7); // 최근 일주일치만 가져오기
 
     const row = [];
     for (let day = 0; day < 7; day++) {
       let achievement = 0;
+      let achievementLevel = 0;
       if (selectedTimezone === 'morning') {
         const target = list.filter(({ userID }) => userID === rowForWhom)[0][
           'morning'
@@ -32,18 +41,40 @@ function CompanionHeatmap(props) {
           new Date('1970-01-01 ' + targetWakeUpTime).getTime()
         )
           achievement++;
+
+        achievementLevel = achievement / Object.keys(target).length;
+      } else if (selectedTimezone === 'day') {
+        const target = list.filter(({ userID }) => userID === rowForWhom)[0][
+          'day'
+        ];
+        const targetStudyTime = target['study'];
+        const targetUVExposure = target['UVExposure'];
+
+        const studyTime = routineResults[day]['studyTime'];
+        const UVExposureTime = routineResults[day]['UVExposureTime'];
+
+        if (targetStudyTime <= studyTime) achievement++;
+        if (
+          new Date('1970-01-01 ' + UVExposureTime).getTime() <=
+          new Date('1970-01-01 ' + targetUVExposure).getTime()
+        )
+          achievement++;
+
+        achievementLevel = achievement / Object.keys(target).length;
       } else {
         achievement = Math.floor(Math.random() * 3);
+        achievementLevel = achievement / 2;
       }
+
       row.push(
         <div
           className="outline"
           style={
-            achievement === 0
+            achievementLevel === 0
               ? fillings.gray
-              : achievement === 1
-              ? fillings.light
-              : fillings.deep
+              : achievementLevel === 1
+              ? fillings.deep
+              : fillings.light
           }
           key={day}
         ></div>
