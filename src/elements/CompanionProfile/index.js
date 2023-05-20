@@ -21,22 +21,55 @@ function CompanionProfile(props) {
 
   return (
     <div className="profileBox">
-      <div>
-        <Icon
-          icon={deleteHover ? 'mdi:minus-circle' : 'mdi:user-circle'}
-          color={isMe ? timezoneColor : '#ccc'}
-          className="userIcon-nonclick"
-          onClick={() => {
-            if (clickable) setDeleteModalOpen(true);
-          }}
-          onMouseEnter={() => {
-            if (clickable) setDeleteHover(true);
-          }}
-          onMouseLeave={() => {
-            if (clickable) setDeleteHover(false);
-          }}
-        />
-      </div>
+      {clickable ? (
+        <div>
+          <Icon
+            icon="mdi:user-circle"
+            color="#ccc"
+            className="userIcon"
+            onClick={() => {
+              if (clickable) setDeleteModalOpen(true);
+            }}
+            onMouseEnter={() => {
+              if (clickable) setDeleteHover(true);
+            }}
+            onMouseLeave={() => {
+              if (clickable) setDeleteHover(false);
+            }}
+          />
+          <Icon
+            icon="mdi:minus-circle"
+            color="#fff"
+            className="minusIcon"
+            onClick={() => {
+              if (clickable) setDeleteModalOpen(true);
+            }}
+            onMouseEnter={() => {
+              if (clickable) setDeleteHover(true);
+            }}
+            onMouseLeave={() => {
+              if (clickable) setDeleteHover(false);
+            }}
+          />
+        </div>
+      ) : (
+        <div>
+          <Icon
+            icon="mdi:user-circle"
+            color={isMe ? timezoneColor : '#ccc'}
+            className="userIcon-nonclick"
+            onClick={() => {
+              if (clickable) setDeleteModalOpen(true);
+            }}
+            onMouseEnter={() => {
+              if (clickable) setDeleteHover(true);
+            }}
+            onMouseLeave={() => {
+              if (clickable) setDeleteHover(false);
+            }}
+          />
+        </div>
+      )}
       {deleteModalOpen ? (
         <CompanionDeleteModal
           closeDeletemodal={closeDeletemodal}

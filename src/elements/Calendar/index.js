@@ -4,8 +4,9 @@ import COLORSETS from '../../constants/colorset';
 import Popover from '@mui/material/Popover';
 import Box from '@mui/material/Box';
 import { Icon } from '@iconify/react';
-import morningRoutineResults from '../../routineInfos/morningRoutineResults';
 import allUsersRoutine from '../../routineInfos/allUsersRoutine';
+import morningRoutineResults from '../../routineInfos/morningRoutineResults';
+import dayRoutineResults from '../../routineInfos/dayRoutineResults';
 
 function Calendar() {
   const URLSplit = window.document.URL.split('/');
@@ -30,17 +31,37 @@ function Calendar() {
   const [routineResults, setRoutineResults] = useState({});
   const [practicedDatesStr, setPracticedDatesStr] = useState([]);
   const [practicedDates, setPracticedDates] = useState([]);
+  const [targets, setTargets] = useState([]);
 
   useEffect(() => {
-    morningRoutineResults = morningRoutineResults.filter(
-      ({ userID }) => userID === 'USER1'
-    );
     const routineRes = {};
-    morningRoutineResults.forEach(
-      ({ userID, date, totalTimeForeground, wakeUpTime }) => {
-        routineRes[date] = { totalTimeForeground, wakeUpTime };
-      }
-    );
+    if (timezone === 'morning') {
+      morningRoutineResults = morningRoutineResults.filter(
+        ({ userID }) => userID === 'USER1'
+      );
+      morningRoutineResults.forEach(
+        ({ userID, date, totalTimeForeground, wakeUpTime }) => {
+          routineRes[date] = { totalTimeForeground, wakeUpTime };
+        }
+      );
+
+      const targetSNSUsage = allUsersRoutine['USER1']['morning']['SNSUsage'];
+      const targetWakeUpTime = allUsersRoutine['USER1']['morning']['WakeUp'];
+      setTargets([targetSNSUsage, targetWakeUpTime]);
+    } else {
+      dayRoutineResults = dayRoutineResults.filter(
+        ({ userID }) => userID === 'USER1'
+      );
+      dayRoutineResults.forEach(
+        ({ userID, date, UVExposureTime, studyTime }) => {
+          routineRes[date] = { UVExposureTime, studyTime };
+        }
+      );
+
+      const targetStudyTime = allUsersRoutine['USER1']['day']['study'];
+      const targetUVExposure = allUsersRoutine['USER1']['day']['UVExposure'];
+      setTargets([targetStudyTime, targetUVExposure]);
+    }
 
     const dateStr = Object.keys(routineRes);
     const dates = dateStr.map(
@@ -50,9 +71,6 @@ function Calendar() {
     setPracticedDatesStr(dateStr);
     setPracticedDates(dates);
   }, []);
-
-  const targetWakeUpTime = allUsersRoutine['USER1']['morning']['WakeUp'];
-  const targetSNSUsage = allUsersRoutine['USER1']['morning']['SNSUsage'];
 
   const [timezoneStr, setTimezoneStr] = useState(
     timezone === 'morning'
@@ -66,8 +84,8 @@ function Calendar() {
     COLORSETS['gray'],
     COLORSETS['gray'],
   ]);
-  const [actualWakeUpTime, setActualWakeUpTime] = useState('10:00');
-  const [actualSNSUsage, setActualSNSUsage] = useState(0);
+
+  const [actualAchievements, setActualAchievements] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const handlePopoverOpen = (event) => {
     const hoveredDate = event.target.firstChild.data;
@@ -89,23 +107,41 @@ function Calendar() {
         new Date().getTimezoneOffset() * 60000
     );
     const newTooltipIcon = [COLORSETS['gray'], COLORSETS['gray']];
+    const actualContents = [0, 0];
     const thisDateStr = thisDate.toISOString().split('T')[0];
+
     if (practicedDates.includes(thisDateStr)) {
       const jsonIdx = practicedDates.indexOf(thisDateStr);
-      const { totalTimeForeground, wakeUpTime } =
-        routineResults[practicedDatesStr[jsonIdx]];
 
-      setActualWakeUpTime(wakeUpTime);
-      setActualSNSUsage(totalTimeForeground);
+      if (timezone === 'morning') {
+        const { totalTimeForeground, wakeUpTime } =
+          routineResults[practicedDatesStr[jsonIdx]];
+        actualContents[0] = totalTimeForeground;
+        actualContents[1] = wakeUpTime;
 
-      if (
-        new Date(thisDateStr + 'T' + wakeUpTime).getTime() <=
-        new Date(thisDateStr + 'T' + targetWakeUpTime).getTime()
-      )
-        newTooltipIcon[0] = COLORSETS[timezone][0];
-      if (totalTimeForeground <= targetSNSUsage)
-        newTooltipIcon[1] = COLORSETS[timezone][0];
+        if (totalTimeForeground <= targets[0])
+          newTooltipIcon[0] = COLORSETS[timezone][0];
+        if (
+          new Date(thisDateStr + 'T' + wakeUpTime).getTime() <=
+          new Date(thisDateStr + 'T' + targets[1]).getTime()
+        )
+          newTooltipIcon[1] = COLORSETS[timezone][0];
+      } else {
+        const { studyTime, UVExposureTime } =
+          routineResults[practicedDatesStr[jsonIdx]];
+
+        actualContents[0] = studyTime;
+        actualContents[1] = UVExposureTime;
+
+        if (studyTime >= targets[0]) newTooltipIcon[0] = COLORSETS[timezone][0];
+        if (
+          new Date(thisDateStr + 'T' + UVExposureTime).getTime() <=
+          new Date(thisDateStr + 'T' + targets[1]).getTime()
+        )
+          newTooltipIcon[1] = COLORSETS[timezone][0];
+      }
     }
+    setActualAchievements(actualContents);
     setTooltipIcon(newTooltipIcon);
 
     setAnchorEl(anchorEl ? null : event.currentTarget);
@@ -221,17 +257,30 @@ function Calendar() {
           let achievement = 0;
           let isEmpty = true;
           const thisDateStr = thisDate.toISOString().split('T')[0];
+
           if (practicedDates.includes(thisDateStr)) {
             isEmpty = false;
             const jsonIdx = practicedDates.indexOf(thisDateStr);
-            const { totalTimeForeground, wakeUpTime } =
-              routineResults[practicedDatesStr[jsonIdx]];
-            if (totalTimeForeground <= targetSNSUsage) achievement++;
-            if (
-              new Date(thisDateStr + 'T' + wakeUpTime).getTime() <=
-              new Date(thisDateStr + 'T' + targetWakeUpTime).getTime()
-            )
-              achievement++;
+
+            if (timezone === 'morning') {
+              const { totalTimeForeground, wakeUpTime } =
+                routineResults[practicedDatesStr[jsonIdx]];
+              if (totalTimeForeground <= targets[0]) achievement++;
+              if (
+                new Date(thisDateStr + 'T' + wakeUpTime).getTime() <=
+                new Date(thisDateStr + 'T' + targets[1]).getTime()
+              )
+                achievement++;
+            } else {
+              const { studyTime, UVExposureTime } =
+                routineResults[practicedDatesStr[jsonIdx]];
+              if (studyTime >= targets[0]) achievement++;
+              if (
+                new Date(thisDateStr + 'T' + UVExposureTime).getTime() <=
+                new Date(thisDateStr + 'T' + targets[1]).getTime()
+              )
+                achievement++;
+            }
           }
           dates.push(
             <div
@@ -341,10 +390,18 @@ function Calendar() {
                     </div>
                   </td>
                   <td className="secondCol">
-                    Wake up at {targetWakeUpTime.slice(0, 5)}
+                    {timezone === 'morning'
+                      ? `SNS ↓ ${Math.floor(targets[0] / 1000 / 60)} min.`
+                      : `Study ↑ ${Math.floor(targets[0] / 60)} min.`}
                   </td>
                   <td className="thirdCol">
-                    Wake up at {actualWakeUpTime.slice(0, 5)}
+                    {timezone === 'morning'
+                      ? `Used SNS ${Math.floor(
+                          actualAchievements[0] / 1000 / 60
+                        )} min.`
+                      : `Studied ${Math.floor(
+                          actualAchievements[0] / 60
+                        )} min.`}
                   </td>
                 </tr>
                 <tr>
@@ -357,10 +414,19 @@ function Calendar() {
                     </div>
                   </td>
                   <td className="secondCol">
-                    Less than {Math.floor(targetSNSUsage / 1000 / 60)} min.
+                    {timezone === 'morning'
+                      ? `Wake up at ${targets[1]?.slice(0, 5)}`
+                      : `Enjoy sunshine ↑ 1hr.`}
                   </td>
                   <td className="thirdCol">
-                    Used {Math.floor(actualSNSUsage / 1000 / 60)} min.
+                    {timezone === 'morning'
+                      ? `Wake up at ${actualAchievements[1]?.slice(0, 5)}`
+                      : new Date(
+                          '1970-01-01 ' + actualAchievements[1]
+                        ).getTime() <=
+                        new Date('1970-01-01 ' + targets[1]).getTime()
+                      ? `Enjoyed sunshine ↑ 1hr.`
+                      : `Not enough sunshine`}
                   </td>
                 </tr>
               </tbody>
