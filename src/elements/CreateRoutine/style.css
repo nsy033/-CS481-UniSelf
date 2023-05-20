@@ -82,20 +82,20 @@
 }
 
 .createButton {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 186px;
-    height: 36px;
-    font-size: 16px;
-    font-weight: bold;
-    background-color: #FFE9A9;
-    border-radius: 16px;
-    border: 0;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 186px !important;
+    height: 36px !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+    border-radius: 16px !important;
+    border: 0 !important;
 }
 
 .createButton:hover {
-    background-color: #FFCA2D;
+    /* background-color: #FFCA2D !important; */
+    opacity: 100% !important;
 }
 
 .picker-container {

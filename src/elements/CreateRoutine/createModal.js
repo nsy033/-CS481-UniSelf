@@ -8,6 +8,27 @@ import TimePickerModal from './timePickerModal';
 
 function CreateModal({ setModalOpen }) {
 
+  const URLSplit = window.document.URL.split('/');
+
+  var timezone =
+  URLSplit.length >= 5 ? URLSplit[URLSplit.length - 1] : 'morning';
+
+  const colorsets = {
+    morning: ['#FFCA2D', '#FFE9A9'],
+    day: ['#8CD735', '#D8EDC0'],
+    night: ['#3F51B5', '#CED3F0'],
+  };
+
+  const emptyFilling = {
+      background: '#FFFFFF'
+  };
+
+  const deepFilling = JSON.parse(JSON.stringify(emptyFilling));
+  deepFilling.background = colorsets[timezone][0];
+  if (timezone == 'night') {
+      deepFilling.color = '#FFFFFF';
+  }
+
   const closeModal = () => {
     setModalOpen(false);
   };
@@ -50,7 +71,9 @@ function CreateModal({ setModalOpen }) {
             <button className='xButton' onClick={closeModal}>
                 Cancel
             </button>
-            <button className='oButton'>Create</button>
+            <button className='oButton' style={deepFilling}>
+              Create
+            </button>
           </div>
       </div>
   );
