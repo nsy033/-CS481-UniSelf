@@ -5,6 +5,7 @@ import Popover from '@mui/material/Popover';
 import Box from '@mui/material/Box';
 import { Icon } from '@iconify/react';
 import morningRoutineResults from '../../routineInfos/morningRoutineResults';
+import allUsersRoutine from '../../routineInfos/allUsersRoutine';
 
 function Calendar() {
   const URLSplit = window.document.URL.split('/');
@@ -50,8 +51,8 @@ function Calendar() {
     setPracticedDates(dates);
   }, []);
 
-  const targetWakeUpTime = '10:00:00';
-  const targetSNSUsage = 2700000;
+  const targetWakeUpTime = allUsersRoutine['USER1']['morning']['WakeUp'];
+  const targetSNSUsage = allUsersRoutine['USER1']['morning']['SNSUsage'];
 
   const [timezoneStr, setTimezoneStr] = useState(
     timezone === 'morning'
