@@ -103,6 +103,12 @@ function getWeekNumber(date) {
   return weekNumber;
 }
 
+const toggle = document.querySelector('.toggle-button');
+
+// toggle.addEventListener('click', () => {
+//   toggle.classList.toggle('active');
+// })
+
 var data = {
   x: practicedWeeks,
   y: aggregatedWakeUpTimes,
@@ -152,6 +158,18 @@ var layout = {
         <b>19/01/25 - 19/05/14</b>
       </div>
     );
+
+    // flowgraph.push(
+    //   <div>
+    //       <div class="main-container">
+    //         <div class="toggle-button">
+    //           <div class="inner-circle">
+    //             toggle
+    //           </div>
+    //         </div>
+    //       </div>
+    //   </div>
+    // );
 
     flowgraph.push(
       <Plot
