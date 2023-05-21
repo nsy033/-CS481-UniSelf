@@ -11,8 +11,8 @@ function SubPage() {
   const URLSplit = window.document.URL.split('/');
 
   var timezone = 'morning';
-  if (URLSplit.length >= 6) {
-    timezone = URLSplit[URLSplit.length - 2];
+  if (URLSplit.length >= 5) {
+    timezone = URLSplit[URLSplit.length - 1];
   }
 
   const myRoutineData = allUsersRoutine['USER1'];
