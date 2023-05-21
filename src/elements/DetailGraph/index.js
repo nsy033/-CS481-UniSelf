@@ -20,8 +20,8 @@ const routinesets = {
 }
 // console.log(routinesets[WakeUp]);
 
-const routinename = routinesets[routine][0];
-// const routinename = 'totalTimeForeground';
+// const routinename = routinesets[routine][0];
+const routinename = 'totalTimeForeground';
 
 const colorsets = {
   morning: ['#FFCA2D', '#FFE9A9'],
@@ -52,8 +52,8 @@ const practicedDates = practicedDatesStr.map(
 );
 
 const wakeUpTimes = practicedDatesStr.map((str) => {
-  const timeStr = routineResults[str][routinename];
-  // const timeStr = routineResults[str].wakeUpTime;
+  // const timeStr = routineResults[str][routinename];
+  const timeStr = routineResults[str].totalTimeForeground;
   // console.log(timeStr);
   return timeStr;
 });
@@ -88,61 +88,61 @@ var scatterplot = {
     name: 'SNS usage time',
   }
 
-  var background = {
-    x: practicedDates,
-    y: Array.from({ length: 110 }, () => 2700000),
-    fill: 'tozeroy',
-    fillcolor: colorsets[timezone][1],
-    type: 'scatter',
-    mode: 'none',
-    name: 'Goal'
-  }
+var background = {
+  x: practicedDates,
+  y: Array.from({ length: 110 }, () => 2700000),
+  fill: 'tozeroy',
+  fillcolor: colorsets[timezone][1],
+  type: 'scatter',
+  mode: 'none',
+  name: 'Goal'
+}
 
-  const initial_range = [
-    '2019-04-14', '2019-05-15'
-  ]
-    
-  var layout = {
-    font: {
-      size: 12
-    },
-    xaxis: {
-          //   rangeSelector: {buttons: [{
-          //     step: 'all'
-          // }]},
-            rangeslider: {},
-            range: initial_range
-        },
-    // xaxis: {
-    //   tickformat: '%H:%M:%S',
-    // },
-    yaxis: {
-      // tickformat: '%H:%M:%S',
-      title: {
-        text: 'Time (ms)',
-        font: {
-          size: 16,
-        }
+const initial_range = [
+  '2019-04-14', '2019-05-15'
+]
+  
+var layout = {
+  font: {
+    size: 12
+  },
+  xaxis: {
+        //   rangeSelector: {buttons: [{
+        //     step: 'all'
+        // }]},
+          rangeslider: {},
+          range: initial_range
+      },
+  // xaxis: {
+  //   tickformat: '%H:%M:%S',
+  // },
+  yaxis: {
+    // tickformat: '%H:%M:%S',
+    title: {
+      text: 'Time (ms)',
+      font: {
+        size: 16,
       }
     }
   }
-  
-  function DetailGraph() {
-    let detailgraph = [];
-    detailgraph.push(
-      <div className="title">
-        {routinesets[routine][1]} <b>DETAILS</b>
-      </div>
-    );
+}
 
-    detailgraph.push(
-      <Plot
-        className="graphContainer"
-        data={[background, scatterplot]}
-        layout={layout}
-    />
-    )
-    return (detailgraph);
-  }
+function DetailGraph() {
+  let detailgraph = [];
+  detailgraph.push(
+    <div className="title">
+      {routinesets[routine][1]} <b>DETAILS</b>
+    </div>
+  );
 
-  export default DetailGraph;
+  detailgraph.push(
+    <Plot
+      className="graphContainer"
+      data={[background, scatterplot]}
+      layout={layout}
+  />
+  )
+  return (detailgraph);
+}
+
+export default DetailGraph;

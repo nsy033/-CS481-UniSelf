@@ -18,7 +18,7 @@ const routinesets = {
   UVExposure: ['UVExposureTime', 'Daily UV exposure time'],
   study: ['studyTime', 'Daily study time'],
 }
-const routinename = routinesets[routine][0];
+// const routinename = routinesets[routine][0];
 
 const colorsets = {
   morning: ['#FFCA2D', '#FFE9A9'],
@@ -85,63 +85,63 @@ var scatterplot = {
       }
     },
     name: 'My Data',
-  }
+}
 
-  var background = {
-    x: practicedDates,
-    y: Array.from({ length: 110 }, () => "09:00:00").map(time => '2019-01-01 ' + time),
-    fill: 'tozeroy',
-    fillcolor: colorsets[timezone][1],
-    type: 'scatter',
-    mode: 'none',
-    name: 'Goal'
-  }
+var background = {
+x: practicedDates,
+y: Array.from({ length: 110 }, () => "09:00:00").map(time => '2019-01-01 ' + time),
+fill: 'tozeroy',
+fillcolor: colorsets[timezone][1],
+type: 'scatter',
+mode: 'none',
+name: 'Goal'
+}
 
-  const initial_range = [
-    '2019-04-14', '2019-05-15'
-  ]
+const initial_range = [
+'2019-04-14', '2019-05-15'
+]
     
-  var layout = {
-    font: {
-      size: 12
+var layout = {
+font: {
+    size: 12
+},
+xaxis: {
+        //   rangeSelector: {buttons: [{
+        //     step: 'all'
+        // }]},
+        rangeslider: {},
+        range: initial_range
     },
-    xaxis: {
-          //   rangeSelector: {buttons: [{
-          //     step: 'all'
-          // }]},
-            rangeslider: {},
-            range: initial_range
-        },
-    // xaxis: {
-    //   tickformat: '%H:%M:%S',
-    // },
-    yaxis: {
-      // tickformat: '%H:%M:%S',
-      title: {
-        text: 'Time',
-        font: {
-          size: 16,
-        }
-      }
+// xaxis: {
+//   tickformat: '%H:%M:%S',
+// },
+yaxis: {
+    // tickformat: '%H:%M:%S',
+    title: {
+    text: 'Time',
+    font: {
+        size: 16,
     }
-  }
-  
-  function DetailGraph() {
-    let detailgraph = [];
-    detailgraph.push(
-      <div className="title">
-        {routinesets[routine][1]} <b>DETAILS</b>
-      </div>
-    );
+    }
+}
+}
 
-    detailgraph.push(
-      <Plot
-        className="graphContainer"
-        data={[background, scatterplot]}
-        layout={layout}
-    />
-    )
-    return (detailgraph);
-  }
+function DetailGraph() {
+let detailgraph = [];
+detailgraph.push(
+    <div className="title">
+    {routinesets[routine][1]} <b>DETAILS</b>
+    </div>
+);
 
-  export default DetailGraph;
+detailgraph.push(
+    <Plot
+    className="graphContainer"
+    data={[background, scatterplot]}
+    layout={layout}
+/>
+)
+return (detailgraph);
+}
+
+export default DetailGraph;
