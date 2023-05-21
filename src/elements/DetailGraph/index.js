@@ -1,6 +1,8 @@
 import React from 'react';
 import Plot from 'react-plotly.js';
-import routineResults from '../../routineInfos/routineResults';
+// import routineResults from '../../routineInfos/routineResults';
+import morningRoutineResults from '../../routineInfos/morningRoutineResults';
+import dayRoutineResults from '../../routineInfos/dayRoutineResults';
 
 const URLSplit = window.document.URL.split('/');
 var timezone = 'morning';
@@ -13,6 +15,25 @@ const colorsets = {
   day: ['#8CD735', '#D8EDC0'],
   night: ['#3F51B5', '#CED3F0'],
 };
+
+let FilteredroutineResultsMy;
+let FilteredroutineResultsOthers;
+
+if (timezone === 'morning') {
+  FilteredroutineResultsMy = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
+  FilteredroutineResultsOthers = morningRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
+} else {
+  FilteredroutineResultsMy = dayRoutineResults.filter(({ userID }) => userID === 'USER1');
+  FilteredroutineResultsOthers = dayRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
+}
+
+const routineResults = {};
+const routineResultsOthers = {};
+
+FilteredroutineResultsMy.forEach((obj) => {
+  const { date, ...data } = obj;
+  routineResults[date] = data;
+});
 
 const practicedDatesStr = Object.keys(routineResults);
 const practicedDates = practicedDatesStr.map(
