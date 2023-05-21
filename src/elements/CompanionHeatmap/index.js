@@ -19,7 +19,17 @@ function CompanionHeatmap(props) {
         ({ userID }) => userID === rowForWhom
       );
     }
-    routineResults = routineResults.slice(routineResults.length - 7); // 최근 일주일치만 가져오기
+    if (rowForWhom.includes('1'))
+      routineResults = routineResults.slice(routineResults.length - 7);
+    else if (rowForWhom.includes('2'))
+      routineResults = routineResults.slice(6, 13);
+    else if (rowForWhom.includes('3'))
+      routineResults = routineResults.slice(7, 14);
+    else
+      routineResults = routineResults.slice(
+        routineResults.length - 37,
+        routineResults.length - 30
+      );
 
     const row = [];
     for (let day = 0; day < 7; day++) {

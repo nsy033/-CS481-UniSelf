@@ -7,7 +7,7 @@ import allUsersRoutine from '../../routineInfos/allUsersRoutine';
 function ComboCheckerBar(props) {
   const { name, timezone } = props;
 
-  const URLSplit = window.document.URL.split('/');  
+  const URLSplit = window.document.URL.split('/');
 
   const colorsets = {
     morning: ['#FFCA2D', '#FFE9A9'],
@@ -57,11 +57,7 @@ function ComboCheckerBar(props) {
     return combos;
   };
 
-
-
-  return (
-    <div className="combocontainer">{displayCombos()}</div>
-  );
+  return <div className="combocontainer">{displayCombos()}</div>;
 }
 
 export default ComboCheckerBar;

@@ -7,24 +7,24 @@
     "night": ["Exercise"]
   },
   "USER2": {
-    "name": "Harry Potter",
+    "name": "Harry",
     "userID": "USER2",
-    "morning": { "WakeUp": "11:00:00" },
-    "day": { "study": 1800 },
+    "morning": { "WakeUp": "08:00:00" },
+    "day": { "UVExposure": "18:00:00", "study": 2700 },
     "night": []
   },
   "USER3": {
-    "name": "Ron Weasley",
+    "name": "Ronald",
     "userID": "USER3",
-    "morning": { "WakeUp": "11:00:00" },
-    "day": { "UVExposure": "18:00:00", "study": 1800 },
+    "morning": { "WakeUp": "09:00:00" },
+    "day": { "UVExposure": "18:00:00", "study": 4500 },
     "night": []
   },
   "USER4": {
     "name": "Hermione",
     "userID": "USER4",
-    "morning": { "WakeUp": "09:00:00", "SNSUsage": 1800000 },
-    "day": { "study": 1800 },
+    "morning": { "WakeUp": "09:00:00", "SNSUsage": 2700000 },
+    "day": { "UVExposure": "18:00:00" },
     "night": ["Exercise", "WriteDiary"]
   }
 }
