@@ -12,10 +12,14 @@ import COLORSETS from '../../constants/colorset.js';
 import TimezoneBtns from '../TimezoneBtns';
 
 function CompanionPage() {
-  const initialList = allUsersRoutine.filter(({ name }) =>
-    companionList.includes(name)
-  );
+  const users = Object.keys(allUsersRoutine);
+  const initialList = [];
+  for (let user of users) {
+    if (companionList.includes(allUsersRoutine[user]['name']))
+      initialList.push(allUsersRoutine[user]);
+  }
   const [list, setList] = useState(initialList);
+
   const updateCompanionList = (newList) => {
     setList(newList);
   };
@@ -37,8 +41,8 @@ function CompanionPage() {
     light: JSON.parse(JSON.stringify(emptyFilling)),
     gray: JSON.parse(JSON.stringify(emptyFilling)),
   });
-
   const [selectedTimezone, setSelectedTimezone] = useState('morning');
+
   useEffect(() => {
     const deep = JSON.parse(JSON.stringify(emptyFilling));
     deep.background = COLORSETS['morning'][0];
@@ -83,11 +87,7 @@ function CompanionPage() {
       <div className="pageTitle">
         My Routine companions 🙌
         <span className="addIcon" onClick={() => setAddModalOpen(true)}>
-          <Icon
-            icon="material-symbols:add"
-            color="#ccc"
-            className="addIconPlus"
-          />
+          <Icon icon="material-symbols:add" className="addIconPlus" />
         </span>
         {addModalOpen ? (
           <CompanionAddModal

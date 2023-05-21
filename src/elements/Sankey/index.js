@@ -1,5 +1,5 @@
 import './style.css';
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Plot from 'react-plotly.js';
 import COLORSETS from '../../constants/colorset.js';
 
@@ -16,7 +16,7 @@ function Sankey() {
     const night = addAlpha(COLORSETS["night"][0], opacity)
     const transparent = addAlpha("#FFFFFF", 0)
 
-    const arr1 = ["Wake up at 9AM", "Write Diary", "Use less SNS", "Exercise more than 1 hr.", "Check mail box"]
+    // const arr1 = ["Wake up at 9AM", "Write Diary", "Use less SNS", "Exercise more than 1 hr.", "Check mail box"]
     const rank1 = [1, 2, 3, 4, 5]
     const rank2 = [2, 1, 5, 4, 3]
     const rank3 = [4, 1, 3, 5, 2]

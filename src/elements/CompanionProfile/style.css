@@ -13,7 +13,18 @@
 .userIcon {
     width: 40px;
     height: 40px;
-    margin-right: 8px;
+    margin-right: 10px;
+    position: absolute;
+    border-radius: 50px;
+}
+.minusIcon {
+    width: 32px;
+    height: 32px;
+    margin-top: 4px;
+    margin-left: 4px;
+    margin-right: 10px;
+    background: #ccc;
+    border-radius: 50px;
 }
 .userIcon-nonclick {
     width: 40px;
@@ -21,6 +32,7 @@
     margin-right: 8px;
 }
 .userIcon :hover {
-    color: rgba(204, 204, 204, 0.5);
-    transition: all 0.3s;
+    transition: all 0.4s;
+    background: none;
+    color: transparent;
 }

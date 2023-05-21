@@ -1,30 +1,155 @@
 import './style.css';
-import React, { useState, useCallback } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import COLORSETS from '../../constants/colorset';
 import Popover from '@mui/material/Popover';
 import Box from '@mui/material/Box';
 import { Icon } from '@iconify/react';
-import routineResults from '../../routineInfos/routineResults';
+import allUsersRoutine from '../../routineInfos/allUsersRoutine';
+import morningRoutineResults from '../../routineInfos/morningRoutineResults';
+import dayRoutineResults from '../../routineInfos/dayRoutineResults';
 
 function Calendar() {
   const URLSplit = window.document.URL.split('/');
   const timezone = URLSplit[URLSplit.length - 1];
 
-  const practicedDatesStr = Object.keys(routineResults);
-  const practicedDates = practicedDatesStr.map(
-    (str) => new Date(str).toISOString().split('T')[0]
-  );
-  const targetWakeUpTime = '10:00:00';
+  const MonthNames = [
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'June',
+    'July',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
+  ];
+  const weekdays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
 
+  const [routineResults, setRoutineResults] = useState({});
+  const [practicedDatesStr, setPracticedDatesStr] = useState([]);
+  const [practicedDates, setPracticedDates] = useState([]);
+  const [targets, setTargets] = useState([]);
+
+  useEffect(() => {
+    const routineRes = {};
+    if (timezone === 'morning') {
+      morningRoutineResults = morningRoutineResults.filter(
+        ({ userID }) => userID === 'USER1'
+      );
+      morningRoutineResults.forEach(
+        ({ userID, date, totalTimeForeground, wakeUpTime }) => {
+          routineRes[date] = { totalTimeForeground, wakeUpTime };
+        }
+      );
+
+      const targetSNSUsage = allUsersRoutine['USER1']['morning']['SNSUsage'];
+      const targetWakeUpTime = allUsersRoutine['USER1']['morning']['WakeUp'];
+      setTargets([targetSNSUsage, targetWakeUpTime]);
+    } else {
+      dayRoutineResults = dayRoutineResults.filter(
+        ({ userID }) => userID === 'USER1'
+      );
+      dayRoutineResults.forEach(
+        ({ userID, date, UVExposureTime, studyTime }) => {
+          routineRes[date] = { UVExposureTime, studyTime };
+        }
+      );
+
+      const targetStudyTime = allUsersRoutine['USER1']['day']['study'];
+      const targetUVExposure = allUsersRoutine['USER1']['day']['UVExposure'];
+      setTargets([targetStudyTime, targetUVExposure]);
+    }
+
+    const dateStr = Object.keys(routineRes);
+    const dates = dateStr.map(
+      (str) => new Date(str).toISOString().split('T')[0]
+    );
+    setRoutineResults(routineRes);
+    setPracticedDatesStr(dateStr);
+    setPracticedDates(dates);
+  }, []);
+
+  const [timezoneStr, setTimezoneStr] = useState(
+    timezone === 'morning'
+      ? 'Morning 🌻'
+      : timezone === 'day'
+      ? 'Day 🌈'
+      : 'Night 🌙'
+  );
+  const [dateStr, setDateStr] = useState('1st Jan');
+  const [tooltipIcon, setTooltipIcon] = useState([
+    COLORSETS['gray'],
+    COLORSETS['gray'],
+  ]);
+
+  const [actualAchievements, setActualAchievements] = useState([]);
   const [anchorEl, setAnchorEl] = useState(null);
   const handlePopoverOpen = (event) => {
+    const hoveredDate = event.target.firstChild.data;
+    const lastChar = hoveredDate[hoveredDate.length - 1];
+    setDateStr(
+      `${hoveredDate}${
+        lastChar === '1'
+          ? 'st'
+          : lastChar === '2'
+          ? 'nd'
+          : lastChar === '3'
+          ? 'rd'
+          : 'th'
+      } ${MonthNames[selectedMonth - 1]}`
+    );
+
+    const thisDate = new Date(
+      new Date(selectedYear, selectedMonth - 1, hoveredDate) -
+        new Date().getTimezoneOffset() * 60000
+    );
+    const newTooltipIcon = [COLORSETS['gray'], COLORSETS['gray']];
+    const actualContents = [0, 0];
+    const thisDateStr = thisDate.toISOString().split('T')[0];
+
+    if (practicedDates.includes(thisDateStr)) {
+      const jsonIdx = practicedDates.indexOf(thisDateStr);
+
+      if (timezone === 'morning') {
+        const { totalTimeForeground, wakeUpTime } =
+          routineResults[practicedDatesStr[jsonIdx]];
+        actualContents[0] = totalTimeForeground;
+        actualContents[1] = wakeUpTime;
+
+        if (totalTimeForeground <= targets[0])
+          newTooltipIcon[0] = COLORSETS[timezone][0];
+        if (
+          new Date(thisDateStr + 'T' + wakeUpTime).getTime() <=
+          new Date(thisDateStr + 'T' + targets[1]).getTime()
+        )
+          newTooltipIcon[1] = COLORSETS[timezone][0];
+      } else {
+        const { studyTime, UVExposureTime } =
+          routineResults[practicedDatesStr[jsonIdx]];
+
+        actualContents[0] = studyTime;
+        actualContents[1] = UVExposureTime;
+
+        if (studyTime >= targets[0]) newTooltipIcon[0] = COLORSETS[timezone][0];
+        if (
+          new Date(thisDateStr + 'T' + UVExposureTime).getTime() <=
+          new Date(thisDateStr + 'T' + targets[1]).getTime()
+        )
+          newTooltipIcon[1] = COLORSETS[timezone][0];
+      }
+    }
+    setActualAchievements(actualContents);
+    setTooltipIcon(newTooltipIcon);
+
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
   const handlePopoverClose = () => {
     setAnchorEl(null);
   };
   const open = Boolean(anchorEl);
-  const id = open ? 'simple-popper' : undefined;
 
   const emptyFilling = {
     width: '50px',
@@ -64,27 +189,12 @@ function Calendar() {
     date: 14, //오늘 날짜
     day: 0, //오늘 요일
   };
-  const weekdays = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT'];
   const [selectedYear, setSelectedYear] = useState(today.year);
   const [selectedMonth, setSelectedMonth] = useState(today.month);
   const [dateTotalCount, setDateTotalCount] = useState(
     new Date(selectedYear, selectedMonth, 0).getDate()
   );
 
-  const MonthNames = [
-    'Jan',
-    'Feb',
-    'Mar',
-    'Apr',
-    'May',
-    'June',
-    'July',
-    'Aug',
-    'Sep',
-    'Oct',
-    'Nov',
-    'Dec',
-  ];
   let years = [];
   let months = [];
   for (let i = today.year - 10; i < today.year + 10; i++) years.push(i);
@@ -147,17 +257,30 @@ function Calendar() {
           let achievement = 0;
           let isEmpty = true;
           const thisDateStr = thisDate.toISOString().split('T')[0];
+
           if (practicedDates.includes(thisDateStr)) {
             isEmpty = false;
             const jsonIdx = practicedDates.indexOf(thisDateStr);
-            const { CaloriesToday, wakeUpTime } =
-              routineResults[practicedDatesStr[jsonIdx]];
-            if (CaloriesToday >= 2000) achievement++;
-            if (
-              new Date(thisDateStr + 'T' + wakeUpTime).getTime() <=
-              new Date(thisDateStr + 'T' + targetWakeUpTime).getTime()
-            )
-              achievement++;
+
+            if (timezone === 'morning') {
+              const { totalTimeForeground, wakeUpTime } =
+                routineResults[practicedDatesStr[jsonIdx]];
+              if (totalTimeForeground <= targets[0]) achievement++;
+              if (
+                new Date(thisDateStr + 'T' + wakeUpTime).getTime() <=
+                new Date(thisDateStr + 'T' + targets[1]).getTime()
+              )
+                achievement++;
+            } else {
+              const { studyTime, UVExposureTime } =
+                routineResults[practicedDatesStr[jsonIdx]];
+              if (studyTime >= targets[0]) achievement++;
+              if (
+                new Date(thisDateStr + 'T' + UVExposureTime).getTime() <=
+                new Date(thisDateStr + 'T' + targets[1]).getTime()
+              )
+                achievement++;
+            }
           }
           dates.push(
             <div
@@ -200,7 +323,7 @@ function Calendar() {
     }
 
     return dates;
-  }, [selectedYear, selectedMonth, dateTotalCount]);
+  }, [routineResults, selectedYear, selectedMonth, dateTotalCount]);
 
   return (
     <div className="calendarContainer">
@@ -234,8 +357,81 @@ function Calendar() {
         onClose={handlePopoverClose}
         disableRestoreFocus
       >
-        <Box sx={{ border: 0, p: 3, bgcolor: 'background.paper' }}>
-          The content of the Popper.
+        <Box
+          sx={{
+            border: 0,
+            width: '500px',
+            height: '150px',
+            bgcolor: 'background.paper',
+          }}
+        >
+          <div className="tooltipContentsContainer">
+            <div className="tooltipTitle">
+              How have your {timezoneStr} been on <b>{dateStr}</b>
+            </div>
+            <table className="tooltipTable">
+              <tbody>
+                <tr>
+                  <td className="firstCol"></td>
+                  <td className="secondCol">
+                    <b>My Goal</b>
+                  </td>
+                  <td className="thirdCol">
+                    <b>Actual Achievement</b>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="firstCol">
+                    <div
+                      className="tooltipIcon"
+                      style={{ background: tooltipIcon[0] }}
+                    >
+                      {' '}
+                    </div>
+                  </td>
+                  <td className="secondCol">
+                    {timezone === 'morning'
+                      ? `SNS ↓ ${Math.floor(targets[0] / 1000 / 60)} min.`
+                      : `Study ↑ ${Math.floor(targets[0] / 60)} min.`}
+                  </td>
+                  <td className="thirdCol">
+                    {timezone === 'morning'
+                      ? `Used SNS ${Math.floor(
+                          actualAchievements[0] / 1000 / 60
+                        )} min.`
+                      : `Studied ${Math.floor(
+                          actualAchievements[0] / 60
+                        )} min.`}
+                  </td>
+                </tr>
+                <tr>
+                  <td className="firstCol">
+                    <div
+                      className="tooltipIcon"
+                      style={{ background: tooltipIcon[1] }}
+                    >
+                      {' '}
+                    </div>
+                  </td>
+                  <td className="secondCol">
+                    {timezone === 'morning'
+                      ? `Wake up at ${targets[1]?.slice(0, 5)}`
+                      : `Enjoy sunshine ↑ 1hr.`}
+                  </td>
+                  <td className="thirdCol">
+                    {timezone === 'morning'
+                      ? `Wake up at ${actualAchievements[1]?.slice(0, 5)}`
+                      : new Date(
+                          '1970-01-01 ' + actualAchievements[1]
+                        ).getTime() <=
+                        new Date('1970-01-01 ' + targets[1]).getTime()
+                      ? `Enjoyed sunshine ↑ 1hr.`
+                      : `Not enough sunshine`}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </Box>
       </Popover>
     </div>

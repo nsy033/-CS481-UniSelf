@@ -4,7 +4,9 @@ import * as ROUTES from '../../constants/routes';
 
 function ComboChecker() {
   const URLSplit = window.document.URL.split('/');
-  const timezone = URLSplit[URLSplit.length - 1];
+  var timezone =
+    URLSplit.length >= 5 ? URLSplit[URLSplit.length - 1] : 'morning';
+
   const colorsets = {
     morning: ['#FFCA2D', '#FFE9A9'],
     day: ['#8CD735', '#D8EDC0'],
@@ -32,36 +34,18 @@ function ComboChecker() {
   const displayCombos1 = () => {
     let combos = [];
     combos.push(
-        <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/wakeup'}> Wake Up at 9AM </a>
+      <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/wakeup'}>
+        {' '}
+        Wake Up at 9AM{' '}
+      </a>
     );
+    combos.push(<div className="rcorners1" style={deepFilling}></div>);
+    combos.push(<div className="rcorners1" style={deepFilling}></div>);
+    combos.push(<div className="rcorners1" style={deepFilling}></div>);
     combos.push(
-        <div
-            className="rcorners1"
-            style={deepFilling}
-        >
-        </div>
-    );
-    combos.push(
-      <div
-          className="rcorners1"
-          style={deepFilling}
-      >
+      <div className="combotext" style={deepText}>
+        3 COMBO!
       </div>
-  );
-    combos.push(
-        <div
-            className="rcorners1"
-            style={deepFilling}
-        >
-        </div>
-    );
-    combos.push(
-        <div
-          className="combotext"
-          style={deepText}
-        >
-            3 COMBO!
-        </div>
     );
 
     return combos;
@@ -70,29 +54,20 @@ function ComboChecker() {
   const displayCombos2 = () => {
     let combos = [];
     combos.push(
-        <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/wakeup'}> Check Mail Box </a>
+      <a
+        className="text"
+        href={ROUTES.ROUTINE + '/' + timezone + '/checkMailBox'}
+      >
+        {' '}
+        Check Mail Box{' '}
+      </a>
     );
+    combos.push(<div className="rcorners1" style={deepFilling}></div>);
+    combos.push(<div className="rcorners1" style={deepFilling}></div>);
     combos.push(
-        <div
-            className="rcorners1"
-            style={deepFilling}
-        >
-        </div>
-    );
-    combos.push(
-        <div
-            className="rcorners1"
-            style={deepFilling}
-        >
-        </div>
-    );
-    combos.push(
-        <div
-          className="combotext"
-          style={deepText}
-        >
-            2 COMBO!
-        </div>
+      <div className="combotext" style={deepText}>
+        2 COMBO!
+      </div>
     );
 
     return combos;
@@ -100,12 +75,12 @@ function ComboChecker() {
 
   return (
     <div className="combo">
-        <hr className="hrcontainer" />
-        <div className='combocontainer-box'>
-            <div className="combocontainer">{displayCombos1()}</div>
-            <div className="combocontainer">{displayCombos2()}</div>
-        </div>
-        <hr className="hrcontainer" />
+      <hr className="hrcontainer" />
+      <div className="combocontainer-box">
+        <div className="combocontainer">{displayCombos1()}</div>
+        <div className="combocontainer">{displayCombos2()}</div>
+      </div>
+      <hr className="hrcontainer" />
     </div>
   );
 }

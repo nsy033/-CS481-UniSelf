@@ -1,5 +1,5 @@
 import pandas as pd
-from datetime import timedelta, datetime
+from datetime import timedelta
 
 absentUsers = ["P1512", "P1513", "P1524",
                "P3004", "P3006", "P3008", "P3009", "P3010", "P3014", "P3020", "P3023",
@@ -56,7 +56,7 @@ dates = {
 #     for user in users[uID]:
 #         for date in dates[uID]:
 #             df = pd.read_csv(
-#                 "../dataset/%s/PhysicalActivityEventEntity-%d.csv" % (user, date)
+#                 "../dataset/%s/AppUsageStatEntity-%d.csv" % (user, date)
 #             )
 
 #             df["userID"] = user
@@ -64,42 +64,42 @@ dates = {
 #             df["datetime"] = pd.DatetimeIndex(df["datetime"]) + timedelta(hours=9)
 #             mergedDF = pd.concat([mergedDF, df], axis=0)
 
-# print("Filter ON_FOOT events ...")
-# mergedDF = mergedDF[mergedDF["type"] == "ON_FOOT"]
 
-# print("Locate the first ON_FOOT event for each date ...")
-# ret_csv = pd.DataFrame(columns=["userID", "date", "wakeUpTime"])
+# print("Filter 카카오톡 or Instagram events ...")
+# mergedDF = mergedDF.loc[:, ['timestamp', 'name', 'totalTimeForeground', 'userID', 'datetime']]
+# mergedDF = mergedDF[(mergedDF["name"] == "카카오톡") | (mergedDF["name"] == "Instagram")]
+
+# print("Filter proper date and time ...")
+# mergedDF['date'] = mergedDF['datetime'].dt.date
+# mergedDF['time'] = mergedDF['datetime'].dt.time
+
+# print("Drop duplicates ...")
+# mergedDF = mergedDF.drop_duplicates(subset=['userID', 'date', 'name', 'totalTimeForeground'])
+
+# ret_csv = pd.DataFrame()
 # for idx, row in mergedDF.iterrows():
-#     user = row["userID"]
-#     date = row["datetime"].date()
-#     if (ret_csv[ret_csv["userID"] == user]["date"] == date).any():
-#         continue
 #     if not((
 #         (row["userID"][1:3] == '07') & (1557241200000 <= row["timestamp"]) & (row["timestamp"] < 1557846000000))
 #         | ((row["userID"][1:3] == '15') & (1557932400000 <= row["timestamp"]) & (row["timestamp"] < 1558537200000))
 #         | ((row["userID"][1:3] == '30') & (1556550000000 <= row["timestamp"]) & (row["timestamp"] < 1557154800000))
 #     ):
 #         continue
-
-#     wakeUpTime = row["datetime"].time()
-#     if wakeUpTime < datetime.strptime("06:00", "%H:%M").time():
+#     if not ((pd.to_datetime('6:00:00').time() <= row["time"]) & (row["time"] <= pd.to_datetime('12:00:00').time())):
 #         continue
 
-#     print(user, date, wakeUpTime)
 #     new_row = pd.DataFrame(
-#         {"userID": [user], "date": [date], "wakeUpTime": [wakeUpTime]}
+#         {"timestamp": [row["timestamp"]], "datetime": [row["datetime"]], "date": [row["date"]], "time": [row["time"]], 
+#          "userID": [row["userID"]], "appName": [row["name"]], "totalTimeForeground": [row["totalTimeForeground"]]}
 #     )
 #     ret_csv = pd.concat([ret_csv, new_row], axis=0)
 
-# ret_csv = ret_csv.reset_index(drop=True)
-
 # print("Save the result file ...")
-# ret_csv.to_csv("../csvs/wakeUpTimes.csv", mode="w")
+# ret_csv.to_csv("../csvs/SNSUsages.csv", mode="w")
 
 # print("Done for making original data processing")
 
 
-ret_csv = pd.read_csv("../csvs/wakeUpTimes.csv")
+ret_csv = pd.read_csv("../csvs/SNSUsages.csv")
 
 print("Modify date and uID values ...")
 ret_csv["userID__origin"] = ret_csv["userID"]
@@ -109,8 +109,9 @@ for idx, row in ret_csv.iterrows():
     for i in range(1, 6):
         uID = "USER" + str(i)
         if row["userID"] in users[uID]:
-            ret_csv["userID"][idx] = "USER4" if uID == "USER5" else uID
+            ret_csv["userID"][idx] = "USER4" if i == 5 else uID
             break
+print(ret_csv)
 
 merged_csv = pd.DataFrame()
 dateMax = -1
@@ -119,6 +120,7 @@ for i in range(1, 6):
     oneUsers = ret_csv.loc[ret_csv["userID"] == uID]
     if dateMax == -1:
         dateMax = oneUsers["date__origin"].max()
+    print(pd.to_datetime(dateMax), oneUsers.shape[0] - 1)
     oneUsers["date"]= pd.date_range(
         pd.to_datetime(dateMax) - timedelta(days=oneUsers.shape[0] - 1),
         pd.to_datetime(dateMax),
@@ -127,7 +129,9 @@ for i in range(1, 6):
     oneUsers = oneUsers.loc[oneUsers["date"] >= pd.to_datetime('2019-01-26')]
     merged_csv = pd.concat([merged_csv, oneUsers], axis=0)
 
+merged_csv = merged_csv.groupby(['userID', 'date']).sum().reset_index().loc[:, ['userID', 'date', 'totalTimeForeground']]
+
 print("Save the result file ...")
-merged_csv.to_csv("../csvs/wakeUpTimesFinal.csv", mode="w")
+merged_csv.to_csv("../csvs/SNSUsagesFinal.csv", mode="w")
 
 print("Done")

@@ -15,14 +15,19 @@ export default function CompanionAddModal(props) {
   const [selectedUser, setSelectedUser] = useState('');
 
   useEffect(() => {
-    const newSearchResult = allUsers
-      .map(({ name }) => name)
+    let newSearchResult = [];
+    Object.keys(allUsers).forEach((userID) => {
+      newSearchResult.push(allUsers[userID]['name']);
+    });
+
+    newSearchResult = newSearchResult
       .filter(
         (userName) =>
           userName.toLowerCase().includes(searchInput.toLowerCase()) &&
           searchInput !== ''
       )
       .sort();
+
     setSearchResults(newSearchResult);
     setSelectedUser('');
   }, [searchInput]);
@@ -32,11 +37,18 @@ export default function CompanionAddModal(props) {
   };
   const addCompanion = () => {
     const companionNames = companionList.map(({ name }) => name);
-    const newList = allUsers.filter((user) => {
+
+    let newList = [];
+    Object.keys(allUsers).forEach((userID) => {
+      newList.push(allUsers[userID]);
+    });
+
+    newList = newList.filter((user) => {
       if (companionNames.includes(user.name) || user.name === selectedUser)
         return true;
       else return false;
     });
+
     updateCompanionList(newList);
     closeAddmodal();
   };

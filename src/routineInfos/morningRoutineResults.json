@@ -1,0 +1,2618 @@
+[
+  {
+    "userID": "USER1",
+    "date": "2019-01-26",
+    "totalTimeForeground": 81386,
+    "wakeUpTime": "10:14:09.515000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-01-27",
+    "totalTimeForeground": 109724,
+    "wakeUpTime": "09:01:22.629000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-01-28",
+    "totalTimeForeground": 120170,
+    "wakeUpTime": "16:14:38.454000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-01-29",
+    "totalTimeForeground": 126153,
+    "wakeUpTime": "12:30:47.151000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-01-30",
+    "totalTimeForeground": 1381,
+    "wakeUpTime": "10:12:41.202000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-01-31",
+    "totalTimeForeground": 1975,
+    "wakeUpTime": "09:49:48.065000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-01",
+    "totalTimeForeground": 1768996,
+    "wakeUpTime": "10:27:49.317000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-02",
+    "totalTimeForeground": 7612,
+    "wakeUpTime": "10:15:38.362000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-03",
+    "totalTimeForeground": 7935,
+    "wakeUpTime": "09:25:48.039000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-04",
+    "totalTimeForeground": 1568513,
+    "wakeUpTime": "12:44:07.900000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-05",
+    "totalTimeForeground": 78832,
+    "wakeUpTime": "12:51:08.262000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-06",
+    "totalTimeForeground": 128428,
+    "wakeUpTime": "08:12:16.509000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-07",
+    "totalTimeForeground": 165629,
+    "wakeUpTime": "10:39:12.991000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-08",
+    "totalTimeForeground": 207386,
+    "wakeUpTime": "09:05:32.123000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-09",
+    "totalTimeForeground": 307952,
+    "wakeUpTime": "08:00:53.944000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-10",
+    "totalTimeForeground": 339494,
+    "wakeUpTime": "08:10:56.180000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-11",
+    "totalTimeForeground": 541534,
+    "wakeUpTime": "07:39:50.933000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-12",
+    "totalTimeForeground": 605424,
+    "wakeUpTime": "08:51:46.696000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-13",
+    "totalTimeForeground": 197547,
+    "wakeUpTime": "09:47:45.070000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-14",
+    "totalTimeForeground": 262791,
+    "wakeUpTime": "11:52:14.044000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-15",
+    "totalTimeForeground": 351282,
+    "wakeUpTime": "09:15:22.396000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-16",
+    "totalTimeForeground": 439038,
+    "wakeUpTime": "07:46:38.194000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-17",
+    "totalTimeForeground": 4862,
+    "wakeUpTime": "07:53:11.130000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-18",
+    "totalTimeForeground": 115519,
+    "wakeUpTime": "06:13:34.683000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-19",
+    "totalTimeForeground": 127255,
+    "wakeUpTime": "09:37:34.031000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-20",
+    "totalTimeForeground": 150880,
+    "wakeUpTime": "07:50:13.192000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-21",
+    "totalTimeForeground": 167550,
+    "wakeUpTime": "08:00:18.435000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-22",
+    "totalTimeForeground": 192053,
+    "wakeUpTime": "09:13:14.731000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-23",
+    "totalTimeForeground": 14796,
+    "wakeUpTime": "09:00:51.535000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-24",
+    "totalTimeForeground": 45378,
+    "wakeUpTime": "08:21:56.701000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-25",
+    "totalTimeForeground": 125832,
+    "wakeUpTime": "09:41:21.434000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-26",
+    "totalTimeForeground": 137392,
+    "wakeUpTime": "12:10:23.068000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-27",
+    "totalTimeForeground": 198858,
+    "wakeUpTime": "07:45:45.849000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-02-28",
+    "totalTimeForeground": 259171,
+    "wakeUpTime": "09:29:26.392000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-01",
+    "totalTimeForeground": 363213,
+    "wakeUpTime": "09:01:19.356000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-02",
+    "totalTimeForeground": 62365,
+    "wakeUpTime": "08:23:36.119000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-03",
+    "totalTimeForeground": 233858,
+    "wakeUpTime": "10:04:00.667000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-04",
+    "totalTimeForeground": 72478,
+    "wakeUpTime": "14:29:55.671000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-05",
+    "totalTimeForeground": 79016,
+    "wakeUpTime": "09:49:24.797000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-06",
+    "totalTimeForeground": 181553,
+    "wakeUpTime": "11:25:54.957000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-07",
+    "totalTimeForeground": 265330,
+    "wakeUpTime": "10:25:32.952000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-08",
+    "totalTimeForeground": 364868,
+    "wakeUpTime": "11:45:33.792000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-09",
+    "totalTimeForeground": 368211,
+    "wakeUpTime": "08:24:47.091000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-10",
+    "totalTimeForeground": 409015,
+    "wakeUpTime": "11:36:40.296000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-11",
+    "totalTimeForeground": 474805,
+    "wakeUpTime": "13:05:16.488000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-12",
+    "totalTimeForeground": 521928,
+    "wakeUpTime": "14:31:58.013000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-13",
+    "totalTimeForeground": 86258,
+    "wakeUpTime": "10:14:59.931000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-14",
+    "totalTimeForeground": 117251,
+    "wakeUpTime": "11:47:33.730000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-15",
+    "totalTimeForeground": 142991,
+    "wakeUpTime": "12:57:10.191000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-16",
+    "totalTimeForeground": 146671,
+    "wakeUpTime": "13:35:34.613000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-17",
+    "totalTimeForeground": 161699,
+    "wakeUpTime": "16:48:56.320000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-18",
+    "totalTimeForeground": 173459,
+    "wakeUpTime": "10:23:35.315000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-19",
+    "totalTimeForeground": 220479,
+    "wakeUpTime": "11:49:02.536000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-20",
+    "totalTimeForeground": 233536,
+    "wakeUpTime": "09:00:06.317000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-21",
+    "totalTimeForeground": 358175,
+    "wakeUpTime": "11:15:15.828000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-22",
+    "totalTimeForeground": 395418,
+    "wakeUpTime": "11:53:48.907000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-23",
+    "totalTimeForeground": 456463,
+    "wakeUpTime": "11:58:05.492000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-24",
+    "totalTimeForeground": 485122,
+    "wakeUpTime": "12:49:35.643000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-25",
+    "totalTimeForeground": 514181,
+    "wakeUpTime": "08:46:40.710000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-26",
+    "totalTimeForeground": 1359,
+    "wakeUpTime": "14:12:58.485000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-27",
+    "totalTimeForeground": 630614,
+    "wakeUpTime": "10:36:06.514000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-28",
+    "totalTimeForeground": 35853,
+    "wakeUpTime": "08:32:16.977000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-29",
+    "totalTimeForeground": 328910,
+    "wakeUpTime": "08:41:14.882000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-30",
+    "totalTimeForeground": 338704,
+    "wakeUpTime": "09:36:57.710000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-03-31",
+    "totalTimeForeground": 343198,
+    "wakeUpTime": "10:54:38.404000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-01",
+    "totalTimeForeground": 344233,
+    "wakeUpTime": "08:42:25.638000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-02",
+    "totalTimeForeground": 411985,
+    "wakeUpTime": "08:42:57.940000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-03",
+    "totalTimeForeground": 416704,
+    "wakeUpTime": "10:39:01.817000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-04",
+    "totalTimeForeground": 421336,
+    "wakeUpTime": "07:39:28.861000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-05",
+    "totalTimeForeground": 536031,
+    "wakeUpTime": "08:36:42.986000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-06",
+    "totalTimeForeground": 592882,
+    "wakeUpTime": "10:23:50.502000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-07",
+    "totalTimeForeground": 2630338,
+    "wakeUpTime": "11:44:11.961000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-08",
+    "totalTimeForeground": 2667458,
+    "wakeUpTime": "09:49:40.790000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-09",
+    "totalTimeForeground": 2805227,
+    "wakeUpTime": "11:33:43.042000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-10",
+    "totalTimeForeground": 2843071,
+    "wakeUpTime": "09:01:25.133000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-11",
+    "totalTimeForeground": 2944993,
+    "wakeUpTime": "10:20:01.461000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-12",
+    "totalTimeForeground": 2965190,
+    "wakeUpTime": "08:13:30.956000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-13",
+    "totalTimeForeground": 2998759,
+    "wakeUpTime": "09:47:20.635000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-14",
+    "totalTimeForeground": 10040537,
+    "wakeUpTime": "09:57:54.723000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-15",
+    "totalTimeForeground": 10101001,
+    "wakeUpTime": "08:50:06.440000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-16",
+    "totalTimeForeground": 3081799,
+    "wakeUpTime": "08:30:31.623000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-17",
+    "totalTimeForeground": 3081801,
+    "wakeUpTime": "09:56:28.229000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-18",
+    "totalTimeForeground": 3083956,
+    "wakeUpTime": "08:56:37.209000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-19",
+    "totalTimeForeground": 3204297,
+    "wakeUpTime": "07:31:11.677000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-20",
+    "totalTimeForeground": 3346017,
+    "wakeUpTime": "08:04:33.652000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-21",
+    "totalTimeForeground": 3647813,
+    "wakeUpTime": "16:19:35.637000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-22",
+    "totalTimeForeground": 3665944,
+    "wakeUpTime": "07:47:58.685000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-23",
+    "totalTimeForeground": 1665300,
+    "wakeUpTime": "08:32:59.324000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-24",
+    "totalTimeForeground": 1764762,
+    "wakeUpTime": "09:00:20.471000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-25",
+    "totalTimeForeground": 1836311,
+    "wakeUpTime": "07:55:39.681000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-26",
+    "totalTimeForeground": 2026371,
+    "wakeUpTime": "12:06:46.335000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-27",
+    "totalTimeForeground": 4225513,
+    "wakeUpTime": "06:02:04.009000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-28",
+    "totalTimeForeground": 1443315,
+    "wakeUpTime": "13:05:12.542000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-29",
+    "totalTimeForeground": 1856453,
+    "wakeUpTime": "09:53:23.098000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-04-30",
+    "totalTimeForeground": 2407655,
+    "wakeUpTime": "10:57:56.083000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-05-01",
+    "totalTimeForeground": 2477796,
+    "wakeUpTime": "09:21:09.482000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-05-02",
+    "totalTimeForeground": 2915274,
+    "wakeUpTime": "07:42:07.194000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-05-03",
+    "totalTimeForeground": 2979365,
+    "wakeUpTime": "11:30:26.217000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-05-04",
+    "totalTimeForeground": 3199476,
+    "wakeUpTime": "07:51:49.750000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-05-05",
+    "totalTimeForeground": 1814061,
+    "wakeUpTime": "11:47:23.537000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-05-06",
+    "totalTimeForeground": 1843518,
+    "wakeUpTime": "06:15:42.913000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-05-07",
+    "totalTimeForeground": 1843529,
+    "wakeUpTime": "07:51:08.082000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-05-08",
+    "totalTimeForeground": 1843532,
+    "wakeUpTime": "09:00:15.072000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-05-09",
+    "totalTimeForeground": 1888754,
+    "wakeUpTime": "06:31:01.620000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-05-10",
+    "totalTimeForeground": 2214791,
+    "wakeUpTime": "08:49:16.480000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-05-11",
+    "totalTimeForeground": 2471095,
+    "wakeUpTime": "10:18:56.108000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-05-12",
+    "totalTimeForeground": 3115775,
+    "wakeUpTime": "12:01:28.837000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-05-13",
+    "totalTimeForeground": 3294547,
+    "wakeUpTime": "06:00:44.437000"
+  },
+  {
+    "userID": "USER1",
+    "date": "2019-05-14",
+    "totalTimeForeground": 3294550,
+    "wakeUpTime": "08:16:34.988000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-01-26",
+    "totalTimeForeground": 327978,
+    "wakeUpTime": "10:52:36.348000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-01-27",
+    "totalTimeForeground": 209664,
+    "wakeUpTime": "08:23:59.193000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-01-28",
+    "totalTimeForeground": 28142,
+    "wakeUpTime": "08:11:45.309000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-01-29",
+    "totalTimeForeground": 335868,
+    "wakeUpTime": "07:49:43.943000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-01-30",
+    "totalTimeForeground": 348215,
+    "wakeUpTime": "08:58:56.908000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-01-31",
+    "totalTimeForeground": 91000,
+    "wakeUpTime": "09:06:28.745000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-01",
+    "totalTimeForeground": 220115,
+    "wakeUpTime": "07:25:40.579000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-02",
+    "totalTimeForeground": 2230,
+    "wakeUpTime": "06:06:11.595000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-03",
+    "totalTimeForeground": 18259,
+    "wakeUpTime": "09:11:55.312000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-04",
+    "totalTimeForeground": 240744,
+    "wakeUpTime": "07:14:52.933000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-05",
+    "totalTimeForeground": 252433,
+    "wakeUpTime": "06:23:07.239000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-06",
+    "totalTimeForeground": 494591,
+    "wakeUpTime": "07:30:37.221000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-07",
+    "totalTimeForeground": 566401,
+    "wakeUpTime": "12:06:10.405000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-08",
+    "totalTimeForeground": 114947,
+    "wakeUpTime": "06:00:13.061000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-09",
+    "totalTimeForeground": 70739,
+    "wakeUpTime": "06:18:46.766000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-10",
+    "totalTimeForeground": 131369,
+    "wakeUpTime": "10:44:10.982000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-11",
+    "totalTimeForeground": 259115,
+    "wakeUpTime": "10:01:07.928000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-12",
+    "totalTimeForeground": 292565,
+    "wakeUpTime": "10:10:58.736000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-13",
+    "totalTimeForeground": 347355,
+    "wakeUpTime": "10:13:49.608000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-14",
+    "totalTimeForeground": 415196,
+    "wakeUpTime": "09:18:36.108000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-15",
+    "totalTimeForeground": 631969,
+    "wakeUpTime": "10:07:01.081000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-16",
+    "totalTimeForeground": 552309,
+    "wakeUpTime": "08:42:22.487000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-17",
+    "totalTimeForeground": 682440,
+    "wakeUpTime": "12:11:59.508000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-18",
+    "totalTimeForeground": 850068,
+    "wakeUpTime": "10:08:15.749000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-19",
+    "totalTimeForeground": 940078,
+    "wakeUpTime": "08:34:24.058000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-20",
+    "totalTimeForeground": 660745,
+    "wakeUpTime": "09:51:58.427000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-21",
+    "totalTimeForeground": 974027,
+    "wakeUpTime": "07:20:19.897000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-22",
+    "totalTimeForeground": 1049656,
+    "wakeUpTime": "14:32:19.641000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-23",
+    "totalTimeForeground": 1155187,
+    "wakeUpTime": "11:06:09.584000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-24",
+    "totalTimeForeground": 1227395,
+    "wakeUpTime": "08:39:37.786000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-25",
+    "totalTimeForeground": 1759357,
+    "wakeUpTime": "10:20:27.338000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-26",
+    "totalTimeForeground": 5922480,
+    "wakeUpTime": "12:34:39.587000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-27",
+    "totalTimeForeground": 6208901,
+    "wakeUpTime": "10:16:54.271000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-02-28",
+    "totalTimeForeground": 6354753,
+    "wakeUpTime": "10:56:39.030000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-01",
+    "totalTimeForeground": 6503292,
+    "wakeUpTime": "10:22:52.355000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-02",
+    "totalTimeForeground": 6720457,
+    "wakeUpTime": "07:16:22.211000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-03",
+    "totalTimeForeground": 1835762,
+    "wakeUpTime": "11:10:36.389000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-04",
+    "totalTimeForeground": 3264658,
+    "wakeUpTime": "07:40:40.088000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-05",
+    "totalTimeForeground": 3446794,
+    "wakeUpTime": "10:35:05.139000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-06",
+    "totalTimeForeground": 951892,
+    "wakeUpTime": "09:19:07.430000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-07",
+    "totalTimeForeground": 956296,
+    "wakeUpTime": "08:35:16.393000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-08",
+    "totalTimeForeground": 790521,
+    "wakeUpTime": "09:31:41.807000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-09",
+    "totalTimeForeground": 886396,
+    "wakeUpTime": "08:30:28.688000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-10",
+    "totalTimeForeground": 1077689,
+    "wakeUpTime": "06:52:03.388000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-11",
+    "totalTimeForeground": 4719180,
+    "wakeUpTime": "12:37:43.494000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-12",
+    "totalTimeForeground": 4779492,
+    "wakeUpTime": "09:52:40.622000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-13",
+    "totalTimeForeground": 2348882,
+    "wakeUpTime": "11:23:30.086000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-14",
+    "totalTimeForeground": 4823047,
+    "wakeUpTime": "06:17:09.600000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-15",
+    "totalTimeForeground": 2353569,
+    "wakeUpTime": "08:52:25.346000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-16",
+    "totalTimeForeground": 486273,
+    "wakeUpTime": "06:00:09.142000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-17",
+    "totalTimeForeground": 1723546,
+    "wakeUpTime": "07:02:45.952000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-18",
+    "totalTimeForeground": 1724361,
+    "wakeUpTime": "07:03:49.370000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-19",
+    "totalTimeForeground": 1186883,
+    "wakeUpTime": "09:00:05.738000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-20",
+    "totalTimeForeground": 1250922,
+    "wakeUpTime": "10:05:48.041000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-21",
+    "totalTimeForeground": 1264810,
+    "wakeUpTime": "12:20:27.503000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-22",
+    "totalTimeForeground": 884811,
+    "wakeUpTime": "12:36:14.864000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-23",
+    "totalTimeForeground": 890201,
+    "wakeUpTime": "11:31:28.400000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-24",
+    "totalTimeForeground": 1348903,
+    "wakeUpTime": "10:36:51.469000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-25",
+    "totalTimeForeground": 259003,
+    "wakeUpTime": "10:01:06.236000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-26",
+    "totalTimeForeground": 1040304,
+    "wakeUpTime": "10:20:49.760000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-27",
+    "totalTimeForeground": 1362786,
+    "wakeUpTime": "17:51:46.208000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-28",
+    "totalTimeForeground": 1426348,
+    "wakeUpTime": "12:50:41.063000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-29",
+    "totalTimeForeground": 1349284,
+    "wakeUpTime": "11:49:42.184000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-30",
+    "totalTimeForeground": 323612,
+    "wakeUpTime": "12:09:41.665000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-03-31",
+    "totalTimeForeground": 1797183,
+    "wakeUpTime": "12:37:55.612000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-01",
+    "totalTimeForeground": 1805046,
+    "wakeUpTime": "09:35:52.594000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-02",
+    "totalTimeForeground": 1810242,
+    "wakeUpTime": "10:16:34.485000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-03",
+    "totalTimeForeground": 1858179,
+    "wakeUpTime": "10:19:13.049000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-04",
+    "totalTimeForeground": 1994358,
+    "wakeUpTime": "08:50:24.115000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-05",
+    "totalTimeForeground": 2015039,
+    "wakeUpTime": "07:08:20.093000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-06",
+    "totalTimeForeground": 2272945,
+    "wakeUpTime": "11:29:44.898000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-07",
+    "totalTimeForeground": 1041174,
+    "wakeUpTime": "10:22:48.786000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-08",
+    "totalTimeForeground": 382214,
+    "wakeUpTime": "10:26:11.162000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-09",
+    "totalTimeForeground": 1057515,
+    "wakeUpTime": "10:23:55.364000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-10",
+    "totalTimeForeground": 1177849,
+    "wakeUpTime": "09:18:25.380000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-11",
+    "totalTimeForeground": 1189983,
+    "wakeUpTime": "12:11:03.928000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-12",
+    "totalTimeForeground": 69497,
+    "wakeUpTime": "10:18:59.888000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-13",
+    "totalTimeForeground": 1063928,
+    "wakeUpTime": "10:59:25.028000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-14",
+    "totalTimeForeground": 1416726,
+    "wakeUpTime": "09:19:39.766000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-15",
+    "totalTimeForeground": 1547663,
+    "wakeUpTime": "08:45:03.888000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-16",
+    "totalTimeForeground": 81167,
+    "wakeUpTime": "09:58:00.221000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-17",
+    "totalTimeForeground": 1573966,
+    "wakeUpTime": "10:28:43.943000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-18",
+    "totalTimeForeground": 299137,
+    "wakeUpTime": "06:00:13.977000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-19",
+    "totalTimeForeground": 493180,
+    "wakeUpTime": "08:42:33.365000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-20",
+    "totalTimeForeground": 645744,
+    "wakeUpTime": "13:10:00.438000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-21",
+    "totalTimeForeground": 652556,
+    "wakeUpTime": "11:54:09.880000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-22",
+    "totalTimeForeground": 664130,
+    "wakeUpTime": "12:54:13.504000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-23",
+    "totalTimeForeground": 802112,
+    "wakeUpTime": "06:35:59.052000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-24",
+    "totalTimeForeground": 832476,
+    "wakeUpTime": "12:31:58.627000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-25",
+    "totalTimeForeground": 851525,
+    "wakeUpTime": "11:02:34.687000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-26",
+    "totalTimeForeground": 868167,
+    "wakeUpTime": "11:05:24.350000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-27",
+    "totalTimeForeground": 902727,
+    "wakeUpTime": "11:45:51.888000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-28",
+    "totalTimeForeground": 913365,
+    "wakeUpTime": "09:53:26.699000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-29",
+    "totalTimeForeground": 1127183,
+    "wakeUpTime": "10:02:08.068000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-04-30",
+    "totalTimeForeground": 1172745,
+    "wakeUpTime": "09:47:09.317000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-05-01",
+    "totalTimeForeground": 1595077,
+    "wakeUpTime": "09:00:04.960000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-05-02",
+    "totalTimeForeground": 245445,
+    "wakeUpTime": "12:40:20.555000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-05-03",
+    "totalTimeForeground": 1685002,
+    "wakeUpTime": "11:07:38.693000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-05-04",
+    "totalTimeForeground": 1694457,
+    "wakeUpTime": "07:21:58.844000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-05-05",
+    "totalTimeForeground": 1904669,
+    "wakeUpTime": "09:12:24.972000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-05-06",
+    "totalTimeForeground": 1980873,
+    "wakeUpTime": "06:29:58.359000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-05-07",
+    "totalTimeForeground": 252785,
+    "wakeUpTime": "09:34:08.886000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-05-08",
+    "totalTimeForeground": 1998744,
+    "wakeUpTime": "11:56:58.574000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-05-09",
+    "totalTimeForeground": 2760962,
+    "wakeUpTime": "09:41:58.574000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-05-10",
+    "totalTimeForeground": 3065846,
+    "wakeUpTime": "11:20:51.573000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-05-11",
+    "totalTimeForeground": 147084,
+    "wakeUpTime": "08:50:56.373000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-05-12",
+    "totalTimeForeground": 3123370,
+    "wakeUpTime": "09:04:13.804000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-05-13",
+    "totalTimeForeground": 3275710,
+    "wakeUpTime": "10:18:39.646000"
+  },
+  {
+    "userID": "USER2",
+    "date": "2019-05-14",
+    "totalTimeForeground": 3297138,
+    "wakeUpTime": "11:38:03.696000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-01-26",
+    "totalTimeForeground": 3501852,
+    "wakeUpTime": "09:00:27.524000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-01-27",
+    "totalTimeForeground": 3503018,
+    "wakeUpTime": "10:18:41.120000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-01-28",
+    "totalTimeForeground": 3758222,
+    "wakeUpTime": "11:13:41.877000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-01-29",
+    "totalTimeForeground": 3766906,
+    "wakeUpTime": "08:50:47.503000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-01-30",
+    "totalTimeForeground": 1814783,
+    "wakeUpTime": "07:29:06.139000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-01-31",
+    "totalTimeForeground": 1824003,
+    "wakeUpTime": "09:45:52.483000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-01",
+    "totalTimeForeground": 1847537,
+    "wakeUpTime": "09:07:04.602000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-02",
+    "totalTimeForeground": 1873536,
+    "wakeUpTime": "23:35:40.986000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-03",
+    "totalTimeForeground": 2083975,
+    "wakeUpTime": "08:58:55.239000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-04",
+    "totalTimeForeground": 2155794,
+    "wakeUpTime": "09:50:22.436000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-05",
+    "totalTimeForeground": 2232047,
+    "wakeUpTime": "07:56:24.478000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-06",
+    "totalTimeForeground": 2293937,
+    "wakeUpTime": "10:51:04.786000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-07",
+    "totalTimeForeground": 2369894,
+    "wakeUpTime": "11:14:41.661000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-08",
+    "totalTimeForeground": 441254,
+    "wakeUpTime": "08:28:54.272000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-09",
+    "totalTimeForeground": 1671898,
+    "wakeUpTime": "14:15:39.119000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-10",
+    "totalTimeForeground": 2409005,
+    "wakeUpTime": "10:13:45.645000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-11",
+    "totalTimeForeground": 2513109,
+    "wakeUpTime": "07:19:00.817000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-12",
+    "totalTimeForeground": 2662069,
+    "wakeUpTime": "06:00:05.338000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-13",
+    "totalTimeForeground": 2748711,
+    "wakeUpTime": "13:32:54.885000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-14",
+    "totalTimeForeground": 2900634,
+    "wakeUpTime": "08:29:05.407000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-15",
+    "totalTimeForeground": 1710799,
+    "wakeUpTime": "06:02:36.431000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-16",
+    "totalTimeForeground": 1831959,
+    "wakeUpTime": "11:20:58.329000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-17",
+    "totalTimeForeground": 1891098,
+    "wakeUpTime": "06:45:33.549000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-18",
+    "totalTimeForeground": 2145548,
+    "wakeUpTime": "11:46:40.154000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-19",
+    "totalTimeForeground": 474533,
+    "wakeUpTime": "07:23:53.231000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-20",
+    "totalTimeForeground": 479184,
+    "wakeUpTime": "10:28:33.545000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-21",
+    "totalTimeForeground": 564536,
+    "wakeUpTime": "07:16:46.951000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-22",
+    "totalTimeForeground": 646180,
+    "wakeUpTime": "08:07:52.379000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-23",
+    "totalTimeForeground": 684268,
+    "wakeUpTime": "10:46:10.321000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-24",
+    "totalTimeForeground": 707829,
+    "wakeUpTime": "07:20:26.836000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-25",
+    "totalTimeForeground": 733073,
+    "wakeUpTime": "08:24:24.857000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-26",
+    "totalTimeForeground": 735297,
+    "wakeUpTime": "08:47:53.412000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-27",
+    "totalTimeForeground": 503225,
+    "wakeUpTime": "13:30:44.157000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-02-28",
+    "totalTimeForeground": 975264,
+    "wakeUpTime": "10:10:02.028000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-01",
+    "totalTimeForeground": 1232331,
+    "wakeUpTime": "10:29:58.859000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-02",
+    "totalTimeForeground": 1269686,
+    "wakeUpTime": "11:15:18.796000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-03",
+    "totalTimeForeground": 1315504,
+    "wakeUpTime": "06:11:19.877000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-04",
+    "totalTimeForeground": 1373230,
+    "wakeUpTime": "07:29:59.408000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-05",
+    "totalTimeForeground": 1464083,
+    "wakeUpTime": "10:17:50.468000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-06",
+    "totalTimeForeground": 1518688,
+    "wakeUpTime": "12:14:08.185000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-07",
+    "totalTimeForeground": 1673056,
+    "wakeUpTime": "13:45:35.791000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-08",
+    "totalTimeForeground": 1678546,
+    "wakeUpTime": "13:55:33.546000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-09",
+    "totalTimeForeground": 1783188,
+    "wakeUpTime": "13:06:06.491000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-10",
+    "totalTimeForeground": 1847908,
+    "wakeUpTime": "09:26:28.153000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-11",
+    "totalTimeForeground": 2000566,
+    "wakeUpTime": "08:56:02.562000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-12",
+    "totalTimeForeground": 2012117,
+    "wakeUpTime": "10:41:49.663000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-13",
+    "totalTimeForeground": 2085052,
+    "wakeUpTime": "07:06:17.566000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-14",
+    "totalTimeForeground": 2186530,
+    "wakeUpTime": "09:44:22.249000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-15",
+    "totalTimeForeground": 2383968,
+    "wakeUpTime": "13:41:46.572000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-16",
+    "totalTimeForeground": 2624196,
+    "wakeUpTime": "09:00:14.447000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-17",
+    "totalTimeForeground": 2761127,
+    "wakeUpTime": "08:27:48.812000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-18",
+    "totalTimeForeground": 2833363,
+    "wakeUpTime": "07:21:52.339000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-19",
+    "totalTimeForeground": 913769,
+    "wakeUpTime": "09:06:15.698000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-20",
+    "totalTimeForeground": 915744,
+    "wakeUpTime": "09:50:34.602000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-21",
+    "totalTimeForeground": 1332206,
+    "wakeUpTime": "10:34:52.968000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-22",
+    "totalTimeForeground": 1447770,
+    "wakeUpTime": "11:31:41.182000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-23",
+    "totalTimeForeground": 1634929,
+    "wakeUpTime": "09:50:09.194000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-24",
+    "totalTimeForeground": 1661786,
+    "wakeUpTime": "08:11:25.295000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-25",
+    "totalTimeForeground": 1702211,
+    "wakeUpTime": "09:50:57.435000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-26",
+    "totalTimeForeground": 1788234,
+    "wakeUpTime": "09:44:36.486000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-27",
+    "totalTimeForeground": 1829555,
+    "wakeUpTime": "11:00:37.202000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-28",
+    "totalTimeForeground": 1831695,
+    "wakeUpTime": "09:30:08.246000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-29",
+    "totalTimeForeground": 1836910,
+    "wakeUpTime": "08:53:58.859000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-30",
+    "totalTimeForeground": 1899164,
+    "wakeUpTime": "12:04:00.004000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-03-31",
+    "totalTimeForeground": 1959487,
+    "wakeUpTime": "09:12:05.322000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-01",
+    "totalTimeForeground": 1993055,
+    "wakeUpTime": "06:00:02.089000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-02",
+    "totalTimeForeground": 1755233,
+    "wakeUpTime": "07:40:26.115000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-03",
+    "totalTimeForeground": 62301,
+    "wakeUpTime": "09:42:04.178000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-04",
+    "totalTimeForeground": 105255,
+    "wakeUpTime": "06:55:41.663000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-05",
+    "totalTimeForeground": 2830388,
+    "wakeUpTime": "11:54:22.238000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-06",
+    "totalTimeForeground": 2938613,
+    "wakeUpTime": "09:15:27.701000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-07",
+    "totalTimeForeground": 2962513,
+    "wakeUpTime": "07:31:11.052000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-08",
+    "totalTimeForeground": 33522,
+    "wakeUpTime": "08:49:05.283000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-09",
+    "totalTimeForeground": 132178,
+    "wakeUpTime": "06:12:08.260000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-10",
+    "totalTimeForeground": 3133110,
+    "wakeUpTime": "14:01:31.418000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-11",
+    "totalTimeForeground": 3136659,
+    "wakeUpTime": "06:00:11.740000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-12",
+    "totalTimeForeground": 3137843,
+    "wakeUpTime": "13:43:19.229000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-13",
+    "totalTimeForeground": 3165175,
+    "wakeUpTime": "09:20:46.327000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-14",
+    "totalTimeForeground": 3221046,
+    "wakeUpTime": "08:52:42.343000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-15",
+    "totalTimeForeground": 3237320,
+    "wakeUpTime": "10:16:17.603000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-16",
+    "totalTimeForeground": 3249104,
+    "wakeUpTime": "09:40:42.324000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-17",
+    "totalTimeForeground": 1841,
+    "wakeUpTime": "09:43:33.050000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-18",
+    "totalTimeForeground": 67836,
+    "wakeUpTime": "08:41:48.997000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-19",
+    "totalTimeForeground": 95869,
+    "wakeUpTime": "10:34:48.761000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-20",
+    "totalTimeForeground": 98584,
+    "wakeUpTime": "09:00:10.587000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-21",
+    "totalTimeForeground": 2306063,
+    "wakeUpTime": "08:08:36.928000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-22",
+    "totalTimeForeground": 2421988,
+    "wakeUpTime": "07:34:47.596000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-23",
+    "totalTimeForeground": 6443,
+    "wakeUpTime": "07:08:48.154000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-24",
+    "totalTimeForeground": 94697,
+    "wakeUpTime": "07:59:02.980000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-25",
+    "totalTimeForeground": 104081,
+    "wakeUpTime": "08:30:36.569000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-26",
+    "totalTimeForeground": 107482,
+    "wakeUpTime": "08:04:50.989000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-27",
+    "totalTimeForeground": 956961,
+    "wakeUpTime": "09:32:45.639000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-28",
+    "totalTimeForeground": 1032942,
+    "wakeUpTime": "09:24:07.107000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-29",
+    "totalTimeForeground": 1396583,
+    "wakeUpTime": "09:04:00.680000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-04-30",
+    "totalTimeForeground": 1402489,
+    "wakeUpTime": "10:58:40.209000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-05-01",
+    "totalTimeForeground": 49831,
+    "wakeUpTime": "07:45:22.128000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-05-02",
+    "totalTimeForeground": 97123,
+    "wakeUpTime": "07:15:22.208000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-05-03",
+    "totalTimeForeground": 145486,
+    "wakeUpTime": "07:15:28.807000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-05-04",
+    "totalTimeForeground": 148443,
+    "wakeUpTime": "09:43:29.770000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-05-05",
+    "totalTimeForeground": 11897,
+    "wakeUpTime": "08:17:57.281000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-05-06",
+    "totalTimeForeground": 521240,
+    "wakeUpTime": "07:59:10.667000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-05-07",
+    "totalTimeForeground": 197886,
+    "wakeUpTime": "08:57:30.144000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-05-08",
+    "totalTimeForeground": 2519003,
+    "wakeUpTime": "07:38:20.536000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-05-09",
+    "totalTimeForeground": 2669839,
+    "wakeUpTime": "11:54:02.287000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-05-10",
+    "totalTimeForeground": 2763798,
+    "wakeUpTime": "07:53:14.252000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-05-11",
+    "totalTimeForeground": 2863103,
+    "wakeUpTime": "17:07:29.962000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-05-12",
+    "totalTimeForeground": 3077935,
+    "wakeUpTime": "17:10:06.104000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-05-13",
+    "totalTimeForeground": 3118719,
+    "wakeUpTime": "10:17:33.972000"
+  },
+  {
+    "userID": "USER3",
+    "date": "2019-05-14",
+    "totalTimeForeground": 3121880,
+    "wakeUpTime": "16:35:45.190000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-01-26",
+    "totalTimeForeground": 443044,
+    "wakeUpTime": "09:41:02.868000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-01-27",
+    "totalTimeForeground": 445628,
+    "wakeUpTime": "14:25:09.681000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-01-28",
+    "totalTimeForeground": 455939,
+    "wakeUpTime": "13:11:20.890000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-01-29",
+    "totalTimeForeground": 457345,
+    "wakeUpTime": "09:53:45.010000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-01-30",
+    "totalTimeForeground": 458942,
+    "wakeUpTime": "09:00:35.267000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-01-31",
+    "totalTimeForeground": 462702,
+    "wakeUpTime": "09:32:15.531000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-01",
+    "totalTimeForeground": 332005,
+    "wakeUpTime": "06:15:34.569000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-02",
+    "totalTimeForeground": 365803,
+    "wakeUpTime": "11:24:45.197000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-03",
+    "totalTimeForeground": 385434,
+    "wakeUpTime": "12:31:59.159000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-04",
+    "totalTimeForeground": 399305,
+    "wakeUpTime": "09:01:23.906000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-05",
+    "totalTimeForeground": 431528,
+    "wakeUpTime": "06:45:38.009000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-06",
+    "totalTimeForeground": 507039,
+    "wakeUpTime": "09:00:07.013000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-07",
+    "totalTimeForeground": 518472,
+    "wakeUpTime": "10:21:50.838000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-08",
+    "totalTimeForeground": 528824,
+    "wakeUpTime": "10:48:32.812000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-09",
+    "totalTimeForeground": 2975720,
+    "wakeUpTime": "09:45:10.902000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-10",
+    "totalTimeForeground": 2984731,
+    "wakeUpTime": "12:22:58.549000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-11",
+    "totalTimeForeground": 2999951,
+    "wakeUpTime": "08:22:58.108000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-12",
+    "totalTimeForeground": 3002491,
+    "wakeUpTime": "07:18:16.486000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-13",
+    "totalTimeForeground": 3020718,
+    "wakeUpTime": "10:01:31.183000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-14",
+    "totalTimeForeground": 3052065,
+    "wakeUpTime": "10:01:40.903000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-15",
+    "totalTimeForeground": 3135597,
+    "wakeUpTime": "09:37:41.278000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-16",
+    "totalTimeForeground": 3152489,
+    "wakeUpTime": "08:24:54.225000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-17",
+    "totalTimeForeground": 3212902,
+    "wakeUpTime": "11:28:19.703000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-18",
+    "totalTimeForeground": 3263267,
+    "wakeUpTime": "10:18:15.696000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-19",
+    "totalTimeForeground": 3308435,
+    "wakeUpTime": "10:08:41.622000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-20",
+    "totalTimeForeground": 3317779,
+    "wakeUpTime": "11:45:07.411000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-21",
+    "totalTimeForeground": 3358700,
+    "wakeUpTime": "10:13:25.663000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-22",
+    "totalTimeForeground": 3447159,
+    "wakeUpTime": "09:16:33.426000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-23",
+    "totalTimeForeground": 654557,
+    "wakeUpTime": "15:06:10.962000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-24",
+    "totalTimeForeground": 706218,
+    "wakeUpTime": "14:16:14.560000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-25",
+    "totalTimeForeground": 734324,
+    "wakeUpTime": "11:47:49.352000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-26",
+    "totalTimeForeground": 736387,
+    "wakeUpTime": "07:26:54.401000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-27",
+    "totalTimeForeground": 776891,
+    "wakeUpTime": "09:00:36.757000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-02-28",
+    "totalTimeForeground": 776932,
+    "wakeUpTime": "08:30:15.939000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-01",
+    "totalTimeForeground": 810929,
+    "wakeUpTime": "10:06:41.128000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-02",
+    "totalTimeForeground": 834705,
+    "wakeUpTime": "09:49:17.116000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-03",
+    "totalTimeForeground": 841462,
+    "wakeUpTime": "11:07:36.680000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-04",
+    "totalTimeForeground": 858410,
+    "wakeUpTime": "09:07:29.239000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-05",
+    "totalTimeForeground": 922923,
+    "wakeUpTime": "08:07:21.769000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-06",
+    "totalTimeForeground": 312257,
+    "wakeUpTime": "10:24:29.716000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-07",
+    "totalTimeForeground": 351697,
+    "wakeUpTime": "09:11:22.226000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-08",
+    "totalTimeForeground": 452035,
+    "wakeUpTime": "13:08:54.581000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-09",
+    "totalTimeForeground": 646192,
+    "wakeUpTime": "06:06:42.870000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-10",
+    "totalTimeForeground": 797281,
+    "wakeUpTime": "09:11:56.344000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-11",
+    "totalTimeForeground": 850956,
+    "wakeUpTime": "10:28:57.201000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-12",
+    "totalTimeForeground": 881799,
+    "wakeUpTime": "08:53:11.539000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-13",
+    "totalTimeForeground": 902622,
+    "wakeUpTime": "09:00:08.851000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-14",
+    "totalTimeForeground": 18040,
+    "wakeUpTime": "10:01:47.313000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-15",
+    "totalTimeForeground": 102908,
+    "wakeUpTime": "13:57:05.364000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-16",
+    "totalTimeForeground": 114246,
+    "wakeUpTime": "06:34:30.922000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-17",
+    "totalTimeForeground": 308,
+    "wakeUpTime": "09:13:25.620000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-18",
+    "totalTimeForeground": 421,
+    "wakeUpTime": "08:52:13.370000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-19",
+    "totalTimeForeground": 103750,
+    "wakeUpTime": "10:06:30.774000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-20",
+    "totalTimeForeground": 2448393,
+    "wakeUpTime": "09:01:08.616000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-21",
+    "totalTimeForeground": 2554001,
+    "wakeUpTime": "08:28:51.795000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-22",
+    "totalTimeForeground": 2672027,
+    "wakeUpTime": "11:19:12.688000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-23",
+    "totalTimeForeground": 2712177,
+    "wakeUpTime": "11:21:21.769000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-24",
+    "totalTimeForeground": 2836110,
+    "wakeUpTime": "12:00:36.825000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-25",
+    "totalTimeForeground": 2896110,
+    "wakeUpTime": "08:41:14.259000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-26",
+    "totalTimeForeground": 2939373,
+    "wakeUpTime": "11:56:02.639000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-27",
+    "totalTimeForeground": 2941327,
+    "wakeUpTime": "09:00:05.868000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-28",
+    "totalTimeForeground": 3112746,
+    "wakeUpTime": "11:20:47.804000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-29",
+    "totalTimeForeground": 2173523,
+    "wakeUpTime": "12:44:00.089000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-30",
+    "totalTimeForeground": 2236745,
+    "wakeUpTime": "09:36:26.025000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-03-31",
+    "totalTimeForeground": 2330069,
+    "wakeUpTime": "10:22:48.894000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-01",
+    "totalTimeForeground": 2402051,
+    "wakeUpTime": "08:48:48.380000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-02",
+    "totalTimeForeground": 2442834,
+    "wakeUpTime": "09:01:27.959000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-03",
+    "totalTimeForeground": 2462966,
+    "wakeUpTime": "09:47:00.990000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-04",
+    "totalTimeForeground": 2503056,
+    "wakeUpTime": "07:45:13.542000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-05",
+    "totalTimeForeground": 607777,
+    "wakeUpTime": "10:06:24.194000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-06",
+    "totalTimeForeground": 618626,
+    "wakeUpTime": "10:04:54.484000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-07",
+    "totalTimeForeground": 623848,
+    "wakeUpTime": "08:22:31.064000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-08",
+    "totalTimeForeground": 636459,
+    "wakeUpTime": "08:30:59.749000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-09",
+    "totalTimeForeground": 652026,
+    "wakeUpTime": "09:01:27.055000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-10",
+    "totalTimeForeground": 695870,
+    "wakeUpTime": "11:03:56.884000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-11",
+    "totalTimeForeground": 1181262,
+    "wakeUpTime": "12:50:45.602000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-12",
+    "totalTimeForeground": 1219651,
+    "wakeUpTime": "13:12:31.901000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-13",
+    "totalTimeForeground": 1229444,
+    "wakeUpTime": "11:11:18.611000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-14",
+    "totalTimeForeground": 1246417,
+    "wakeUpTime": "09:09:53.480000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-15",
+    "totalTimeForeground": 1257580,
+    "wakeUpTime": "11:04:52.140000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-16",
+    "totalTimeForeground": 1538027,
+    "wakeUpTime": "10:06:17.691000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-17",
+    "totalTimeForeground": 1562955,
+    "wakeUpTime": "11:13:59.950000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-18",
+    "totalTimeForeground": 3302729,
+    "wakeUpTime": "08:27:02.401000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-19",
+    "totalTimeForeground": 3317920,
+    "wakeUpTime": "09:19:39.429000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-20",
+    "totalTimeForeground": 3321533,
+    "wakeUpTime": "06:02:43.323000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-21",
+    "totalTimeForeground": 3686354,
+    "wakeUpTime": "08:55:06.106000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-22",
+    "totalTimeForeground": 3764470,
+    "wakeUpTime": "12:11:20.586000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-23",
+    "totalTimeForeground": 48944,
+    "wakeUpTime": "09:03:23.170000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-24",
+    "totalTimeForeground": 3805611,
+    "wakeUpTime": "10:05:43.978000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-25",
+    "totalTimeForeground": 3924753,
+    "wakeUpTime": "09:29:10.894000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-26",
+    "totalTimeForeground": 3926720,
+    "wakeUpTime": "07:04:59.844000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-27",
+    "totalTimeForeground": 4000611,
+    "wakeUpTime": "08:23:42.819000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-28",
+    "totalTimeForeground": 1519927,
+    "wakeUpTime": "06:02:00.320000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-29",
+    "totalTimeForeground": 1732109,
+    "wakeUpTime": "06:26:02.543000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-04-30",
+    "totalTimeForeground": 1746413,
+    "wakeUpTime": "07:20:59.047000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-05-01",
+    "totalTimeForeground": 1786098,
+    "wakeUpTime": "09:43:50.197000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-05-02",
+    "totalTimeForeground": 1858735,
+    "wakeUpTime": "10:19:54.255000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-05-03",
+    "totalTimeForeground": 1892099,
+    "wakeUpTime": "11:33:49.362000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-05-04",
+    "totalTimeForeground": 2080940,
+    "wakeUpTime": "11:18:23.011000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-05-05",
+    "totalTimeForeground": 2082117,
+    "wakeUpTime": "09:50:59.697000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-05-06",
+    "totalTimeForeground": 2403371,
+    "wakeUpTime": "10:12:59.917000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-05-07",
+    "totalTimeForeground": 2575466,
+    "wakeUpTime": "10:09:42.576000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-05-08",
+    "totalTimeForeground": 2792693,
+    "wakeUpTime": "09:00:42.545000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-05-09",
+    "totalTimeForeground": 2830834,
+    "wakeUpTime": "08:16:19.878000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-05-10",
+    "totalTimeForeground": 2853603,
+    "wakeUpTime": "10:27:16.839000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-05-11",
+    "totalTimeForeground": 2919877,
+    "wakeUpTime": "10:04:45.167000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-05-12",
+    "totalTimeForeground": 2978943,
+    "wakeUpTime": "08:29:53.417000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-05-13",
+    "totalTimeForeground": 3056420,
+    "wakeUpTime": "08:30:31.184000"
+  },
+  {
+    "userID": "USER4",
+    "date": "2019-05-14",
+    "totalTimeForeground": 3071417,
+    "wakeUpTime": "09:16:28.015000"
+  }
+]
