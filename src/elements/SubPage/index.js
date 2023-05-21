@@ -27,14 +27,9 @@ function SubPage() {
   }
 
   const [myData, setMyData] = useState(timezoneRoutine);
-  console.log('myData: ' + myData);
-  console.log(Array.isArray(myData));
 
   const onAddBtnClick = (newRoutineName) => {
-    console.log('subpage', newRoutineName);
-    // setMyData(myData.push("test"));
     setMyData((prev) => [...prev, newRoutineName]);
-    // console.log('add test: ' + myData);
   };
 
   return (

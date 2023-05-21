@@ -7,7 +7,7 @@ import allUsersRoutine from '../../routineInfos/allUsersRoutine';
 function ComboCheckerBar(props) {
   const { name, timezone } = props;
 
-  const URLSplit = window.document.URL.split('/');  
+  const URLSplit = window.document.URL.split('/');
 
   const colorsets = {
     morning: ['#FFCA2D', '#FFE9A9'],
@@ -37,12 +37,17 @@ function ComboCheckerBar(props) {
     let combos = [];
     combos.push(
       <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/wakeup'}>
-        {name === 'WakeUp'? 'Wake Up at 10:00':
-          name === 'SNSUsage'? 'SNS ↓ 45 min':
-          name === 'UVExposure'? 'Enjoy sunshine ↑ 1 hr.': 
-          name === 'study'? 'Study ↑ 60 min.': 
-          name === 'Exercise'? 'Exercise ↑ 1 hr.' : name
-          }
+        {name === 'WakeUp'
+          ? 'Wake Up at 10:00 AM'
+          : name === 'SNSUsage'
+          ? 'SNS ↓ 45 min'
+          : name === 'UVExposure'
+          ? 'Enjoy sunshine ↑ 1 hr.'
+          : name === 'study'
+          ? 'Study ↑ 60 min.'
+          : name === 'Exercise'
+          ? 'Exercise ↑ 1 hr.'
+          : name}
       </a>
     );
     combos.push(<div className="rcorners1" style={deepFilling}></div>);
@@ -57,11 +62,7 @@ function ComboCheckerBar(props) {
     return combos;
   };
 
-
-
-  return (
-    <div className="combocontainer">{displayCombos()}</div>
-  );
+  return <div className="combocontainer">{displayCombos()}</div>;
 }
 
 export default ComboCheckerBar;
