@@ -12,7 +12,8 @@ function capitalizeFirstLetter(string) {
   return onlyString.charAt(0).toUpperCase() + onlyString.slice(1);
 }
 
-function CreateModal({ setModalOpen }) {
+function CreateModal(props) {
+  const { setModalOpen, onAddBtnClick } = props;
 
   const URLSplit = window.document.URL.split('/');
 
@@ -43,11 +44,21 @@ function CreateModal({ setModalOpen }) {
   const dayHourList = [12, 1, 2, 3, 4, 5]
   const nightHourList = [9, 10, 11]
   const minuteList = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
-  const [Selected, setSelected] = useState("");
 
   const morningList = [["goOut", "🚪 Go out"], ["study", "📝 Study"]]
   const dayList = [["goOut", "🚪 Go out"], ["SNSusage", "🌐 Use SNS"]]
   const nightList = [["sleepBefore", "💤 Sleep"]]
+
+  var initial = ""
+
+  if (timezone === "morning" || timezone === "day") {
+    initial = "goOut"
+  }
+  else {
+    initial = "sleepBefore"
+  }
+
+  const [Selected, setSelected] = useState(initial);
 
   const handleSelect = (e) => {
     setSelected(e.target.value);
@@ -86,7 +97,7 @@ function CreateModal({ setModalOpen }) {
               }
             </select>
           </div>
-          {(Selected === "" || Selected === "sleepBefore") && (timezone == "night")
+          {Selected === "sleepBefore" && timezone == "night"
           && <div className='customBlock'>
             <label>Goal</label>
             <hr/>
@@ -108,7 +119,7 @@ function CreateModal({ setModalOpen }) {
             </select>
             PM
           </div>}
-          {((Selected === "" || Selected === "goOut") && (timezone == "morning"))
+          {Selected === "goOut" && timezone == "morning"
           && <div className='customBlock'>
             <label>Goal</label>
             <hr/>
@@ -130,7 +141,7 @@ function CreateModal({ setModalOpen }) {
             </select>
             AM
           </div>}
-          {(Selected === "" || Selected === "goOut") && (timezone == "day")
+          {Selected === "goOut" && timezone == "day"
           && <div className='customBlock'>
             <label>Goal</label>
             <hr/>
@@ -208,7 +219,14 @@ function CreateModal({ setModalOpen }) {
             <button className='xButton' onClick={closeModal}>
                 Cancel
             </button>
-            <button className='oButton' style={deepFilling}>
+            <button
+              className='oButton'
+              style={deepFilling}
+              onClick={() => {
+                onAddBtnClick(Selected);
+                closeModal();
+              }}
+            >
               Create
             </button>
           </div>
