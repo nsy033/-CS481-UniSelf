@@ -11,7 +11,7 @@ function MainPage() {
         Take a look at your <b>ACHIEVEMENT RANKING</b>{' '}
       </h1>
       <div className="box-container">
-        <div>
+        <div className="homeRoutineList">
           <h2>My Daily Routines</h2>
           <RoutineList />
         </div>
