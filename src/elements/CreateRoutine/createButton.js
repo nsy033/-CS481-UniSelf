@@ -4,45 +4,51 @@ import * as ROUTES from '../../constants/routes';
 import CreateModal from './createModal';
 import KeyboardArrowDownRoundedIcon from '@mui/icons-material/KeyboardArrowDownRounded';
 
-function CreateButton({ id, done, text }) {
-    const URLSplit = window.document.URL.split('/');
+function CreateButton(props) {
+  const { onAddBtnClick } = props;
+  const URLSplit = window.document.URL.split('/');
 
-    // console.log(URLSplit);
+  // console.log(URLSplit);
 
-    var timezone =
-      URLSplit.length >= 5 ? URLSplit[URLSplit.length - 1] : 'morning';
-  
-    const colorsets = {
-      morning: ['#FFCA2D', '#FFE9A9'],
-      day: ['#8CD735', '#D8EDC0'],
-      night: ['#3F51B5', '#CED3F0'],
-    };
+  var timezone =
+    URLSplit.length >= 5 ? URLSplit[URLSplit.length - 1] : 'morning';
 
-    const emptyFilling = {
-        opacity: '75%'
-    };
+  const colorsets = {
+    morning: ['#FFCA2D', '#FFE9A9'],
+    day: ['#8CD735', '#D8EDC0'],
+    night: ['#3F51B5', '#CED3F0'],
+  };
 
-    const deepFilling = JSON.parse(JSON.stringify(emptyFilling));
-    deepFilling.background = colorsets[timezone][0];
-    if (timezone == 'night') {
-        deepFilling.color = '#FFFFFF';
-    }
+  const emptyFilling = {
+    opacity: '75%',
+  };
 
-    const [modalOpen, setModalOpen] = useState(false);
+  const deepFilling = JSON.parse(JSON.stringify(emptyFilling));
+  deepFilling.background = colorsets[timezone][0];
+  if (timezone == 'night') {
+    deepFilling.color = '#FFFFFF';
+  }
 
-    const showModal = () => {
-        setModalOpen(true);
-    };
+  const [modalOpen, setModalOpen] = useState(false);
 
-    return (
-        <div className='createBox' align="right">
-            <button style={deepFilling} className='createButton' onClick={showModal}>
-                <span>Add New Routine</span>
-                <KeyboardArrowDownRoundedIcon/>
-            </button>
-            {modalOpen && <CreateModal setModalOpen={setModalOpen} />}
-        </div>
-    );
+  const showModal = () => {
+    setModalOpen(true);
+  };
+
+  return (
+    <div className="createBox" align="right">
+      <button style={deepFilling} className="createButton" onClick={showModal}>
+        <span>Add New Routine</span>
+        <KeyboardArrowDownRoundedIcon />
+      </button>
+      {modalOpen && (
+        <CreateModal
+          setModalOpen={setModalOpen}
+          onAddBtnClick={onAddBtnClick}
+        />
+      )}
+    </div>
+  );
 }
 
 export default CreateButton;
