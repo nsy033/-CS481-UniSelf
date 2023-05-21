@@ -1,12 +1,13 @@
 .Routines {
     list-style: none;
-    width: 100%;
+    width: 303px;
 }
 
 .RoutineList {
     list-style: none;
     flex-direction: column;
     justify-content: space-between;
+    width: 303px;
 }
 
 .RoutineList li {
@@ -30,7 +31,6 @@
 }
 
 .morning {
-    width: 100%;
     border-radius: 16px;
     background: var(--morning-deep-yellow);
     padding-top: 6px;
@@ -41,7 +41,6 @@
 }
 
 .day {
-    width: 100%;
     border-radius: 16px;
     background: var(--day-deep-green);
     padding-top: 6px;
@@ -52,7 +51,6 @@
 }
 
 .night {
-    width: 100%;
     border-radius: 16px;
     background: var(--night-deep-blue);
     padding-top: 6px;
@@ -66,6 +64,7 @@
 .sub-routines-box {
     display: flex;
     flex-direction: column;
+    width: 303px;
 }
 
 .sub-routines-box li {

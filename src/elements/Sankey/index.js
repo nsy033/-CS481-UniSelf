@@ -22,6 +22,7 @@ function Sankey() {
     const rank3 = [4, 1, 3, 5, 2]
     const x_locus = [0, 0.5, 1]
 
+    const n = 1
     var data = {
         type: "sankey",
         domain: {
@@ -29,7 +30,7 @@ function Sankey() {
             y: [0,1]
           },
         node: {
-          pad: 100,
+          pad: 50,
           thickness: 10,
           line: {
             width: 0
@@ -41,36 +42,44 @@ function Sankey() {
          y: [0.2*rank1[0], 0.2*rank1[1], 0.2*rank1[2], 0.2*rank1[3], 0.2*rank2[4],
             0.2*rank2[0], 0.2*rank2[1], 0.2*rank2[2], 0.2*rank2[3], 0.2*rank2[4],
             0.2*rank3[0], 0.2*rank3[1], 0.2*rank3[2], 0.2*rank3[3], 0.2*rank3[4]],
-         color: [morning, night, day, transparent, morning, 
-            morning, night, day, transparent, morning, 
+         color: [morning, night, day, night, morning, 
+            morning, night, day, night, morning, 
             morning, night, day, night, morning]
             },
       
         link: {
-          color: [morning, night, day, transparent, morning,
+          color: [morning, night, day, night, morning,
                 morning, night, day, night, morning],
           source: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
           target: [5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-          value:  [10, 8, 6, 4, 2,
-                4, 10, 6, 2, 8]
+          value:  [10*n, 8*n, 6*n, 4*n, 2*n,
+                4*n, 10*n, 6*n, 2*n, 8*n]
         }
       }
   
   var layout = {
     // title: "Basic Sankey Test",
-    width: document.documentElement.clientWidth / 2,
-    height: document.documentElement.clientHeight / 2,
+    width: document.documentElement.clientWidth*3/4,
+    height: document.documentElement.clientHeight*3/4,
     font: {
       size: 16,
       color: "black"
     },
   }
 
+  var config = {
+    staticPlot: true, // Disable click events
+  };
+
+  console.log("static!")
+
+
   return (
     <div>
       <Plot
         data={[data]}
         layout={layout}
+        config={config}
       />
     </div>
   );
