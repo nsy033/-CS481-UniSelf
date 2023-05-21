@@ -36,8 +36,13 @@ function ComboCheckerBar(props) {
   const displayCombos = () => {
     let combos = [];
     combos.push(
-      <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/' + name}>
-        {name}
+      <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/wakeup'}>
+        {name === 'WakeUp'? 'Wake Up at 10:00':
+          name === 'SNSUsage'? 'SNS ↓ 45 min':
+          name === 'UVExposure'? 'Enjoy sunshine ↑ 1 hr.': 
+          name === 'study'? 'Study ↑ 60 min.': 
+          name === 'Exercise'? 'Exercise ↑ 1 hr.' : name
+          }
       </a>
     );
     combos.push(<div className="rcorners1" style={deepFilling}></div>);
