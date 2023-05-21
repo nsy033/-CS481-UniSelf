@@ -4,7 +4,7 @@
     "userID": "USER1",
     "morning": { "WakeUp": "10:00:00", "SNSUsage": 2700000 },
     "day": { "UVExposure": "18:00:00", "study": 3600 },
-    "night": ["Exercise", "WriteDiary"]
+    "night": ["Exercise"]
   },
   "USER2": {
     "name": "Harry Potter",
