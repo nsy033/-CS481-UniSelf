@@ -5,6 +5,7 @@ import './style.css';
 // import TimePickerModal from './timePickerModal';
 import TimePickerButton from './timePickerButton';
 import TimePickerModal from './timePickerModal';
+import { Timeline } from '@mui/icons-material';
 
 function CreateModal({ setModalOpen }) {
 
@@ -33,6 +34,14 @@ function CreateModal({ setModalOpen }) {
     setModalOpen(false);
   };
 
+  const hourList = [7, 8, 9, 10, 11]
+  const minuteList = [0, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55]
+  const [Selected, setSelected] = useState("");
+
+  const handleSelect = (e) => {
+    setSelected(e.target.value);
+  };
+
   return (
       <div className='createModal' align="left"> 
         <div align="middle" className='modalTitle'>
@@ -42,14 +51,36 @@ function CreateModal({ setModalOpen }) {
           <div className='customBlock'>
             <label>Routine</label>
             <hr/>
-            <select className='dropdownCustom'>
+            <select className='dropdownCustom'onChange={handleSelect} value={Selected}>
               <option value="wakeUp">🛏️ Wake up</option>
               <option value="goOut">🚪 Go out</option>
-              <option value="readNews">📰 Read news</option>
               <option value="exercise">🏃 Exercise</option>
             </select>
           </div>
-          <div className='customBlock'>
+          {(Selected === "" || Selected === "wakeUp" || Selected === "goOut")
+          && <div className='customBlock'>
+            <label>Goal</label>
+            <hr/>
+            Ealier than
+            <select className='dropdownCustomTime'>
+            {hourList.map((item) => (
+                <option value={item} key={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+            :
+            <select className='dropdownCustomTime'>
+              {minuteList.map((item) => (
+                <option value={item} key={item}>
+                  {item}
+                </option>
+              ))}
+            </select>
+            AM
+          </div>}
+          {Selected=="exercise"
+          && <div className='customBlock'>
             <label>Goal</label>
             <hr/>
             More than
@@ -60,21 +91,14 @@ function CreateModal({ setModalOpen }) {
             </select>
             Hour
             <select className='dropdownCustomTime'>
-              <option value="0">0</option>
-              <option value="5">5</option>
-              <option value="10">10</option>
-              <option value="15">15</option>
-              <option value="20">20</option>
-              <option value="25">25</option>
-              <option value="30">30</option>
-              <option value="35">35</option>
-              <option value="40">40</option>
-              <option value="45">45</option>
-              <option value="50">50</option>
-              <option value="55">55</option>
+              {minuteList.map((item) => (
+                <option value={item} key={item}>
+                  {item}
+                </option>
+              ))}
             </select>
             Min
-          </div>
+          </div>}
           <div className='customBlock'>
             <label>Adjstment Period</label>
             <hr/>

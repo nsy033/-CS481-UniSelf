@@ -16,89 +16,116 @@ dates = [
     5577920000,
 ]
 
-print("Merge into one dataframe ...")
-mergedDF = pd.DataFrame()
-for user in users:
-    for date in dates:
-        df = pd.read_csv(
-            "src/processing/dataset/%s/Pedometer-%d.csv" % (user, date)
-        )
+dates_calc = []
 
-        df["userID"] = user
-        df["datetime"] = pd.to_datetime(df["timestamp"], unit="ms")
-        df["datetime"] = pd.DatetimeIndex(df["datetime"]) + timedelta(hours=9) # KST
+incomplete_df = pd.read_csv('src/processing/csvs/nightStep.csv')
+print(incomplete_df)
 
-        df = df.sort_values(by=['timestamp'])
+min_date = incomplete_df.min().date
+max_date = incomplete_df.max().date
 
-        mergedDF = pd.concat([mergedDF, df], axis=0)
+min_date = datetime.strptime(min_date, "%Y-%m-%d").date()
+max_date = datetime.strptime(max_date, "%Y-%m-%d").date()
 
-# mergedDF = mergedDF[mergedDF["type"] == "ON_FOOT"]
+date_list = [datetime.strftime(min_date + timedelta(days=x), "%Y-%m-%d") for x in range(len(dates))]
 
-print("Clear data ...")
-mergedDF = mergedDF.loc[
-    (1557241200000 <= mergedDF["timestamp"]) & (mergedDF["timestamp"] < 1557846000000)
-]
+# for i, (idx, row) in enumerate(incomplete_df.iterrows()):
+#     dates_length = len(dates)
+#     dates_num = i % dates_length
+#     # if row["date"] != datetime.strftime(date_list[dates_num], "%Y-%m-%d"):
+#     #     incomplete_df.loc[i+1] = [datetime.strftime(date_list[dates_num], "%Y-%m-%d")]
 
-# print("Locate the first ON_FOOT event for each date ...")
-print("Get TotalStep during 18:00 - 24:00 ... ")
-ret_csv = pd.DataFrame(columns=["userID", "date", "totalStep"])
+#     print(dates_num, row["date"], date_list[dates_num])
 
-firstStep = 0
-lastStep = 0
-prev_date = mergedDF.iloc[0]["datetime"].date()
+# print("Save the result file ...")
+# incomplete_df.to_csv("src/processing/csvs/nightStep.csv", mode="w")
 
-for i, (idx, row) in enumerate(mergedDF.iterrows()):
-    user = row["userID"]
-    date = row["datetime"].date()
+# print("Done")
 
-    # if (ret_csv[ret_csv["userID"] == user]["date"] == date).any():
-    #     continue
+# print("Merge into one dataframe ...")
+# mergedDF = pd.DataFrame()
+# for user in users:
+#     for date in dates:
+#         df = pd.read_csv(
+#             "src/processing/dataset/%s/Pedometer-%d.csv" % (user, date)
+#         )
 
-    if firstStep == 0 and row["datetime"].time() > datetime.strptime("18:00", "%H:%M").time():
-        firstStep = row["TotalSteps"]
+#         df["userID"] = user
+#         df["datetime"] = pd.to_datetime(df["timestamp"], unit="ms")
+#         df["datetime"] = pd.DatetimeIndex(df["datetime"]) + timedelta(hours=9) # KST
 
-    if prev_date != date and i >= 1:
-        if mergedDF.iloc[i-1]["datetime"].time() > datetime.strptime("18:00", "%H:%M").time():
-            lastStep = mergedDF.iloc[i-1]["TotalSteps"]
+#         df = df.sort_values(by=['timestamp'])
 
-        totalStep = lastStep - firstStep
+#         mergedDF = pd.concat([mergedDF, df], axis=0)
 
-        print("before update: ", prev_date, date, mergedDF.iloc[i-1]["datetime"], lastStep, firstStep)
+# # mergedDF = mergedDF[mergedDF["type"] == "ON_FOOT"]
 
-        new_row = pd.DataFrame(
-            {"userID": [mergedDF.iloc[i-1]["userID"]], "date": [prev_date], "totalStep": [totalStep]}
-        )
-        ret_csv = pd.concat([ret_csv, new_row], axis=0)
+# print("Clear data ...")
+# mergedDF = mergedDF.loc[
+#     (1557241200000 <= mergedDF["timestamp"]) & (mergedDF["timestamp"] < 1557846000000)
+# ]
 
-        # reset and initialize
-        firstStep = 0
-        lastStep = 0
-        prev_date = date
-        # print("after update: ", prev_date, date, mergedDF.iloc[i-1]["datetime"], lastStep, firstStep)
-        # print("\n")
-        continue
+# # print("Locate the first ON_FOOT event for each date ...")
+# print("Get TotalStep during 18:00 - 24:00 ... ")
+# ret_csv = pd.DataFrame(columns=["userID", "date", "totalStep"])
+
+# firstStep = 0
+# lastStep = 0
+# prev_date = mergedDF.iloc[0]["datetime"].date()
+
+# for i, (idx, row) in enumerate(mergedDF.iterrows()):
+#     user = row["userID"]
+#     date = row["datetime"].date()
+
+#     # if (ret_csv[ret_csv["userID"] == user]["date"] == date).any():
+#     #     continue
+
+#     if firstStep == 0 and row["datetime"].time() > datetime.strptime("18:00", "%H:%M").time():
+#         firstStep = row["TotalSteps"]
+
+#     if prev_date != date and i >= 1:
+#         if mergedDF.iloc[i-1]["datetime"].time() > datetime.strptime("18:00", "%H:%M").time():
+#             lastStep = mergedDF.iloc[i-1]["TotalSteps"]
+
+#         totalStep = lastStep - firstStep
+
+#         print("before update: ", prev_date, date, mergedDF.iloc[i-1]["datetime"], lastStep, firstStep)
+
+#         new_row = pd.DataFrame(
+#             {"userID": [mergedDF.iloc[i-1]["userID"]], "date": [prev_date], "totalStep": [totalStep]}
+#         )
+#         ret_csv = pd.concat([ret_csv, new_row], axis=0)
+
+#         # reset and initialize
+#         firstStep = 0
+#         lastStep = 0
+#         prev_date = date
+#         # print("after update: ", prev_date, date, mergedDF.iloc[i-1]["datetime"], lastStep, firstStep)
+#         # print("\n")
+#         continue
     
-    # last row of the dataframe
-    if i == len(mergedDF) - 1:
-        print("Add last row ...")
-        if row["datetime"].time() > datetime.strptime("18:00", "%H:%M").time():
-            lastStep = row["TotalSteps"]
-        totalStep = lastStep - firstStep
-        new_row = pd.DataFrame(
-            {"userID": [user], "date": [date], "totalStep": [totalStep]}
-        )
-        ret_csv = pd.concat([ret_csv, new_row], axis=0)
+#     # last row of the dataframe
+#     if i == len(mergedDF) - 1:
+#         print("Add last row ...")
+#         if row["datetime"].time() > datetime.strptime("18:00", "%H:%M").time():
+#             lastStep = row["TotalSteps"]
+#         totalStep = lastStep - firstStep
+#         new_row = pd.DataFrame(
+#             {"userID": [user], "date": [date], "totalStep": [totalStep]}
+#         )
+#         ret_csv = pd.concat([ret_csv, new_row], axis=0)
 
 
-    # firstStep = row["TotalSteps"]
-    # time = row["datetime"].time()
-    # if time < datetime.strptime("18:00", "%H:%M").time():
-    #     continue
-    #     # print(user, date, wakeUpTime)
+#     # firstStep = row["TotalSteps"]
+#     # time = row["datetime"].time()
+#     # if time < datetime.strptime("18:00", "%H:%M").time():
+#     #     continue
+#     #     # print(user, date, wakeUpTime)
 
-ret_csv = ret_csv.reset_index(drop=True)
+# ret_csv = ret_csv.reset_index(drop=True)
 
-print("Save the result file ...")
-ret_csv.to_csv("src/processing/csvs/nightStep.csv", mode="w")
+# print("Save the result file ...")
+# ret_csv.to_csv("src/processing/csvs/nightStep.csv", mode="w")
 
-print("Done")
+# print("Done")
+
