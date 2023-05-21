@@ -1,84 +1,50 @@
 import './style.css';
-import React, { useCallback } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as ROUTES from '../../constants/routes';
+
+import allUsersRoutine from '../../routineInfos/allUsersRoutine.json';
+import ComboCheckerBar from '../ComboCheckerBar';
 
 function ComboChecker() {
   const URLSplit = window.document.URL.split('/');
   var timezone =
     URLSplit.length >= 5 ? URLSplit[URLSplit.length - 1] : 'morning';
 
-  const colorsets = {
-    morning: ['#FFCA2D', '#FFE9A9'],
-    day: ['#8CD735', '#D8EDC0'],
-    night: ['#3F51B5', '#CED3F0'],
-  };
-  const emptyFilling = {
-    width: '100px',
-    height: '1px',
-    float: 'left',
-    background: '#FFFFFF',
-  };
+  const myRoutineData = allUsersRoutine["USER1"]
 
-  const emptyText = {
-    color: '#FFFFFF',
-  };
+  const timezoneRoutine = []
+  let myRoutine = myRoutineData[timezone]
+  if (! Array.isArray(myRoutine)) {
+    myRoutine = Object.keys(myRoutine)
+  }
+  for (let routine of myRoutine) {
+    timezoneRoutine.push(routine)
+  }
 
-  const deepFilling = JSON.parse(JSON.stringify(emptyFilling));
-  deepFilling.background = colorsets[timezone][0];
+  const [myData, setMyData] = useState(timezoneRoutine);
+  console.log("myData: " + myData)
+  console.log(Array.isArray(myData))
 
-  const deepText = JSON.parse(JSON.stringify(emptyText));
-  deepText.color = colorsets[timezone][0];
-
-  if (timezone == 'night') deepFilling['color'] = '#FFFFFF';
-
-  const displayCombos1 = () => {
-    let combos = [];
-    combos.push(
-      <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/wakeup'}>
-        {' '}
-        Wake Up at 9AM{' '}
-      </a>
-    );
-    combos.push(<div className="rcorners1" style={deepFilling}></div>);
-    combos.push(<div className="rcorners1" style={deepFilling}></div>);
-    combos.push(<div className="rcorners1" style={deepFilling}></div>);
-    combos.push(
-      <div className="combotext" style={deepText}>
-        3 COMBO!
-      </div>
-    );
-
-    return combos;
-  };
-
-  const displayCombos2 = () => {
-    let combos = [];
-    combos.push(
-      <a
-        className="text"
-        href={ROUTES.ROUTINE + '/' + timezone + '/checkMailBox'}
-      >
-        {' '}
-        Check Mail Box{' '}
-      </a>
-    );
-    combos.push(<div className="rcorners1" style={deepFilling}></div>);
-    combos.push(<div className="rcorners1" style={deepFilling}></div>);
-    combos.push(
-      <div className="combotext" style={deepText}>
-        2 COMBO!
-      </div>
-    );
-
-    return combos;
+  const onAddBtnClick = event => {
+    // setMyData(myData.push("test"));
+    setMyData(prev => [...prev, "test"])
+    console.log("add test: " + myData)
   };
 
   return (
     <div className="combo">
       <hr className="hrcontainer" />
       <div className="combocontainer-box">
-        <div className="combocontainer">{displayCombos1()}</div>
-        <div className="combocontainer">{displayCombos2()}</div>
+        <button onClick={onAddBtnClick}>test</button>
+        {myData.map((name) => (
+          <ComboCheckerBar
+            name = {name}
+            timezone={timezone}
+          />
+        ))}
+        {/* {myData} */}
+
+        
       </div>
       <hr className="hrcontainer" />
     </div>
