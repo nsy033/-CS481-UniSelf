@@ -18,10 +18,7 @@ const routinesets = {
   UVExposure: ['UVExposureTime', 'Daily UV exposure time'],
   study: ['studyTime', 'Daily study time'],
 }
-// console.log(routinesets[WakeUp]);
-
 const routinename = routinesets[routine][0];
-// const routinename = 'totalTimeForeground';
 
 const colorsets = {
   morning: ['#FFCA2D', '#FFE9A9'],
@@ -34,9 +31,9 @@ let FilteredroutineResults;
 if (timezone === 'morning') {
   FilteredroutineResults = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
 } else if (timezone === 'day'){
-  FilteredroutineResults = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
+    FilteredroutineResults = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
 } else {
-  FilteredroutineResults = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
+    FilteredroutineResults = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
 }
 
 const routineResults = {};
@@ -52,16 +49,18 @@ const practicedDates = practicedDatesStr.map(
 );
 
 const wakeUpTimes = practicedDatesStr.map((str) => {
-  const timeStr = routineResults[str][routinename];
-  // const timeStr = routineResults[str].wakeUpTime;
+//   const timeStr = routineResults[str][routinename];
+  const timeStr = routineResults[str].wakeUpTime;
   // console.log(timeStr);
-  return timeStr;
+  const [hours, minutes, seconds] = timeStr.split(':');
+  return new Date(2019, 0, 1, hours, minutes, seconds);
 });
 
 const markerColors = wakeUpTimes.map((time) => {
-  const targetTime = 2700000; // Target wake up time at 09:00
+  const wakeUpTime = new Date(time);
+  const targetTime = new Date(2019, 0, 1, 9, 0, 0); // Target wake up time at 09:00
 
-  if (time < targetTime) {
+  if (wakeUpTime < targetTime) {
     return colorsets[timezone][0]; // Use colorsets[timezone][0] if wakeUpTime is earlier than 08:30
   } else {
     return "FFFFFF"; // Use FFFFFF if wakeUpTime is 08:30 or later
@@ -85,12 +84,12 @@ var scatterplot = {
         width: 2
       }
     },
-    name: 'SNS usage time',
+    name: 'My Data',
   }
 
   var background = {
     x: practicedDates,
-    y: Array.from({ length: 110 }, () => 2700000),
+    y: Array.from({ length: 110 }, () => "09:00:00").map(time => '2019-01-01 ' + time),
     fill: 'tozeroy',
     fillcolor: colorsets[timezone][1],
     type: 'scatter',
@@ -119,7 +118,7 @@ var scatterplot = {
     yaxis: {
       // tickformat: '%H:%M:%S',
       title: {
-        text: 'Time (ms)',
+        text: 'Time',
         font: {
           size: 16,
         }
