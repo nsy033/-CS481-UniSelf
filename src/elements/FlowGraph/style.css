@@ -13,7 +13,7 @@
 }
 
 .dateinfo {
-    margin-top: 28px;
+    margin-top: 8px;
     font-size: 24px;
     color: #999999;
 }
@@ -32,3 +32,47 @@
     margin-left: 50px;
     color: #999999;
 }
+
+.toggle-container {
+    float: right;
+    display: flex;
+    align-items: center;
+    /* position: absolute;
+    left: 50%;
+    top: 50%; */
+    /* transform: translate(-50%, -50%) */
+  }
+  
+  .toggle-button {
+    background: #eeeeee;
+    width: 54px;
+    height: 26px;
+    border-radius: 26px;
+    padding: 3px;
+    cursor: pointer;
+    transition: all 300ms ease-in-out;
+    display: inline-block;
+  }
+  
+  .toggle-button > .inner-circle {
+    background: white;
+    width: 26px;
+    height: 26px;
+    border-radius: 26px;
+    transition: all 300ms ease-in-out;
+  }
+  
+  .toggle-button.active {
+    background: #cccccc;
+  }
+  
+  .toggle-button.active > .inner-circle {
+    margin-left: 26px;
+  }
+
+  .toggle-text {
+    display: inline-block; /* Added to align the text and button horizontally */
+    margin-left: 14px; /* Adjust the margin as needed */
+    font-size: 16px; /* Adjust the font size as needed */
+    color: #333333; /* Adjust the text color as needed */
+  }

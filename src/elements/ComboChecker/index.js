@@ -56,10 +56,10 @@ function ComboChecker() {
     combos.push(
       <a
         className="text"
-        href={ROUTES.ROUTINE + '/' + timezone + '/checkMailBox'}
+        href={ROUTES.ROUTINE + '/' + timezone + '/lessSNS'}
       >
         {' '}
-        Check Mail Box{' '}
+        Use less SNS{' '}
       </a>
     );
     combos.push(<div className="rcorners1" style={deepFilling}></div>);
