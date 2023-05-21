@@ -15,7 +15,7 @@ function ComboCheckerBar(props) {
     night: ['#3F51B5', '#CED3F0'],
   };
   const emptyFilling = {
-    width: '100px',
+    // width: '100px',
     height: '1px',
     float: 'left',
     background: '#FFFFFF',
@@ -33,6 +33,12 @@ function ComboCheckerBar(props) {
 
   if (timezone == 'night') deepFilling['color'] = '#FFFFFF';
 
+  const comboWakeUp = [7]
+  const comboSNS = [2, 5, 2]
+  const comboUV = [4, 2, 3]
+  const comboStudy = [3]
+  const comboTemp = [3, 4, 1, 2]
+
   const displayCombos = () => {
     let combos = [];
     combos.push(
@@ -45,12 +51,26 @@ function ComboCheckerBar(props) {
           }
       </a>
     );
-    combos.push(<div className="rcorners1" style={deepFilling}></div>);
-    combos.push(<div className="rcorners1" style={deepFilling}></div>);
-    combos.push(<div className="rcorners1" style={deepFilling}></div>);
+    var comboList = []
+    if (name == 'WakeUp') {
+     comboList = comboWakeUp
+    } else if (name == 'SNSUsage') {
+      comboList = comboSNS
+    } else if (name == 'UVExposure') {
+      comboList = comboUV
+    } else if (name == 'study') {
+      comboList = comboStudy
+    }else {
+      comboList = comboTemp
+    }
+
+    for (let i of comboList) {
+      combos.push(<div className={'rcorners'+i} style={deepFilling}></div>);
+    }
+
     combos.push(
       <div className="combotext" style={deepText}>
-        3 COMBO!
+        {comboList[comboList.length - 1]} COMBO!
       </div>
     );
 

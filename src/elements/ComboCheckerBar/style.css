@@ -5,3 +5,49 @@
     font-size: 18px;
     width: 200px;
 }
+
+.rcorners1 {
+    width: 25px;
+    border-radius: 25px;
+    padding: 20px; 
+    margin-left: 10px;
+    align-items: flex-start;
+  }
+
+.rcorners2 {
+    width: 50px;
+    border-radius: 25px;
+    padding: 20px; 
+    margin-left: 10px;
+    align-items: flex-start;
+  }
+  .rcorners3 {
+    width: 75px;
+    border-radius: 25px;
+    padding: 20px; 
+    margin-left: 10px;
+    align-items: flex-start;
+  }
+  .rcorners4 {
+    width: 100px;
+    border-radius: 25px;
+    padding: 20px; 
+    margin-left: 10px;
+    align-items: flex-start;
+  }
+
+  .rcorners5 {
+    width: 125px;
+    border-radius: 25px;
+    padding: 20px; 
+    margin-left: 10px;
+    align-items: flex-start;
+  }
+
+  .rcorners7 {
+    width: 175px;
+    border-radius: 25px;
+    padding: 20px; 
+    margin-left: 10px;
+    align-items: flex-start;
+  }
