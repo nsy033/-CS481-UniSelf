@@ -36,8 +36,8 @@ if (timezone === 'morning') {
   FilteredroutineResultsMy = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
   FilteredroutineResultsOthers = morningRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
 } else if (timezone === 'day'){
-  FilteredroutineResultsMy = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
-  FilteredroutineResultsOthers = morningRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
+  FilteredroutineResultsMy = dayRoutineResults.filter(({ userID }) => userID === 'USER1');
+  FilteredroutineResultsOthers = dayRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
 }
 else {
   FilteredroutineResultsMy = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
@@ -121,15 +121,20 @@ function FlowGraph() {
     });
 
     const filteredWakeUpTimes = weekWakeUpTimes.filter((time) => {
-      const targetTimeHours = 2700000; // Target wake up time: 9:00 am
-
-      if (
-        time < targetTimeHours
-      ) {
-        return true; // Wake up time is before 9:00 am
+      var targetTimeHours = 2700000;
+      if (timezone == 'morning') {
+        if (time < targetTimeHours) {
+          return true;
+        }
+        return false;
       }
-
-      return false; // Wake up time is after or at 9:00 am
+      else if (timezone == 'day') {
+        targetTimeHours = 3600;
+        if (time >= targetTimeHours) {
+          return true;
+        }
+        return false;
+      }
     });
 
     return filteredWakeUpTimes.length; // Return the count of wake up times
@@ -149,15 +154,20 @@ function FlowGraph() {
     });
   
     const filteredWakeUpTimes = weekWakeUpTimes.filter((time) => {
-      const targetTimeHours = 2700000; // Target wake up time: 9:00 am
-
-      if (
-        time < targetTimeHours
-      ) {
-        return true; // Wake up time is before 9:00 am
+      var targetTimeHours = 2700000;
+      if (timezone == 'morning') {
+        if (time < targetTimeHours) {
+          return true;
+        }
+        return false;
       }
-
-      return false; // Wake up time is after or at 9:00 am
+      else if (timezone == 'day') {
+        targetTimeHours = 3600;
+        if (time >= targetTimeHours) {
+          return true;
+        }
+        return false;
+      }
     });
   
       return filteredWakeUpTimes.length; // Return the count of wake up times

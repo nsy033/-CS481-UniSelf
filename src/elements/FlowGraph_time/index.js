@@ -8,7 +8,7 @@ import './style.css';
 
 const URLSplit = window.document.URL.split('/');
 var timezone = 'morning';
-var routine = 'wakeup';
+var routine = 'WakeUp';
 
 if (URLSplit.length >= 6) {
   timezone = URLSplit[URLSplit.length - 2];
@@ -36,8 +36,8 @@ if (timezone === 'morning') {
   FilteredroutineResultsMy = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
   FilteredroutineResultsOthers = morningRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
 } else if (timezone === 'day'){
-  FilteredroutineResultsMy = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
-  FilteredroutineResultsOthers = morningRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
+  FilteredroutineResultsMy = dayRoutineResults.filter(({ userID }) => userID === 'USER1');
+  FilteredroutineResultsOthers = dayRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
 }
 else {
   FilteredroutineResultsMy = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
@@ -114,15 +114,16 @@ function FlowGraph_time() {
     });
 
     const weekWakeUpTimes = weekDates.map((date) => {
-      // const timeStr = routineResultsMy[date][routinename];
-      const timeStr = routineResultsMy[date].wakeUpTime;
-      console.log(timeStr);
+      const timeStr = routineResultsMy[date][routinename];
+      // const timeStr = routineResultsMy[date].wakeUpTime;
+      // console.log(timeStr);
       const [hours, minutes, seconds] = timeStr.split(':');
       return new Date(2019, 0, 1, hours, minutes, seconds);
     });
 
     const filteredWakeUpTimes = weekWakeUpTimes.filter((time) => {
-      const targetTimeHours = 9; // Target wake up time: 9:00 am
+      var targetTimeHours = 9; // Target wake up time: 9:00 am
+      if (timezone == 'day') targetTimeHours = 18;
       const targetTimeMinutes = 0;
       const targetTimeSeconds = 0;
 
@@ -143,6 +144,7 @@ function FlowGraph_time() {
 
     return filteredWakeUpTimes.length; // Return the count of wake up times
     });
+
     const aggregatedWakeUpTimesOthers = practicedWeeks.map((week) => {
       const weekNumber = week;
       const weekDates = practicedDatesOthers.filter((date) => {
@@ -151,14 +153,15 @@ function FlowGraph_time() {
       });
   
       const weekWakeUpTimes = weekDates.map((date) => {
-        // const timeStr = routineResultsOthers[date][routinename];
-        const timeStr = routineResultsOthers[date].wakeUpTime;
+        const timeStr = routineResultsOthers[date][routinename];
+        // const timeStr = routineResultsOthers[date].wakeUpTime;
         const [hours, minutes, seconds] = timeStr.split(':');
         return new Date(2019, 0, 1, hours, minutes, seconds);
       });
   
-      const filteredWakeUpTimes = weekWakeUpTimes.filter((time) => {
-        const targetTimeHours = 9; // Target wake up time: 9:00 am
+    const filteredWakeUpTimes = weekWakeUpTimes.filter((time) => {
+      var targetTimeHoursOthers = 9; // Target wake up time: 9:00 am
+      if (timezone == 'day') targetTimeHoursOthers = 18;
         const targetTimeMinutes = 0;
         const targetTimeSeconds = 0;
   
@@ -167,9 +170,9 @@ function FlowGraph_time() {
         const seconds = time.getSeconds();
   
         if (
-          hours < targetTimeHours ||
-          (hours === targetTimeHours && minutes < targetTimeMinutes) ||
-          (hours === targetTimeHours && minutes === targetTimeMinutes && seconds < targetTimeSeconds)
+          hours < targetTimeHoursOthers ||
+          (hours === targetTimeHoursOthers && minutes < targetTimeMinutes) ||
+          (hours === targetTimeHoursOthers && minutes === targetTimeMinutes && seconds < targetTimeSeconds)
         ) {
           return true; // Wake up time is before 9:00 am
         }

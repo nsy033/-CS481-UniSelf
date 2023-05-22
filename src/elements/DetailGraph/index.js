@@ -17,11 +17,12 @@ const routinesets = {
   SNSUsage: ['totalTimeForeground', 'Daily SNS usage time'],
   UVExposure: ['UVExposureTime', 'Daily UV exposure time'],
   study: ['studyTime', 'Daily study time'],
+  // Exercise: []
 }
 // console.log(routinesets[WakeUp]);
 
-// const routinename = routinesets[routine][0];
-const routinename = 'totalTimeForeground';
+const routinename = routinesets[routine][0];
+// const routinename = 'totalTimeForeground';
 
 const colorsets = {
   morning: ['#FFCA2D', '#FFE9A9'],
@@ -34,7 +35,7 @@ let FilteredroutineResults;
 if (timezone === 'morning') {
   FilteredroutineResults = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
 } else if (timezone === 'day'){
-  FilteredroutineResults = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
+  FilteredroutineResults = dayRoutineResults.filter(({ userID }) => userID === 'USER1');
 } else {
   FilteredroutineResults = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
 }
@@ -52,19 +53,27 @@ const practicedDates = practicedDatesStr.map(
 );
 
 const wakeUpTimes = practicedDatesStr.map((str) => {
-  // const timeStr = routineResults[str][routinename];
-  const timeStr = routineResults[str].totalTimeForeground;
-  // console.log(timeStr);
+  const timeStr = routineResults[str][routinename];
+  // const timeStr = routineResults[str].totalTimeForeground;
   return timeStr;
 });
 
-const markerColors = wakeUpTimes.map((time) => {
-  const targetTime = 2700000; // Target wake up time at 09:00
+// console.log(wakeUpTimes);
 
-  if (time < targetTime) {
-    return colorsets[timezone][0]; // Use colorsets[timezone][0] if wakeUpTime is earlier than 08:30
-  } else {
-    return "FFFFFF"; // Use FFFFFF if wakeUpTime is 08:30 or later
+const markerColors = wakeUpTimes.map((time) => {
+  var targetTime = 2700000;
+  if (timezone == 'morning') {
+    if (time < targetTime) {
+      return colorsets[timezone][0];
+    }
+    return "FFFFFF";
+  }
+  else if (timezone == 'day') {
+    targetTime = 3600;
+    if (time >= targetTime) {
+      return colorsets[timezone][0];
+    }
+    return "FFFFFF";
   }
 });
 
@@ -85,14 +94,31 @@ var scatterplot = {
         width: 2
       }
     },
-    name: 'SNS usage time',
+    name: 'My Data',
   }
+
+var y;
+if (timezone === 'morning') {
+  y = Array.from({ length: 110 }, () => 2700000);
+} else if (timezone === 'day') {
+  y = Array.from({ length: 110 }, () => 20000);
+}
 
 var background = {
   x: practicedDates,
-  y: Array.from({ length: 110 }, () => 2700000),
+  y: y,
   fill: 'tozeroy',
   fillcolor: colorsets[timezone][1],
+  type: 'scatter',
+  mode: 'none',
+  name: 'Goal'
+}
+
+var whitebackground = {
+  x: practicedDates,
+  y: Array.from({ length: 110 }, () => 3600),
+  fill: 'tozeroy',
+  fillcolor: 'ffffff',
   type: 'scatter',
   mode: 'none',
   name: 'Goal'
@@ -103,6 +129,7 @@ const initial_range = [
 ]
   
 var layout = {
+  showlegend: false,
   font: {
     size: 12
   },
@@ -127,6 +154,8 @@ var layout = {
   }
 }
 
+const data = routine=='morning' ? [background, scatterplot] : [background, whitebackground, scatterplot];
+
 function DetailGraph() {
   let detailgraph = [];
   detailgraph.push(
@@ -138,7 +167,7 @@ function DetailGraph() {
   detailgraph.push(
     <Plot
       className="graphContainer"
-      data={[background, scatterplot]}
+      data={data}
       layout={layout}
   />
   )
