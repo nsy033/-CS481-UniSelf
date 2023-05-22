@@ -24,4 +24,6 @@
     text-align: center;
     float: left;
     margin-left: 12px;
+
+    cursor: pointer;
 }

@@ -23,8 +23,10 @@
     border-radius: 50px;
     background: white;
     color: #ccc;
+
+    cursor: pointer;
 }
-.addIcon :hover {
+.addIcon:hover {
     transition: all 0.3s;
     display: flex;
     width: 30px;

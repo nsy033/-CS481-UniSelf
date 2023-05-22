@@ -71,9 +71,6 @@ function Sankey() {
     staticPlot: true, // Disable click events
   };
 
-  console.log("static!")
-
-
   return (
     <div>
       <Plot
