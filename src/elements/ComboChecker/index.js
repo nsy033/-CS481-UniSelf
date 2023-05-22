@@ -31,16 +31,22 @@ function ComboChecker(props) {
   //   };
 
   return (
-    <div className="combo">
-      <hr className="hrcontainer" />
-      <div className="combocontainer-box">
-        {/* <button onClick={onAddBtnClick}>test</button> */}
-        {myData.map((name) => (
-          <ComboCheckerBar name={name} timezone={timezone} />
-        ))}
-        {/* {myData} */}
+    <div className="container-box">
+      <div className="title"><b>Combo Checker</b>
+        <div className="subtitle">Click on each routine and view its details</div>
       </div>
-      <hr className="hrcontainer" />
+
+      <div className="combo">
+        <hr className="hrcontainer" />
+        <div className="combocontainer-box">
+          {/* <button onClick={onAddBtnClick}>test</button> */}
+          {myData.map((name) => (
+            <ComboCheckerBar name={name} timezone={timezone} />
+          ))}
+          {/* {myData} */}
+        </div>
+        <hr className="hrcontainer" />
+      </div>
     </div>
   );
 }
