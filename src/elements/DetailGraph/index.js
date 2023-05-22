@@ -3,6 +3,7 @@ import Plot from 'react-plotly.js';
 // import routineResults from '../../routineInfos/routineResults';
 import morningRoutineResults from '../../routineInfos/morningRoutineResults';
 import dayRoutineResults from '../../routineInfos/dayRoutineResults';
+import nightRoutineResults from '../../routineInfos/nightRoutineResults';
 
 const URLSplit = window.document.URL.split('/');
 var timezone = 'morning';
@@ -17,7 +18,7 @@ const routinesets = {
   SNSUsage: ['totalTimeForeground', 'Daily SNS usage time'],
   UVExposure: ['UVExposureTime', 'Daily UV exposure time'],
   study: ['studyTime', 'Daily study time'],
-  // step: []
+  step: ['totalStep', 'Daily Exercise time']
 };
 // console.log(routinesets[WakeUp]);
 
@@ -41,7 +42,7 @@ if (timezone === 'morning') {
     ({ userID }) => userID === 'USER1'
   );
 } else {
-  FilteredroutineResults = morningRoutineResults.filter(
+  FilteredroutineResults = nightRoutineResults.filter(
     ({ userID }) => userID === 'USER1'
   );
 }
@@ -77,6 +78,12 @@ const markerColors = wakeUpTimes.map((time) => {
       return colorsets[timezone][0];
     }
     return 'FFFFFF';
+  } else  {
+    targetTime = 3000;
+    if (time >= targetTime) {
+      return colorsets[timezone][0];
+    }
+    return 'FFFFFF';
   }
 });
 
@@ -105,6 +112,8 @@ if (timezone === 'morning') {
   y = Array.from({ length: 110 }, () => 2700000);
 } else if (timezone === 'day') {
   y = Array.from({ length: 110 }, () => 20000);
+} else {
+  y = Array.from({ length: 110 }, () => 10000);
 }
 
 var background = {
@@ -117,9 +126,17 @@ var background = {
   name: 'Goal',
 };
 
+var y_white;
+if (timezone === 'day') {
+  y_white = Array.from({ length: 110 }, () => 3600);
+}
+else {
+  y_white = Array.from({ length: 110 }, () => 3000);
+}
+
 var whitebackground = {
   x: practicedDates,
-  y: Array.from({ length: 110 }, () => 3600),
+  y: y_white,
   fill: 'tozeroy',
   fillcolor: 'ffffff',
   type: 'scatter',
@@ -147,7 +164,7 @@ var layout = {
   yaxis: {
     // tickformat: '%H:%M:%S',
     title: {
-      text: 'Time (ms)',
+      text: 'Time',
       font: {
         size: 16,
       },

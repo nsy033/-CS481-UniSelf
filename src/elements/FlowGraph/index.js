@@ -3,6 +3,7 @@ import Plot from 'react-plotly.js';
 // import routineResults from '../../routineInfos/routineResults';
 import morningRoutineResults from '../../routineInfos/morningRoutineResults';
 import dayRoutineResults from '../../routineInfos/dayRoutineResults';
+import nightRoutineResults from '../../routineInfos/nightRoutineResults';
 
 import './style.css';
 
@@ -20,6 +21,7 @@ const routinesets = {
   SNSUsage: 'totalTimeForeground',
   UVExposure: 'UVExposureTime',
   study: 'studyTime',
+  step: 'totalStep'
 }
 const routinename = routinesets[routine];
 
@@ -40,8 +42,8 @@ if (timezone === 'morning') {
   FilteredroutineResultsOthers = dayRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
 }
 else {
-  FilteredroutineResultsMy = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
-  FilteredroutineResultsOthers = morningRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
+  FilteredroutineResultsMy = nightRoutineResults.filter(({ userID }) => userID === 'USER1');
+  FilteredroutineResultsOthers = nightRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
 }
 
 const routineResultsMy = {};
@@ -135,6 +137,13 @@ function FlowGraph() {
         }
         return false;
       }
+      else {
+        targetTimeHours = 3000;
+        if (time >= targetTimeHours) {
+          return true;
+        }
+        return false;   
+      }
     });
 
     return filteredWakeUpTimes.length; // Return the count of wake up times
@@ -163,6 +172,13 @@ function FlowGraph() {
       }
       else if (timezone == 'day') {
         targetTimeHours = 3600;
+        if (time >= targetTimeHours) {
+          return true;
+        }
+        return false;
+      }
+      else {
+        targetTimeHours = 3000;
         if (time >= targetTimeHours) {
           return true;
         }
