@@ -39,13 +39,7 @@ function ComboCheckerBar(props) {
   const comboStudy = [3];
   const comboTemp = [3, 4, 1, 2];
 
-  const availablePages = [
-    'WakeUp',
-    'SNSUsage',
-    'UVExposure',
-    'study',
-    'Exercise',
-  ];
+  const availablePages = ['WakeUp', 'SNSUsage', 'UVExposure', 'study', 'step'];
 
   const displayCombos = () => {
     let combos = [];
@@ -60,7 +54,7 @@ function ComboCheckerBar(props) {
             ? 'Enjoy sunshine ↑ 1 hr.'
             : name === 'study'
             ? 'Study ↑ 60 min.'
-            : 'Exercise ↑ 1 hr.'}
+            : 'Walk ↑ 3000 steps'}
         </a>
       ) : (
         <span className="text">{name}</span>

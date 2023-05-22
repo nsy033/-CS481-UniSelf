@@ -55,7 +55,7 @@ function RoutineList() {
         <ul>
           <li>
             <a className="text" href={ROUTES.ROUTINE + '/night/exercise'}>
-              Exercise ↑ 1 hr.
+              Walk ↑ 3000 steps
             </a>
           </li>
         </ul>

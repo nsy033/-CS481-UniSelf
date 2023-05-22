@@ -17,7 +17,7 @@ const routinesets = {
   SNSUsage: ['totalTimeForeground', 'Daily SNS usage time'],
   UVExposure: ['UVExposureTime', 'Daily UV exposure time'],
   study: ['studyTime', 'Daily study time'],
-}
+};
 const routinename = routinesets[routine][0];
 
 const colorsets = {
@@ -29,11 +29,17 @@ const colorsets = {
 let FilteredroutineResults;
 
 if (timezone === 'morning') {
-  FilteredroutineResults = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
-} else if (timezone === 'day'){
-    FilteredroutineResults = dayRoutineResults.filter(({ userID }) => userID === 'USER1');
+  FilteredroutineResults = morningRoutineResults.filter(
+    ({ userID }) => userID === 'USER1'
+  );
+} else if (timezone === 'day') {
+  FilteredroutineResults = dayRoutineResults.filter(
+    ({ userID }) => userID === 'USER1'
+  );
 } else {
-    FilteredroutineResults = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
+  FilteredroutineResults = morningRoutineResults.filter(
+    ({ userID }) => userID === 'USER1'
+  );
 }
 
 const routineResults = {};
@@ -50,10 +56,7 @@ const practicedDates = practicedDatesStr.map(
 
 const wakeUpTimes = practicedDatesStr.map((str) => {
   const timeStr = routineResults[str][routinename];
-  // const timeStr = routineResults[str].wakeUpTime;
-  // console.log(timeStr);
-  console.log(routinename);
-  if ((routinename=='wakeUpTime') || (routinename=='UVExposureTime')) {
+  if (routinename == 'wakeUpTime' || routinename == 'UVExposureTime') {
     const [hours, minutes, seconds] = timeStr.split(':');
     return new Date(2019, 0, 1, hours, minutes, seconds);
   }
@@ -75,15 +78,14 @@ const markerColors = wakeUpTimes.map((time) => {
     if (wakeUpTime < targetTime) {
       return colorsets[timezone][0]; // Use colorsets[timezone][0] if wakeUpTime is earlier than 08:30
     } else {
-      return "FFFFFF"; // Use FFFFFF if wakeUpTime is 08:30 or later
+      return 'FFFFFF'; // Use FFFFFF if wakeUpTime is 08:30 or later
     }
-  }
-  else if (timezone == 'day') {
+  } else if (timezone == 'day') {
     targetTime = new Date(2019, 0, 1, 18, 0, 0);
     if (wakeUpTime < targetTime) {
       return colorsets[timezone][0]; // Use colorsets[timezone][0] if wakeUpTime is earlier than 08:30
     } else {
-      return "FFFFFF"; // Use FFFFFF if wakeUpTime is 08:30 or later
+      return 'FFFFFF'; // Use FFFFFF if wakeUpTime is 08:30 or later
     }
   }
 });
@@ -93,8 +95,7 @@ const markerlineColors = wakeUpTimes.map((time) => {
 
   if (timezone == 'morning') {
     return colorsets[timezone][0];
-  }
-  else if (timezone == 'day') {
+  } else if (timezone == 'day') {
     const zeroTime = new Date(2019, 0, 1, 23, 59, 59);
     if (wakeUpTime.getTime() === zeroTime.getTime()) {
       // return 'rgba(255, 255, 255, 0.0)';
@@ -104,27 +105,27 @@ const markerlineColors = wakeUpTimes.map((time) => {
   }
 });
 
-const mode = routine=='morning' ? "markers+lines" : "markers+lines";
+const mode = routine == 'morning' ? 'markers+lines' : 'markers+lines';
 
 var scatterplot = {
-    type: "scatter",
-    x: practicedDates,
-    y: wakeUpTimes,
-    mode: mode,
+  type: 'scatter',
+  x: practicedDates,
+  y: wakeUpTimes,
+  mode: mode,
+  line: {
+    color: colorsets[timezone][0],
+    width: 2,
+  },
+  marker: {
+    size: 8,
+    color: markerColors,
     line: {
-      color: colorsets[timezone][0], 
-      width: 2
+      color: markerlineColors,
+      width: 2,
     },
-    marker: {
-      size: 8,
-      color: markerColors,
-      line: {
-        color: markerlineColors,
-        width: 2
-      }
-    },
-    name: 'My Data',
-}
+  },
+  name: 'My Data',
+};
 
 // var background = {
 // x: practicedDates,
@@ -138,9 +139,13 @@ var scatterplot = {
 
 var y;
 if (timezone === 'morning') {
-  y = Array.from({ length: 110 }, () => "09:00:00").map(time => '2019-01-01 ' + time);
+  y = Array.from({ length: 110 }, () => '09:00:00').map(
+    (time) => '2019-01-01 ' + time
+  );
 } else if (timezone === 'day') {
-  y = Array.from({ length: 110 }, () => "18:00:00").map(time => '2019-01-01 ' + time);
+  y = Array.from({ length: 110 }, () => '18:00:00').map(
+    (time) => '2019-01-01 ' + time
+  );
 }
 
 var background = {
@@ -150,8 +155,8 @@ var background = {
   fillcolor: colorsets[timezone][1],
   type: 'scatter',
   mode: 'none',
-  name: 'Goal'
-}
+  name: 'Goal',
+};
 
 // var whitebackground = {
 //   x: practicedDates,
@@ -163,54 +168,49 @@ var background = {
 //   name: 'Goal'
 // }
 
-const initial_range = [
-'2019-04-14', '2019-05-15'
-]
-    
+const initial_range = ['2019-04-14', '2019-05-15'];
+
 var layout = {
-showlegend: false,
-font: {
-    size: 12
-},
-xaxis: {
-        //   rangeSelector: {buttons: [{
-        //     step: 'all'
-        // }]},
-        rangeslider: {},
-        range: initial_range
-    },
-// xaxis: {
-//   tickformat: '%H:%M:%S',
-// },
-yaxis: {
+  showlegend: false,
+  font: {
+    size: 12,
+  },
+  xaxis: {
+    //   rangeSelector: {buttons: [{
+    //     step: 'all'
+    // }]},
+    rangeslider: {},
+    range: initial_range,
+  },
+  // xaxis: {
+  //   tickformat: '%H:%M:%S',
+  // },
+  yaxis: {
     // tickformat: '%H:%M:%S',
     title: {
-    text: 'Time',
-    font: {
+      text: 'Time',
+      font: {
         size: 16,
-    }
-    }
-}
-}
+      },
+    },
+  },
+};
 
-const data = routine=='morning' ? [background, scatterplot] : [background, scatterplot];
+const data =
+  routine == 'morning' ? [background, scatterplot] : [background, scatterplot];
 
 function DetailGraph() {
-let detailgraph = [];
-detailgraph.push(
+  let detailgraph = [];
+  detailgraph.push(
     <div className="title">
-    {routinesets[routine][1]} <b>DETAILS</b>
+      {routinesets[routine][1]} <b>DETAILS</b>
     </div>
-);
+  );
 
-detailgraph.push(
-    <Plot
-    className="graphContainer"
-    data={data}
-    layout={layout}
-/>
-)
-return (detailgraph);
+  detailgraph.push(
+    <Plot className="graphContainer" data={data} layout={layout} />
+  );
+  return detailgraph;
 }
 
 export default DetailGraph;

@@ -4,21 +4,26 @@ import React from 'react';
 import CompanionProfile from '../CompanionProfile';
 import morningRoutineResults from '../../routineInfos/morningRoutineResults';
 import dayRoutineResults from '../../routineInfos/dayRoutineResults';
+import nightRoutineResults from '../../routineInfos/nightRoutineResults';
 
 function CompanionHeatmap(props) {
   const { list, fillings, selectedTimezone } = props;
 
   const displayHeatRow = (rowForWhom) => {
     let routineResults;
-    if (selectedTimezone === 'morning') {
+    if (selectedTimezone === 'morning')
       routineResults = morningRoutineResults.filter(
         ({ userID }) => userID === rowForWhom
       );
-    } else {
+    else if (selectedTimezone === 'day')
       routineResults = dayRoutineResults.filter(
         ({ userID }) => userID === rowForWhom
       );
-    }
+    else
+      routineResults = nightRoutineResults.filter(
+        ({ userID }) => userID === rowForWhom
+      );
+
     if (rowForWhom.includes('1'))
       routineResults = routineResults.slice(routineResults.length - 7);
     else if (rowForWhom.includes('2'))
@@ -40,7 +45,6 @@ function CompanionHeatmap(props) {
           'morning'
         ];
         const targetWakeUpTime = target['WakeUp'];
-        console.log(targetWakeUpTime);
         const targetSNSUsage = target['SNSUsage'];
 
         const totalTimeForeground = routineResults[day]['totalTimeForeground'];
@@ -73,8 +77,15 @@ function CompanionHeatmap(props) {
 
         achievementLevel = achievement / Object.keys(target).length;
       } else {
-        achievement = Math.floor(Math.random() * 3);
-        achievementLevel = achievement / 2;
+        // console.log(rowForWhom, routineResults[day]);
+        const target = list.filter(({ userID }) => userID === rowForWhom)[0][
+          'night'
+        ];
+        const targetStep = target['step'];
+        const totalStep = routineResults[day]['totalStep'];
+
+        if (totalStep >= targetStep) achievement++;
+        achievementLevel = achievement;
       }
 
       row.push(

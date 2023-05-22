@@ -17,8 +17,8 @@ const routinesets = {
   SNSUsage: ['totalTimeForeground', 'Daily SNS usage time'],
   UVExposure: ['UVExposureTime', 'Daily UV exposure time'],
   study: ['studyTime', 'Daily study time'],
-  // Exercise: []
-}
+  // step: []
+};
 // console.log(routinesets[WakeUp]);
 
 const routinename = routinesets[routine][0];
@@ -33,11 +33,17 @@ const colorsets = {
 let FilteredroutineResults;
 
 if (timezone === 'morning') {
-  FilteredroutineResults = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
-} else if (timezone === 'day'){
-  FilteredroutineResults = dayRoutineResults.filter(({ userID }) => userID === 'USER1');
+  FilteredroutineResults = morningRoutineResults.filter(
+    ({ userID }) => userID === 'USER1'
+  );
+} else if (timezone === 'day') {
+  FilteredroutineResults = dayRoutineResults.filter(
+    ({ userID }) => userID === 'USER1'
+  );
 } else {
-  FilteredroutineResults = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
+  FilteredroutineResults = morningRoutineResults.filter(
+    ({ userID }) => userID === 'USER1'
+  );
 }
 
 const routineResults = {};
@@ -64,36 +70,35 @@ const markerColors = wakeUpTimes.map((time) => {
     if (time < targetTime) {
       return colorsets[timezone][0];
     }
-    return "FFFFFF";
-  }
-  else if (timezone == 'day') {
+    return 'FFFFFF';
+  } else if (timezone == 'day') {
     targetTime = 3600;
     if (time >= targetTime) {
       return colorsets[timezone][0];
     }
-    return "FFFFFF";
+    return 'FFFFFF';
   }
 });
 
 var scatterplot = {
-    type: "scatter",
-    x: practicedDates,
-    y: wakeUpTimes,
-    mode: "markers+lines",
+  type: 'scatter',
+  x: practicedDates,
+  y: wakeUpTimes,
+  mode: 'markers+lines',
+  line: {
+    color: colorsets[timezone][0],
+    width: 2,
+  },
+  marker: {
+    size: 8,
+    color: markerColors,
     line: {
-      color: colorsets[timezone][0], 
-      width: 2
+      color: colorsets[timezone][0],
+      width: 2,
     },
-    marker: {
-      size: 8,
-      color: markerColors,
-      line: {
-        color: colorsets[timezone][0],
-        width: 2
-      }
-    },
-    name: 'My Data',
-  }
+  },
+  name: 'My Data',
+};
 
 var y;
 if (timezone === 'morning') {
@@ -109,8 +114,8 @@ var background = {
   fillcolor: colorsets[timezone][1],
   type: 'scatter',
   mode: 'none',
-  name: 'Goal'
-}
+  name: 'Goal',
+};
 
 var whitebackground = {
   x: practicedDates,
@@ -119,25 +124,23 @@ var whitebackground = {
   fillcolor: 'ffffff',
   type: 'scatter',
   mode: 'none',
-  name: 'Goal'
-}
+  name: 'Goal',
+};
 
-const initial_range = [
-  '2019-04-14', '2019-05-15'
-]
-  
+const initial_range = ['2019-04-14', '2019-05-15'];
+
 var layout = {
   showlegend: false,
   font: {
-    size: 12
+    size: 12,
   },
   xaxis: {
-        //   rangeSelector: {buttons: [{
-        //     step: 'all'
-        // }]},
-          rangeslider: {},
-          range: initial_range
-      },
+    //   rangeSelector: {buttons: [{
+    //     step: 'all'
+    // }]},
+    rangeslider: {},
+    range: initial_range,
+  },
   // xaxis: {
   //   tickformat: '%H:%M:%S',
   // },
@@ -147,12 +150,15 @@ var layout = {
       text: 'Time (ms)',
       font: {
         size: 16,
-      }
-    }
-  }
-}
+      },
+    },
+  },
+};
 
-const data = routine=='morning' ? [background, scatterplot] : [background, whitebackground, scatterplot];
+const data =
+  routine == 'morning'
+    ? [background, scatterplot]
+    : [background, whitebackground, scatterplot];
 
 function DetailGraph() {
   let detailgraph = [];
@@ -163,13 +169,9 @@ function DetailGraph() {
   );
 
   detailgraph.push(
-    <Plot
-      className="graphContainer"
-      data={data}
-      layout={layout}
-  />
-  )
-  return (detailgraph);
+    <Plot className="graphContainer" data={data} layout={layout} />
+  );
+  return detailgraph;
 }
 
 export default DetailGraph;

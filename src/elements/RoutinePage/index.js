@@ -11,14 +11,14 @@ import { Icon } from '@iconify/react';
 const routinesets = {
   // morning: ['🛏️ Wake up before 9AM', '📱 Use SNS less than 45 min'],
   morning: {
-    WakeUp: '🛏️ Wake up before 9AM.',
+    WakeUp: '🛏️ Wake up before 09:00 AM.',
     SNSUsage: '📱 Use SNS less than 45 min.',
   },
   day: {
     study: '📚 Study more than 1 hr.',
     UVExposure: '🌞 Enjoy sunshine more than 1 hr.',
   },
-  night: { Exercise: '🏃 Exercise more than 1 hr.' },
+  night: { step: '🏃 Walk more than 3000 steps' },
 };
 
 function RoutinePage() {
