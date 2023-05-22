@@ -33,39 +33,44 @@ function ComboCheckerBar(props) {
 
   if (timezone == 'night') deepFilling['color'] = '#FFFFFF';
 
-  const comboWakeUp = [7]
-  const comboSNS = [2, 5, 2]
-  const comboUV = [4, 2, 3]
-  const comboStudy = [3]
-  const comboTemp = [3, 4, 1, 2]
+  const comboWakeUp = [7];
+  const comboSNS = [2, 5, 2];
+  const comboUV = [4, 2, 3];
+  const comboStudy = [3];
+  const comboTemp = [3, 4, 1, 2];
 
   const displayCombos = () => {
     let combos = [];
     combos.push(
       <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/' + name}>
-        {name === 'WakeUp'? 'Wake Up at 10:00':
-          name === 'SNSUsage'? 'SNS ↓ 45 min':
-          name === 'UVExposure'? 'Enjoy sunshine ↑ 1 hr.': 
-          name === 'study'? 'Study ↑ 60 min.': 
-          name === 'Exercise'? 'Exercise ↑ 1 hr.' : name
-          }
+        {name === 'WakeUp'
+          ? 'Wake up before 09:00 AM'
+          : name === 'SNSUsage'
+          ? 'SNS ↓ 45 min.'
+          : name === 'UVExposure'
+          ? 'Enjoy sunshine ↑ 1 hr.'
+          : name === 'study'
+          ? 'Study ↑ 60 min.'
+          : name === 'Exercise'
+          ? 'Exercise ↑ 1 hr.'
+          : name}
       </a>
     );
-    var comboList = []
+    var comboList = [];
     if (name == 'WakeUp') {
-     comboList = comboWakeUp
+      comboList = comboWakeUp;
     } else if (name == 'SNSUsage') {
-      comboList = comboSNS
+      comboList = comboSNS;
     } else if (name == 'UVExposure') {
-      comboList = comboUV
+      comboList = comboUV;
     } else if (name == 'study') {
-      comboList = comboStudy
-    }else {
-      comboList = comboTemp
+      comboList = comboStudy;
+    } else {
+      comboList = comboTemp;
     }
 
     for (let i of comboList) {
-      combos.push(<div className={'rcorners'+i} style={deepFilling}></div>);
+      combos.push(<div className={'rcorners' + i} style={deepFilling}></div>);
     }
 
     combos.push(

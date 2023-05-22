@@ -9,7 +9,7 @@ function MainPage() {
     <div className="pageBox">
       <h1 className="unboldHeading">
         Hi, <b>USER👋</b> <br />
-        Take a look at your <b>OVERALL ROUTINES</b>{' '}
+        Take a look at your <b>OVERALL ROUTINES</b>
       </h1>
       <div className="box-container">
         <div className="homeRoutineList">

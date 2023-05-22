@@ -90,10 +90,10 @@ function CreateModal(props) {
           (timezone === 'morning' ? ' AM' : ' PM');
         break;
       case 'study':
-        routineTitle += GoalHour + ' hr ' + GoalMin.padStart(2, '0') + ' min';
+        routineTitle += GoalHour + ' hr. ' + GoalMin.padStart(2, '0') + ' min.';
         break;
       case 'SNSusage':
-        routineTitle += GoalHour + ' hr ' + GoalMin.padStart(2, '0') + ' min';
+        routineTitle += GoalHour + ' hr. ' + GoalMin.padStart(2, '0') + ' min.';
         break;
       default:
         routineTitle +=
