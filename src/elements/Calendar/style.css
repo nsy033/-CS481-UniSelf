@@ -16,7 +16,7 @@ button {
     margin-left: auto;
     font-size: 45px;
     font-weight: 700;
-    color: #333333;
+    color: black;
     margin-left: -48px;
 }
 .pagination .monthName {
@@ -109,7 +109,7 @@ button {
     font-family: 'Pretendard';
     font-size: 16px;
     margin-top: 10px;
-    color: #333333
+    color: black
 }
 .tooltipTable tr {
     height: 30px;
