@@ -70,7 +70,7 @@ function ComboCheckerBar(props) {
       comboList = comboUV;
     } else if (name == 'study') {
       comboList = comboStudy;
-    } else if (name == 'Exercise') {
+    } else if (name == 'step') {
       comboList = comboExercise;
     } else {
       comboList = comboNew;
