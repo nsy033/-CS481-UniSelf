@@ -19,8 +19,16 @@ function RoutineList() {
           Morning 🌻
         </a>
         <ul>
-          <li>Wake up before 09:00 AM</li>
-          <li>SNS ↓ 45 min.</li>
+          <li>
+            <a className="text" href={ROUTES.ROUTINE + '/morning/WakeUp'}>
+              Wake up before 09:00 AM
+            </a>
+          </li>
+          <li>
+            <a className="text" href={ROUTES.ROUTINE + '/morning/WakeUp'}>
+              SNS ↓ 45 min.
+            </a>
+          </li>
         </ul>
       </li>
       <li className="sub-routines-box">
@@ -28,8 +36,16 @@ function RoutineList() {
           Day 🌈
         </a>
         <ul>
-          <li>Enjoy sunshine ↑ 1 hr.</li>
-          <li>Study ↑ 60 min.</li>
+          <li>
+            <a className="text" href={ROUTES.ROUTINE + '/day/UVExposure'}>
+              Enjoy sunshine ↑ 1 hr.
+            </a>
+          </li>
+          <li>
+            <a className="text" href={ROUTES.ROUTINE + '/day/study'}>
+              Study ↑ 60 min.
+            </a>
+          </li>
         </ul>
       </li>
       <li className="sub-routines-box">
@@ -37,7 +53,11 @@ function RoutineList() {
           Night 🌙
         </a>
         <ul>
-          <li>Exercise ↑ 1 hr.</li>
+          <li>
+            <a className="text" href={ROUTES.ROUTINE + '/night/exercise'}>
+              Walk ↑ 3000 steps
+            </a>
+          </li>
         </ul>
       </li>
     </div>

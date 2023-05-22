@@ -1,6 +1,7 @@
 .combo {
     margin-bottom: 30px;
     block-size: fit-content;
+    margin-bottom: 20px;
 }
 
 .rcorners1 {
@@ -18,9 +19,9 @@
 
 .combocontainer {
     display: flex;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    font-size: 18px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    font-size: 16px;
     float: left;
     text-align: center;
     align-items: center;
@@ -37,14 +38,14 @@
     display: flex;
 }
 
-.title {
+.combo-title {
     font-size: 32px;
     margin-right: 20px;
     margin-bottom: 10px;
     float: left;
 }
 
-.subtitle {
+.combo-subtitle {
     font-size: 18px;
     margin-top: 8px;
     margin-right: 50px;

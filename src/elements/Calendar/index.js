@@ -7,6 +7,7 @@ import { Icon } from '@iconify/react';
 import allUsersRoutine from '../../routineInfos/allUsersRoutine';
 import morningRoutineResults from '../../routineInfos/morningRoutineResults';
 import dayRoutineResults from '../../routineInfos/dayRoutineResults';
+import nightRoutineResults from '../../routineInfos/nightRoutineResults';
 
 function Calendar() {
   const URLSplit = window.document.URL.split('/');
@@ -48,7 +49,7 @@ function Calendar() {
       const targetSNSUsage = allUsersRoutine['USER1']['morning']['SNSUsage'];
       const targetWakeUpTime = allUsersRoutine['USER1']['morning']['WakeUp'];
       setTargets([targetSNSUsage, targetWakeUpTime]);
-    } else {
+    } else if (timezone === 'day') {
       dayRoutineResults = dayRoutineResults.filter(
         ({ userID }) => userID === 'USER1'
       );
@@ -61,6 +62,16 @@ function Calendar() {
       const targetStudyTime = allUsersRoutine['USER1']['day']['study'];
       const targetUVExposure = allUsersRoutine['USER1']['day']['UVExposure'];
       setTargets([targetStudyTime, targetUVExposure]);
+    } else {
+      nightRoutineResults = nightRoutineResults.filter(
+        ({ userID }) => userID === 'USER1'
+      );
+      nightRoutineResults.forEach(({ userID, date, totalStep }) => {
+        routineRes[date] = { totalStep };
+      });
+
+      const targetStep = allUsersRoutine['USER1']['night']['step'];
+      setTargets([targetStep]);
     }
 
     const dateStr = Object.keys(routineRes);
@@ -126,7 +137,7 @@ function Calendar() {
           new Date(thisDateStr + 'T' + targets[1]).getTime()
         )
           newTooltipIcon[1] = COLORSETS[timezone][0];
-      } else {
+      } else if (timezone === 'day') {
         const { studyTime, UVExposureTime } =
           routineResults[practicedDatesStr[jsonIdx]];
 
@@ -139,6 +150,12 @@ function Calendar() {
           new Date(thisDateStr + 'T' + targets[1]).getTime()
         )
           newTooltipIcon[1] = COLORSETS[timezone][0];
+      } else {
+        const { totalStep } = routineResults[practicedDatesStr[jsonIdx]];
+
+        actualContents[0] = totalStep;
+
+        if (totalStep >= targets[0]) newTooltipIcon[0] = COLORSETS[timezone][0];
       }
     }
     setActualAchievements(actualContents);
@@ -152,8 +169,6 @@ function Calendar() {
   const open = Boolean(anchorEl);
 
   const emptyFilling = {
-    width: '50px',
-    height: '50px',
     textAlign: 'center',
     float: 'left',
     background: '#FFFFFF',
@@ -201,24 +216,50 @@ function Calendar() {
   for (let i = 1; i <= 12; i++) months.push(i);
 
   const goPrevMonth = () => {
+    let newSelectedYear, newSelectedMonth, newDateTotalCount;
     if (selectedMonth === 1) {
-      setSelectedMonth(12);
-      setSelectedYear(selectedYear - 1);
-      setDateTotalCount(computeDaysInMonth(12, selectedYear - 1));
+      newSelectedMonth = 12;
+      newSelectedYear = selectedYear - 1;
     } else {
-      setSelectedMonth(selectedMonth - 1);
-      setDateTotalCount(computeDaysInMonth(selectedMonth - 1, selectedYear));
+      newSelectedMonth = selectedMonth - 1;
+      newSelectedYear = selectedYear;
     }
+
+    newDateTotalCount = computeDaysInMonth(newSelectedMonth, newSelectedYear);
+    const firstDay = new Date(
+      new Date(newSelectedYear, newSelectedMonth - 1, 1) -
+        new Date().getTimezoneOffset() * 60000
+    ).getDay();
+
+    if (newDateTotalCount + firstDay > 35) setCalendarHeight('560px');
+    else setCalendarHeight('500px');
+
+    setSelectedMonth(newSelectedMonth);
+    setSelectedYear(newSelectedYear);
+    setDateTotalCount(newDateTotalCount);
   };
   const goNextMonth = () => {
+    let newSelectedYear, newSelectedMonth, newDateTotalCount;
     if (selectedMonth === 12) {
-      setSelectedMonth(1);
-      setSelectedYear(selectedYear + 1);
-      setDateTotalCount(computeDaysInMonth(1, selectedYear + 1));
+      newSelectedMonth = 1;
+      newSelectedYear = selectedYear + 1;
     } else {
-      setSelectedMonth(selectedMonth + 1);
-      setDateTotalCount(computeDaysInMonth(selectedMonth + 1, selectedYear));
+      newSelectedMonth = selectedMonth + 1;
+      newSelectedYear = selectedYear;
     }
+
+    newDateTotalCount = computeDaysInMonth(newSelectedMonth, newSelectedYear);
+    const firstDay = new Date(
+      new Date(newSelectedYear, newSelectedMonth - 1, 1) -
+        new Date().getTimezoneOffset() * 60000
+    ).getDay();
+
+    if (newDateTotalCount + firstDay > 35) setCalendarHeight('560px');
+    else setCalendarHeight('500px');
+
+    setSelectedMonth(newSelectedMonth);
+    setSelectedYear(newSelectedYear);
+    setDateTotalCount(newDateTotalCount);
   };
 
   const displayWeekdays = () => {
@@ -239,14 +280,15 @@ function Calendar() {
     return weekdayLabels;
   };
 
+  const [calendarHeight, setCalendarHeight] = useState('500px');
+
   const displayDates = useCallback(() => {
     let dates = [];
-
+    const firstDay = new Date(
+      new Date(selectedYear, selectedMonth - 1, 1) -
+        new Date().getTimezoneOffset() * 60000
+    ).getDay();
     for (const weekday of weekdays) {
-      const firstDay = new Date(
-        new Date(selectedYear, selectedMonth - 1, 1) -
-          new Date().getTimezoneOffset() * 60000
-      ).getDay();
       if (weekdays[firstDay] === weekday) {
         for (let i = 1; i <= dateTotalCount; i++) {
           const thisDate = new Date(
@@ -254,7 +296,8 @@ function Calendar() {
               new Date().getTimezoneOffset() * 60000
           );
           const day = thisDate.getDay();
-          let achievement = 0;
+          let achievement = 0,
+            achievementLevel = 1;
           let isEmpty = true;
           const thisDateStr = thisDate.toISOString().split('T')[0];
 
@@ -271,7 +314,8 @@ function Calendar() {
                 new Date(thisDateStr + 'T' + targets[1]).getTime()
               )
                 achievement++;
-            } else {
+              achievementLevel = achievement / 2;
+            } else if (timezone === 'day') {
               const { studyTime, UVExposureTime } =
                 routineResults[practicedDatesStr[jsonIdx]];
               if (studyTime >= targets[0]) achievement++;
@@ -280,6 +324,11 @@ function Calendar() {
                 new Date(thisDateStr + 'T' + targets[1]).getTime()
               )
                 achievement++;
+              achievementLevel = achievement / 2;
+            } else {
+              const { totalStep } = routineResults[practicedDatesStr[jsonIdx]];
+              if (totalStep >= targets[0]) achievement++;
+              achievementLevel = achievement / 1;
             }
           }
           dates.push(
@@ -302,11 +351,11 @@ function Calendar() {
                 style={
                   isEmpty
                     ? emptyFilling
-                    : achievement === 0
+                    : achievementLevel === 0
                     ? grayFilling
-                    : achievement === 1
-                    ? lightFilling
-                    : deepFilling
+                    : achievementLevel === 1
+                    ? deepFilling
+                    : lightFilling
                 }
                 onMouseEnter={isEmpty ? null : handlePopoverOpen}
                 onMouseLeave={isEmpty ? null : handlePopoverClose}
@@ -326,7 +375,7 @@ function Calendar() {
   }, [routineResults, selectedYear, selectedMonth, dateTotalCount]);
 
   return (
-    <div className="calendarContainer">
+    <div className="calendarContainer" style={{ height: calendarHeight }}>
       <div className="pagination">
         <button onClick={goPrevMonth}>
           <Icon icon="material-symbols:arrow-back-ios-new-rounded" />
@@ -361,7 +410,7 @@ function Calendar() {
           sx={{
             border: 0,
             width: '500px',
-            height: '150px',
+            height: timezone === 'night' ? '120px' : '150px',
             bgcolor: 'background.paper',
           }}
         >
@@ -392,43 +441,53 @@ function Calendar() {
                   <td className="secondCol">
                     {timezone === 'morning'
                       ? `SNS ↓ ${Math.floor(targets[0] / 1000 / 60)} min.`
-                      : `Study ↑ ${Math.floor(targets[0] / 60)} min.`}
+                      : timezone === 'day'
+                      ? `Study ↑ ${Math.floor(targets[0] / 60)} min.`
+                      : `Walk ↑ ${targets[0]} steps`}
                   </td>
                   <td className="thirdCol">
                     {timezone === 'morning'
                       ? `Used SNS ${Math.floor(
                           actualAchievements[0] / 1000 / 60
                         )} min.`
-                      : `Studied ${Math.floor(
-                          actualAchievements[0] / 60
-                        )} min.`}
+                      : timezone === 'day'
+                      ? `Studied ${Math.floor(actualAchievements[0] / 60)} min.`
+                      : `Walked ${actualAchievements[0]} steps`}
                   </td>
                 </tr>
-                <tr>
-                  <td className="firstCol">
-                    <div
-                      className="tooltipIcon"
-                      style={{ background: tooltipIcon[1] }}
-                    >
-                      {' '}
-                    </div>
-                  </td>
-                  <td className="secondCol">
-                    {timezone === 'morning'
-                      ? `Wake up at ${targets[1]?.slice(0, 5)}`
-                      : `Enjoy sunshine ↑ 1hr.`}
-                  </td>
-                  <td className="thirdCol">
-                    {timezone === 'morning'
-                      ? `Wake up at ${actualAchievements[1]?.slice(0, 5)}`
-                      : new Date(
-                          '1970-01-01 ' + actualAchievements[1]
-                        ).getTime() <=
-                        new Date('1970-01-01 ' + targets[1]).getTime()
-                      ? `Enjoyed sunshine ↑ 1hr.`
-                      : `Not enough sunshine`}
-                  </td>
-                </tr>
+                {timezone === 'night' ? (
+                  ''
+                ) : (
+                  <tr>
+                    <td className="firstCol">
+                      <div
+                        className="tooltipIcon"
+                        style={{ background: tooltipIcon[1] }}
+                      >
+                        {' '}
+                      </div>
+                    </td>
+                    <td className="secondCol">
+                      {timezone === 'morning'
+                        ? `Wake up at ${targets[1]?.slice(0, 5)}`
+                        : timezone === 'day'
+                        ? `Enjoy sunshine ↑ 1hr.`
+                        : ''}
+                    </td>
+                    <td className="thirdCol">
+                      {timezone === 'morning'
+                        ? `Wake up at ${actualAchievements[1]?.slice(0, 5)}`
+                        : timezone === 'day'
+                        ? new Date(
+                            '1970-01-01 ' + actualAchievements[1]
+                          ).getTime() <=
+                          new Date('1970-01-01 ' + targets[1]).getTime()
+                          ? `Enjoyed sunshine ↑ 1hr.`
+                          : `Not enough sunshine`
+                        : ''}
+                    </td>
+                  </tr>
+                )}
               </tbody>
             </table>
           </div>
