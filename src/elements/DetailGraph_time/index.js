@@ -52,8 +52,13 @@ const wakeUpTimes = practicedDatesStr.map((str) => {
   const timeStr = routineResults[str][routinename];
   // const timeStr = routineResults[str].wakeUpTime;
   // console.log(timeStr);
-  const [hours, minutes, seconds] = timeStr.split(':');
-  return new Date(2019, 0, 1, hours, minutes, seconds);
+  console.log(routinename);
+  if ((routinename=='wakeUpTime') || (routinename=='UVExposureTime')) {
+    const [hours, minutes, seconds] = timeStr.split(':');
+    return new Date(2019, 0, 1, hours, minutes, seconds);
+  }
+  // const [hours, minutes, seconds] = timeStr.split(':');
+  return new Date(2019, 0, 1, 0, 0, 0);
 });
 
 const markerColors = wakeUpTimes.map((time) => {
@@ -92,13 +97,14 @@ const markerlineColors = wakeUpTimes.map((time) => {
   else if (timezone == 'day') {
     const zeroTime = new Date(2019, 0, 1, 23, 59, 59);
     if (wakeUpTime.getTime() === zeroTime.getTime()) {
-      return 'rgba(255, 255, 255, 0.0)';
+      // return 'rgba(255, 255, 255, 0.0)';
+      return colorsets[timezone][0];
     }
     return colorsets[timezone][0];
   }
 });
 
-const mode = routine=='morning' ? "markers+lines" : "markers";
+const mode = routine=='morning' ? "markers+lines" : "markers+lines";
 
 var scatterplot = {
     type: "scatter",

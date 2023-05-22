@@ -117,7 +117,11 @@ function FlowGraph_time() {
       const timeStr = routineResultsMy[date][routinename];
       // const timeStr = routineResultsMy[date].wakeUpTime;
       // console.log(timeStr);
-      const [hours, minutes, seconds] = timeStr.split(':');
+      var [hours, minutes, seconds] = [0, 0, 0];
+      if ((routinename=='wakeUpTime') || (routinename=='UVExposureTime')) {
+        [hours, minutes, seconds] = timeStr.split(':');
+      }
+      // const [hours, minutes, seconds] = timeStr.split(':');
       return new Date(2019, 0, 1, hours, minutes, seconds);
     });
 

@@ -80,7 +80,25 @@ function ComboCheckerBar(props) {
     }
 
     for (let i of comboList) {
-      combos.push(<div className={'rcorners' + i} style={deepFilling}></div>);
+      combos.push(
+        availablePages.includes(name) ? (
+          <a
+            className={'rcorners' + i}
+            href={ROUTES.ROUTINE + '/' + timezone + '/' + name}
+            style={deepFilling}
+          >
+            {' '}
+          </a>
+        ) : (
+          <div
+            className={'rcorners' + i}
+            href={ROUTES.ROUTINE + '/' + timezone + '/' + name}
+            style={deepFilling}
+          >
+            {' '}
+          </div>
+        )
+      );
     }
 
     combos.push(
