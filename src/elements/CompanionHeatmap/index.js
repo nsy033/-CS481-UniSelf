@@ -40,6 +40,7 @@ function CompanionHeatmap(props) {
           'morning'
         ];
         const targetWakeUpTime = target['WakeUp'];
+        console.log(targetWakeUpTime);
         const targetSNSUsage = target['SNSUsage'];
 
         const totalTimeForeground = routineResults[day]['totalTimeForeground'];
