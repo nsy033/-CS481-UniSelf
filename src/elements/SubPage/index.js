@@ -55,7 +55,8 @@ function SubPage() {
   return (
     <div className="pageBox">
       <div className="pageTitle">
-        All about <br /> <b>User</b>'s <b>{timezone.toUpperCase()} ROUTINE</b>
+        All about <br />
+        My <b>{timezone.toUpperCase()} ROUTINE</b>
         {timezone === 'morning' ? ' 🌻' : timezone === 'day' ? ' 🌈' : ' 🌙'}
       </div>
 

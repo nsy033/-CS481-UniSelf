@@ -152,8 +152,6 @@ function Calendar() {
   const open = Boolean(anchorEl);
 
   const emptyFilling = {
-    width: '50px',
-    height: '50px',
     textAlign: 'center',
     float: 'left',
     background: '#FFFFFF',
@@ -201,24 +199,50 @@ function Calendar() {
   for (let i = 1; i <= 12; i++) months.push(i);
 
   const goPrevMonth = () => {
+    let newSelectedYear, newSelectedMonth, newDateTotalCount;
     if (selectedMonth === 1) {
-      setSelectedMonth(12);
-      setSelectedYear(selectedYear - 1);
-      setDateTotalCount(computeDaysInMonth(12, selectedYear - 1));
+      newSelectedMonth = 12;
+      newSelectedYear = selectedYear - 1;
     } else {
-      setSelectedMonth(selectedMonth - 1);
-      setDateTotalCount(computeDaysInMonth(selectedMonth - 1, selectedYear));
+      newSelectedMonth = selectedMonth - 1;
+      newSelectedYear = selectedYear;
     }
+
+    newDateTotalCount = computeDaysInMonth(newSelectedMonth, newSelectedYear);
+    const firstDay = new Date(
+      new Date(newSelectedYear, newSelectedMonth - 1, 1) -
+        new Date().getTimezoneOffset() * 60000
+    ).getDay();
+
+    if (newDateTotalCount + firstDay > 35) setCalendarHeight('560px');
+    else setCalendarHeight('500px');
+
+    setSelectedMonth(newSelectedMonth);
+    setSelectedYear(newSelectedYear);
+    setDateTotalCount(newDateTotalCount);
   };
   const goNextMonth = () => {
+    let newSelectedYear, newSelectedMonth, newDateTotalCount;
     if (selectedMonth === 12) {
-      setSelectedMonth(1);
-      setSelectedYear(selectedYear + 1);
-      setDateTotalCount(computeDaysInMonth(1, selectedYear + 1));
+      newSelectedMonth = 1;
+      newSelectedYear = selectedYear + 1;
     } else {
-      setSelectedMonth(selectedMonth + 1);
-      setDateTotalCount(computeDaysInMonth(selectedMonth + 1, selectedYear));
+      newSelectedMonth = selectedMonth + 1;
+      newSelectedYear = selectedYear;
     }
+
+    newDateTotalCount = computeDaysInMonth(newSelectedMonth, newSelectedYear);
+    const firstDay = new Date(
+      new Date(newSelectedYear, newSelectedMonth - 1, 1) -
+        new Date().getTimezoneOffset() * 60000
+    ).getDay();
+
+    if (newDateTotalCount + firstDay > 35) setCalendarHeight('560px');
+    else setCalendarHeight('500px');
+
+    setSelectedMonth(newSelectedMonth);
+    setSelectedYear(newSelectedYear);
+    setDateTotalCount(newDateTotalCount);
   };
 
   const displayWeekdays = () => {
@@ -239,14 +263,15 @@ function Calendar() {
     return weekdayLabels;
   };
 
+  const [calendarHeight, setCalendarHeight] = useState('500px');
+
   const displayDates = useCallback(() => {
     let dates = [];
-
+    const firstDay = new Date(
+      new Date(selectedYear, selectedMonth - 1, 1) -
+        new Date().getTimezoneOffset() * 60000
+    ).getDay();
     for (const weekday of weekdays) {
-      const firstDay = new Date(
-        new Date(selectedYear, selectedMonth - 1, 1) -
-          new Date().getTimezoneOffset() * 60000
-      ).getDay();
       if (weekdays[firstDay] === weekday) {
         for (let i = 1; i <= dateTotalCount; i++) {
           const thisDate = new Date(
@@ -326,7 +351,7 @@ function Calendar() {
   }, [routineResults, selectedYear, selectedMonth, dateTotalCount]);
 
   return (
-    <div className="calendarContainer">
+    <div className="calendarContainer" style={{ height: calendarHeight }}>
       <div className="pagination">
         <button onClick={goPrevMonth}>
           <Icon icon="material-symbols:arrow-back-ios-new-rounded" />

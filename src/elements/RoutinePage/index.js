@@ -40,6 +40,7 @@ function RoutinePage() {
       </a>
       <h1> {RoutineName} </h1>
       {is_time ? <FlowGraph_time /> : <FlowGraph />}
+      <div className="emptySpace"> </div>
       {is_time ? <DetailGraph_time /> : <DetailGraph />}
     </div>
   );

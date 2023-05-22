@@ -32,8 +32,11 @@ function ComboChecker(props) {
 
   return (
     <div className="container-box">
-      <div className="title"><b>Combo Checker</b>
-        <div className="subtitle">Click on each routine and view its details</div>
+      <div className="combo-title">
+        How many <b>COMBO 👊</b> did I succeed?
+        <div className="combo-subtitle">
+          Click on each routine and view its details
+        </div>
       </div>
 
       <div className="combo">

@@ -85,7 +85,7 @@ function CompanionPage() {
   return (
     <div className="pageBox">
       <div className="pageTitle">
-        My Routine companions 🙌
+        My Routine Companions 🙌
         <span className="addIcon" onClick={() => setAddModalOpen(true)}>
           <Icon icon="material-symbols:add" className="addIconPlus" />
         </span>
