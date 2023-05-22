@@ -39,22 +39,32 @@ function ComboCheckerBar(props) {
   const comboStudy = [3];
   const comboTemp = [3, 4, 1, 2];
 
+  const availablePages = [
+    'WakeUp',
+    'SNSUsage',
+    'UVExposure',
+    'study',
+    'Exercise',
+  ];
+
   const displayCombos = () => {
     let combos = [];
     combos.push(
-      <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/' + name}>
-        {name === 'WakeUp'
-          ? 'Wake up before 09:00 AM'
-          : name === 'SNSUsage'
-          ? 'SNS ↓ 45 min.'
-          : name === 'UVExposure'
-          ? 'Enjoy sunshine ↑ 1 hr.'
-          : name === 'study'
-          ? 'Study ↑ 60 min.'
-          : name === 'Exercise'
-          ? 'Exercise ↑ 1 hr.'
-          : name}
-      </a>
+      availablePages.includes(name) ? (
+        <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/' + name}>
+          {name === 'WakeUp'
+            ? 'Wake up before 09:00 AM'
+            : name === 'SNSUsage'
+            ? 'SNS ↓ 45 min.'
+            : name === 'UVExposure'
+            ? 'Enjoy sunshine ↑ 1 hr.'
+            : name === 'study'
+            ? 'Study ↑ 60 min.'
+            : 'Exercise ↑ 1 hr.'}
+        </a>
+      ) : (
+        <span className="text">{name}</span>
+      )
     );
     var comboList = [];
     if (name == 'WakeUp') {

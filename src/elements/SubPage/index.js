@@ -1,11 +1,12 @@
 import './style.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, SyntheticEvent, Event } from 'react';
 import allUsersRoutine from '../../routineInfos/allUsersRoutine.json';
 
 import CreateButton from '../CreateRoutine/createButton';
 
 import Calendar from '../Calendar';
 import ComboChecker from '../ComboChecker';
+import { Alert, Snackbar } from '@mui/material';
 
 function SubPage() {
   const URLSplit = window.document.URL.split('/');
@@ -27,9 +28,28 @@ function SubPage() {
   }
 
   const [myData, setMyData] = useState(timezoneRoutine);
+  const [myDataRaw, setMyDataRaw] = useState(timezoneRoutine);
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [message, setMessage] = useState("You've already added that routine!");
 
-  const onAddBtnClick = (newRoutineName) => {
-    setMyData((prev) => [...prev, newRoutineName]);
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpenSnackbar(false);
+  };
+
+  const onAddBtnClick = (newRoutineName, rawSelected) => {
+    if (myDataRaw.includes(rawSelected)) {
+      setMessage("You've already added that routine!");
+      setOpenSnackbar(true);
+    } else if (newRoutineName.includes('0 hr. 00 min.')) {
+      setMessage('Check your time goal range. It is invalid!');
+      setOpenSnackbar(true);
+    } else {
+      setMyData((prev) => [...prev, newRoutineName]);
+      setMyDataRaw((prev) => [...prev, rawSelected]);
+    }
   };
 
   return (
@@ -44,6 +64,17 @@ function SubPage() {
         <CreateButton onAddBtnClick={onAddBtnClick} />
       </div>
       <ComboChecker myData={myData} />
+
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={5000}
+        onClose={handleClose}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+      >
+        <Alert onClose={handleClose} severity="warning" sx={{ width: '100%' }}>
+          {message}
+        </Alert>
+      </Snackbar>
     </div>
   );
 }

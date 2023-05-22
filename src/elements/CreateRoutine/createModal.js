@@ -105,7 +105,7 @@ function CreateModal(props) {
         break;
     }
 
-    onAddBtnClick(routineTitle);
+    onAddBtnClick(routineTitle, Selected);
     closeModal();
   };
 
