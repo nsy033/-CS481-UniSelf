@@ -19,8 +19,8 @@ function RoutineList() {
           Morning 🌻
         </a>
         <ul>
-          <li>Wake up at 9AM</li>
-          <li>Check mail box</li>
+          <li>Wake up before 09:00 AM</li>
+          <li>SNS ↓ 45 min.</li>
         </ul>
       </li>
       <li className="sub-routines-box">
@@ -28,7 +28,8 @@ function RoutineList() {
           Day 🌈
         </a>
         <ul>
-          <li>Use less SNS</li>
+          <li>Enjoy sunshine ↑ 1 hr.</li>
+          <li>Study ↑ 60 min.</li>
         </ul>
       </li>
       <li className="sub-routines-box">
@@ -36,8 +37,7 @@ function RoutineList() {
           Night 🌙
         </a>
         <ul>
-          <li>Exercise more than 1 hr.</li>
-          <li>Write diary</li>
+          <li>Exercise ↑ 1 hr.</li>
         </ul>
       </li>
     </div>

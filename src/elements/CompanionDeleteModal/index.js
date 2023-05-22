@@ -7,7 +7,9 @@ export default function CompanionDeleteModal(props) {
     <div className="openModal modal">
       <section>
         <main>
-          Will you really remove <b>{header}</b> from your companion list?
+          Will you really remove <b>{header}</b> from your
+          <br />
+          companion list?
           <button
             onClick={() => closeDeletemodal(false)}
             className="closeXButtonRemove"

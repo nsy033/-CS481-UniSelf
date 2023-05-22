@@ -44,9 +44,9 @@ function ComboCheckerBar(props) {
     combos.push(
       <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/' + name}>
         {name === 'WakeUp'
-          ? 'Wake Up at 10:00'
+          ? 'Wake up before 09:00 AM'
           : name === 'SNSUsage'
-          ? 'SNS ↓ 45 min'
+          ? 'SNS ↓ 45 min.'
           : name === 'UVExposure'
           ? 'Enjoy sunshine ↑ 1 hr.'
           : name === 'study'
