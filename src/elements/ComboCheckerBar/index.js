@@ -37,7 +37,8 @@ function ComboCheckerBar(props) {
   const comboSNS = [2, 5, 2];
   const comboUV = [4, 2, 3];
   const comboStudy = [3];
-  const comboTemp = [3, 4, 1, 2];
+  const comboExercise = [2, 3, 2];
+  const comboNew = [];
 
   const availablePages = ['WakeUp', 'SNSUsage', 'UVExposure', 'study', 'step'];
 
@@ -69,8 +70,10 @@ function ComboCheckerBar(props) {
       comboList = comboUV;
     } else if (name == 'study') {
       comboList = comboStudy;
+    } else if (name == 'step') {
+      comboList = comboExercise;
     } else {
-      comboList = comboTemp;
+      comboList = comboNew;
     }
 
     for (let i of comboList) {
@@ -95,7 +98,7 @@ function ComboCheckerBar(props) {
       );
     }
 
-    combos.push(
+    (comboList.length != 0) && combos.push(
       <div className="combotext" style={deepText}>
         {comboList[comboList.length - 1]} COMBO!
       </div>
