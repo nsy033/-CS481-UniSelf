@@ -27,7 +27,7 @@ function RoutinePage() {
   const timezone = URLSplit[URLSplit.length - 2];
   const routine = URLSplit[URLSplit.length - 1];
   var is_time = true;
-  if (routine == 'SNSUsage' || routine == 'study') is_time = false;
+  if (routine == 'SNSUsage' || routine == 'study' || routine == 'step') is_time = false;
   const RoutineName = routinesets[timezone][routine];
 
   return (

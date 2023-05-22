@@ -3,6 +3,7 @@ import Plot from 'react-plotly.js';
 // import routineResults from '../../routineInfos/routineResults';
 import morningRoutineResults from '../../routineInfos/morningRoutineResults';
 import dayRoutineResults from '../../routineInfos/dayRoutineResults';
+import nightRoutineResults from '../../routineInfos/nightRoutineResults';
 
 import './style.css';
 
@@ -20,6 +21,7 @@ const routinesets = {
   SNSUsage: 'totalTimeForeground',
   UVExposure: 'UVExposureTime',
   study: 'studyTime',
+  step: 'totalStep'
 }
 const routinename = routinesets[routine];
 
@@ -40,8 +42,8 @@ if (timezone === 'morning') {
   FilteredroutineResultsOthers = dayRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
 }
 else {
-  FilteredroutineResultsMy = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
-  FilteredroutineResultsOthers = morningRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
+  FilteredroutineResultsMy = nightRoutineResults.filter(({ userID }) => userID === 'USER1');
+  FilteredroutineResultsOthers = nightRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
 }
 
 const routineResultsMy = {};
@@ -159,7 +161,11 @@ function FlowGraph_time() {
       const weekWakeUpTimes = weekDates.map((date) => {
         const timeStr = routineResultsOthers[date][routinename];
         // const timeStr = routineResultsOthers[date].wakeUpTime;
-        const [hours, minutes, seconds] = timeStr.split(':');
+        var [hours, minutes, seconds] = [0, 0, 0];
+        if ((routinename=='wakeUpTime') || (routinename=='UVExposureTime')) {
+          [hours, minutes, seconds] = timeStr.split(':');
+        }
+        // const [hours, minutes, seconds] = timeStr.split(':');
         return new Date(2019, 0, 1, hours, minutes, seconds);
       });
   
