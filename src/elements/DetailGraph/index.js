@@ -58,8 +58,6 @@ const wakeUpTimes = practicedDatesStr.map((str) => {
   return timeStr;
 });
 
-// console.log(wakeUpTimes);
-
 const markerColors = wakeUpTimes.map((time) => {
   var targetTime = 2700000;
   if (timezone == 'morning') {
