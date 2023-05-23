@@ -144,6 +144,30 @@ var whitebackground = {
   name: 'Goal',
 };
 
+var y_adj;
+if (timezone == 'morning') {
+  y_adj = Array.from({ length: 14 }, (_, i) => {
+    const t = i / (14 - 1);  // Normalized value between 0 and 1
+    return 2700000 + (3600000 - 2700000) * (1 - t);
+  });
+}
+else if (timezone === 'day') {
+  y_adj = Array.from({ length: 110 }, () => 3600);
+}
+else {
+  y_adj = Array.from({ length: 110 }, () => 3000);
+}
+
+var adjustmentbackground = {
+  x: practicedDates,
+  y: y_adj,
+  fill: 'tozeroy',
+  fillcolor: colorsets[timezone][1],
+  type: 'scatter',
+  mode: 'none',
+  name: 'Goal',
+};
+
 const initial_range = ['2019-04-14', '2019-05-15'];
 
 var layout = {
@@ -174,8 +198,8 @@ var layout = {
 
 const data =
   routine == 'morning'
-    ? [background, scatterplot]
-    : [background, whitebackground, scatterplot];
+    ? [background, adjustmentbackground, scatterplot]
+    : [background, adjustmentbackground, whitebackground, scatterplot];
 
 function DetailGraph() {
   let detailgraph = [];

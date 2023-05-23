@@ -109,6 +109,7 @@ const markerlineColors = wakeUpTimes.map((time) => {
 const mode = routine == 'morning' ? 'markers+lines' : 'markers+lines';
 
 var scatterplot = {
+  height: '1000px',
   type: 'scatter',
   x: practicedDates,
   y: wakeUpTimes,
@@ -169,6 +170,35 @@ var background = {
 //   name: 'Goal'
 // }
 
+var y_adj;
+if (timezone == 'morning') {
+  y_adj = Array.from({ length:14 }, (_, i) => {
+    const time = new Date(`2019-01-01 ${'10:00:00'}`);
+    // console.log(time.getHours());
+    time.setMinutes(time.getMinutes() - i * 5);
+    return '2019-01-01 ' + time.toLocaleTimeString('en-US', { hour12: false });
+  });
+
+console.log(y_adj)
+
+}
+else if (timezone === 'day') {
+  y_adj = Array.from({ length: 110 }, () => 3600);
+}
+else {
+  y_adj = Array.from({ length: 110 }, () => 3000);
+}
+
+var adjustmentbackground = {
+  x: practicedDates,
+  y: y_adj,
+  fill: 'tozeroy',
+  fillcolor: colorsets[timezone][1],
+  type: 'scatter',
+  mode: 'none',
+  name: 'Goal',
+};
+
 const initial_range = ['2019-04-14', '2019-05-15'];
 
 var layout = {
@@ -198,7 +228,7 @@ var layout = {
 };
 
 const data =
-  routine == 'morning' ? [background, scatterplot] : [background, scatterplot];
+  routine == 'morning' ? [background, adjustmentbackground, scatterplot] : [background, adjustmentbackground, scatterplot];
 
 function DetailGraph() {
   let detailgraph = [];
