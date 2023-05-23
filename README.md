@@ -183,17 +183,18 @@ Therefore, the value our service presents is
 - This website mainly have page structure as below. All the directories below are inside of `src/elements/___`.
   - Common
     - Related files: `📂Navbar`
+
   - **Main Page**
-<img width="1500" alt="MainPage" src="https://github.com/nsy033/CS481_UniSelf/assets/76762181/23e30acc-a0f7-4b26-8b1f-f7feae05cbc1">
+    - <img width="1500" alt="MainPage" src="https://github.com/nsy033/CS481_UniSelf/assets/76762181/23e30acc-a0f7-4b26-8b1f-f7feae05cbc1">
     - Related files: `📂MainPage`, `📂Waves`, `📂RoutineList`
   - **Sub Page**, for each timezone
-<img width="1500" alt="MorningPage" src="https://github.com/nsy033/CS481_UniSelf/assets/76762181/77446212-64b4-42d6-993f-d302035070ab">
+    - <img width="1500" alt="MorningPage" src="https://github.com/nsy033/CS481_UniSelf/assets/76762181/77446212-64b4-42d6-993f-d302035070ab">
     - Related files: `📂SubPage`, `📂Calendar`, `📂ComboChecker`, `📂ComboCheckerBar`, `📂CreateRoutine`
   - **Routine Page**, for each routine
-<img width="1500" alt="RoutinePage" src="https://github.com/nsy033/CS481_UniSelf/assets/76762181/2f4a8366-09f3-493c-98bf-728f8cc0f3ee">
+    - <img width="1500" alt="RoutinePage" src="https://github.com/nsy033/CS481_UniSelf/assets/76762181/2f4a8366-09f3-493c-98bf-728f8cc0f3ee">
     - Related files: `📂RoutinePage`, `📂DetailGraph`, `📂DetailGraph_time`, `📂FlowGraph`, `📂FlowGraph_time`
   - **Companion Page**
-<img width="1500" alt="CompanionPage" src="https://github.com/nsy033/CS481_UniSelf/assets/76762181/e9067e5a-e621-456a-97c9-7d4770995025">
+    - <img width="1500" alt="CompanionPage" src="https://github.com/nsy033/CS481_UniSelf/assets/76762181/e9067e5a-e621-456a-97c9-7d4770995025">
     - Related files: `📂CompanionPage`, `📂CompanionAddModal`, `📂CompanionDeleteModal`, `📂CompanionHeatmap`, `📂CompanionProfile`, `📂CompanionScroll`, `📂CompanionSearchUnit`, `📂TimezoneBtns`
 ---
 
