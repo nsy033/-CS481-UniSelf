@@ -151,12 +151,6 @@ if (timezone == 'morning') {
     return 2700000 + (3600000 - 2700000) * (1 - t);
   });
 }
-else if (timezone === 'day') {
-  y_adj = Array.from({ length: 110 }, () => 3600);
-}
-else {
-  y_adj = Array.from({ length: 110 }, () => 3000);
-}
 
 var adjustmentbackground = {
   x: practicedDates,
@@ -199,7 +193,7 @@ var layout = {
 const data =
   routine == 'morning'
     ? [background, adjustmentbackground, scatterplot]
-    : [background, adjustmentbackground, whitebackground, scatterplot];
+    : [background, whitebackground, scatterplot];
 
 function DetailGraph() {
   let detailgraph = [];

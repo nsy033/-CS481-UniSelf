@@ -178,15 +178,6 @@ if (timezone == 'morning') {
     time.setMinutes(time.getMinutes() - i * 5);
     return '2019-01-01 ' + time.toLocaleTimeString('en-US', { hour12: false });
   });
-
-console.log(y_adj)
-
-}
-else if (timezone === 'day') {
-  y_adj = Array.from({ length: 110 }, () => 3600);
-}
-else {
-  y_adj = Array.from({ length: 110 }, () => 3000);
 }
 
 var adjustmentbackground = {
@@ -228,7 +219,7 @@ var layout = {
 };
 
 const data =
-  routine == 'morning' ? [background, adjustmentbackground, scatterplot] : [background, adjustmentbackground, scatterplot];
+  routine == 'morning' ? [background, adjustmentbackground, scatterplot] : [background, scatterplot];
 
 function DetailGraph() {
   let detailgraph = [];
