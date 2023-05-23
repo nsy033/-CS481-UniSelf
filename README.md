@@ -59,7 +59,6 @@ Therefore, the value our service presents is
  ┃ ┣ 📂codes
  ┃ ┃ ┣ 📜calcSNSUsage.py
  ┃ ┃ ┣ 📜calcStep.py
- ┃ ┃ ┣ 📜calcStep_many.py
  ┃ ┃ ┣ 📜calcStudyTimes.py
  ┃ ┃ ┣ 📜calcUVExposureTimes.py
  ┃ ┃ ┣ 📜calcWakeUpTime.py
