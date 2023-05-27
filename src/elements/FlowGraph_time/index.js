@@ -4,6 +4,7 @@ import Plot from 'react-plotly.js';
 import morningRoutineResults from '../../routineInfos/morningRoutineResults';
 import dayRoutineResults from '../../routineInfos/dayRoutineResults';
 import nightRoutineResults from '../../routineInfos/nightRoutineResults';
+import { Icon } from '@iconify/react';
 
 import './style.css';
 

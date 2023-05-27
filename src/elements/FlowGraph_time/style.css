@@ -6,6 +6,7 @@
 }
 
 .title {
+    font-family: 'Pretendard';
     font-size: 32px;
     margin-right: 20px;
     margin-bottom: 10px;
@@ -14,12 +15,14 @@
 }
 
 .dateinfo {
+    font-family: 'Pretendard';
     margin-top: 8px;
     font-size: 24px;
     color: #999999;
 }
 
 .subtitle {
+  font-family: 'Pretendard';
     font-size: 18px;
     margin-top: 8px;
     margin-right: 50px;
@@ -27,6 +30,7 @@
 }
 
 .comment {
+    font-family: 'Pretendard';
     font-size: 16px;
     /* margin-top: -18px; */
     margin-bottom: 52px;
@@ -68,6 +72,7 @@
   }
 
   .toggle-text {
+    font-family: 'Pretendard';
     display: inline-block; /* Added to align the text and button horizontally */
     margin-left: 14px; /* Adjust the margin as needed */
     font-size: 16px; /* Adjust the font size as needed */

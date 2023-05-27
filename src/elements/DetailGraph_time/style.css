@@ -5,11 +5,13 @@
 }
 
 .title {
+    font-family: 'Pretendard';
     font-size: 32px;
     margin-right: 50px;
 }
 
 .subtitle {
+    font-family: 'Pretendard';
     font-size: 18px;
     margin-right: 50px;
     color: #666666;
