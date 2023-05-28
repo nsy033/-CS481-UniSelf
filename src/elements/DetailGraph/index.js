@@ -43,7 +43,7 @@ if (timezone === 'morning') {
   FilteredroutineResults = dayRoutineResults.filter(
     ({ userID }) => userID === 'USER1'
   );
-} else {
+} else if (timezone === 'night') {
   FilteredroutineResults = nightRoutineResults.filter(
     ({ userID }) => userID === 'USER1'
   );
@@ -94,7 +94,7 @@ const markerColors = wakeUpTimes.map((time) => {
       return colorsets[timezone][0];
     }
     return 'FFFFFF';
-  } else  {
+  } else if (timezone == 'night') {
     targetTime = 3000;
     if (time >= targetTime) {
       return colorsets[timezone][0];
@@ -128,7 +128,7 @@ if (timezone === 'morning') {
   y = Array.from({ length: 110 }, () => 2700000);
 } else if (timezone === 'day') {
   y = Array.from({ length: 110 }, () => 20000);
-} else {
+} else if (timezone === 'night') {
   y = Array.from({ length: 110 }, () => 10000);
 }
 
@@ -146,7 +146,7 @@ var y_white;
 if (timezone === 'day') {
   y_white = Array.from({ length: 110 }, () => 3600);
 }
-else {
+else if (timezone === 'night') {
   y_white = Array.from({ length: 110 }, () => 3000);
 }
 
