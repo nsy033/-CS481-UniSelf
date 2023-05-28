@@ -20,7 +20,7 @@ const routinesets = {
   SNSUsage: ['totalTimeForeground', 'Daily SNS usage time'],
   UVExposure: ['UVExposureTime', 'Daily UV exposure time'],
   study: ['studyTime', 'Daily study time'],
-  step: ['totalStep', 'Daily Exercise time']
+  step: ['totalStep', 'Daily Step Count']
 };
 // console.log(routinesets[WakeUp]);
 
@@ -61,11 +61,25 @@ const practicedDates = practicedDatesStr.map(
   (str) => new Date(str).toISOString().split('T')[0]
 );
 
+// function formatTime(timeStr) {
+//   const seconds = parseInt(timeStr, 10);
+//   const hours = Math.floor(seconds / 3600);
+//   const minutes = Math.floor((seconds % 3600) / 60);
+//   const remainingSeconds = seconds % 60;
+//   return `${hours}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+// }
+
 const wakeUpTimes = practicedDatesStr.map((str) => {
   const timeStr = routineResults[str][routinename];
   // const timeStr = routineResults[str].totalTimeForeground;
   return timeStr;
 });
+
+// const wakeUpTimes = practicedDatesStr.map((str) => {
+//   const seconds = routineResults[str][routinename];
+//   const formattedTime = formatTime(seconds);
+//   return formattedTime;
+// });
 
 const markerColors = wakeUpTimes.map((time) => {
   var targetTime = 2700000;
@@ -182,13 +196,34 @@ var layout = {
   //   tickformat: '%H:%M:%S',
   // },
   yaxis: {
-    // tickformat: '%H:%M:%S',
     title: {
-      text: 'Time',
+      text: 'Step Count',
       font: {
         size: 16,
       },
     },
+    ...(timezone === 'day' && {
+      title: {
+        text: 'Study Time',
+        font: {
+          size: 16,
+        },
+      },
+      tickformat: '%H:%M:%S',
+      tickvals: ['0', '3600', '7200', '10800', '14400', '18000'],
+      ticktext: ['0:00:00', '1:00:00', '2:00:00', '3:00:00', '4:00:00', '5:00:00'],
+    }),
+    ...(timezone === 'morning' && {
+      title: {
+        text: 'SNS Time',
+        font: {
+          size: 16,
+        },
+      },
+      tickformat: '%H:%M:%S',
+      tickvals: ['0', '3600000', '7200000', '10800000', '14400000', '18000000'],
+      ticktext: ['0:00:00', '1:00:00', '2:00:00', '3:00:00', '4:00:00', '5:00:00'],
+    }),
   },
 };
 

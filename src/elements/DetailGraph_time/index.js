@@ -19,7 +19,7 @@ const routinesets = {
   SNSUsage: ['totalTimeForeground', 'Daily SNS usage time'],
   UVExposure: ['UVExposureTime', 'Daily UV exposure time'],
   study: ['studyTime', 'Daily study time'],
-  step: ['totalStep', 'Daily Exercise time']
+  step: ['totalStep', 'Daily Step Count']
 };
 const routinename = routinesets[routine][0];
 
