@@ -225,6 +225,9 @@ function FlowGraph() {
         text: 'Date',
       },
       rangeslider: {},
+      tickmode: 'array', // Set the tick mode to "array"
+      ticktext: ['Feb', 'Mar', 'Apr', 'May'], // Custom tick labels
+      tickvals: [1, 5, 9, 17], // Corresponding tick values
     },
     yaxis: {
       title: {
