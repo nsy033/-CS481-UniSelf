@@ -5,6 +5,8 @@ import morningRoutineResults from '../../routineInfos/morningRoutineResults';
 import dayRoutineResults from '../../routineInfos/dayRoutineResults';
 import nightRoutineResults from '../../routineInfos/nightRoutineResults';
 
+import './style.css';
+
 const URLSplit = window.document.URL.split('/');
 var timezone = 'morning';
 var routine = 'WakeUp';
@@ -198,8 +200,14 @@ const data =
 function DetailGraph() {
   let detailgraph = [];
   detailgraph.push(
-    <div className="title">
-      {routinesets[routine][1]} <b>DETAILS</b>
+    <div>
+      <div className="title">
+        {routinesets[routine][1]} <b>DETAILS</b>
+      </div>
+      <div className="legend-container">
+        <div className="goal-color" style={{ backgroundColor: colorsets[timezone][1] }}></div>
+        <div className="legend-text">Goal</div>
+      </div>
     </div>
   );
 
