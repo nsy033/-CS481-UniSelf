@@ -5,12 +5,35 @@
 }
 
 .title {
+    font-family: 'Pretendard';
     font-size: 32px;
-    margin-right: 50px;
+    float: left;
 }
 
 .subtitle {
+    font-family: 'Pretendard';
     font-size: 18px;
     margin-right: 50px;
     color: #666666;
+}
+
+.legend-container {
+    display: flex;
+    align-items: center;
+    float: right;
+    margin-right: 100px;
+}
+
+.legend-text {
+    font-family: 'Pretendard';
+    font-size: 16px;
+    color: #333333;
+    text-align: right;
+    display: inline-block;
+}
+
+.goal-color {
+    width: 38px;
+    height: 16px;
+    margin-right: 8px;
 }

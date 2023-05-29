@@ -4,6 +4,7 @@ import Plot from 'react-plotly.js';
 import morningRoutineResults from '../../routineInfos/morningRoutineResults';
 import dayRoutineResults from '../../routineInfos/dayRoutineResults';
 import nightRoutineResults from '../../routineInfos/nightRoutineResults';
+import { Icon } from '@iconify/react';
 
 import './style.css';
 
@@ -228,6 +229,9 @@ function FlowGraph_time() {
         text: 'Date',
       },
       rangeslider: {},
+      tickmode: 'array', // Set the tick mode to "array"
+      ticktext: ['Feb', 'Mar', 'Apr', 'May'], // Custom tick labels
+      tickvals: [1, 5, 9, 17], // Corresponding tick values
     },
     yaxis: {
       title: {
@@ -257,6 +261,20 @@ function FlowGraph_time() {
           <div className="inner-circle"></div>
         </div>
         <div className="toggle-text">View Others</div>
+        <div class="tooltip">
+          <div className="toggle-question">
+            <Icon
+              icon="fe:question"
+              color="#666666"
+              className="userIcon"
+            />
+          </div>
+          <div class="tooltip-content">
+            <p>Who are <b>others</b>? <br></br>
+              : They are people who have <b>the same routine</b> with you. <br></br>
+              We give you the <b>average achievement</b> of them.</p>
+          </div>
+        </div>
       </div>
   
       <Plot className="graphContainer" data={data} layout={layout} />

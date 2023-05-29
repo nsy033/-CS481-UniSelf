@@ -5,6 +5,8 @@ import morningRoutineResults from '../../routineInfos/morningRoutineResults';
 import dayRoutineResults from '../../routineInfos/dayRoutineResults';
 import nightRoutineResults from '../../routineInfos/nightRoutineResults';
 
+import './style.css';
+
 const URLSplit = window.document.URL.split('/');
 var timezone = 'morning';
 var routine = 'WakeUp';
@@ -18,7 +20,7 @@ const routinesets = {
   SNSUsage: ['totalTimeForeground', 'Daily SNS usage time'],
   UVExposure: ['UVExposureTime', 'Daily UV exposure time'],
   study: ['studyTime', 'Daily study time'],
-  step: ['totalStep', 'Daily Exercise time']
+  step: ['totalStep', 'Daily Step Count']
 };
 // console.log(routinesets[WakeUp]);
 
@@ -41,7 +43,7 @@ if (timezone === 'morning') {
   FilteredroutineResults = dayRoutineResults.filter(
     ({ userID }) => userID === 'USER1'
   );
-} else {
+} else if (timezone === 'night') {
   FilteredroutineResults = nightRoutineResults.filter(
     ({ userID }) => userID === 'USER1'
   );
@@ -59,11 +61,25 @@ const practicedDates = practicedDatesStr.map(
   (str) => new Date(str).toISOString().split('T')[0]
 );
 
+// function formatTime(timeStr) {
+//   const seconds = parseInt(timeStr, 10);
+//   const hours = Math.floor(seconds / 3600);
+//   const minutes = Math.floor((seconds % 3600) / 60);
+//   const remainingSeconds = seconds % 60;
+//   return `${hours}:${minutes.toString().padStart(2, '0')}:${remainingSeconds.toString().padStart(2, '0')}`;
+// }
+
 const wakeUpTimes = practicedDatesStr.map((str) => {
   const timeStr = routineResults[str][routinename];
   // const timeStr = routineResults[str].totalTimeForeground;
   return timeStr;
 });
+
+// const wakeUpTimes = practicedDatesStr.map((str) => {
+//   const seconds = routineResults[str][routinename];
+//   const formattedTime = formatTime(seconds);
+//   return formattedTime;
+// });
 
 const markerColors = wakeUpTimes.map((time) => {
   var targetTime = 2700000;
@@ -78,7 +94,7 @@ const markerColors = wakeUpTimes.map((time) => {
       return colorsets[timezone][0];
     }
     return 'FFFFFF';
-  } else  {
+  } else if (timezone == 'night') {
     targetTime = 3000;
     if (time >= targetTime) {
       return colorsets[timezone][0];
@@ -112,7 +128,7 @@ if (timezone === 'morning') {
   y = Array.from({ length: 110 }, () => 2700000);
 } else if (timezone === 'day') {
   y = Array.from({ length: 110 }, () => 20000);
-} else {
+} else if (timezone === 'night') {
   y = Array.from({ length: 110 }, () => 10000);
 }
 
@@ -130,7 +146,7 @@ var y_white;
 if (timezone === 'day') {
   y_white = Array.from({ length: 110 }, () => 3600);
 }
-else {
+else if (timezone === 'night') {
   y_white = Array.from({ length: 110 }, () => 3000);
 }
 
@@ -180,13 +196,34 @@ var layout = {
   //   tickformat: '%H:%M:%S',
   // },
   yaxis: {
-    // tickformat: '%H:%M:%S',
     title: {
-      text: 'Time',
+      text: 'Step Count',
       font: {
         size: 16,
       },
     },
+    ...(timezone === 'day' && {
+      title: {
+        text: 'Study Time',
+        font: {
+          size: 16,
+        },
+      },
+      tickformat: '%H:%M:%S',
+      tickvals: ['0', '3600', '7200', '10800', '14400', '18000'],
+      ticktext: ['0:00:00', '1:00:00', '2:00:00', '3:00:00', '4:00:00', '5:00:00'],
+    }),
+    ...(timezone === 'morning' && {
+      title: {
+        text: 'SNS Time',
+        font: {
+          size: 16,
+        },
+      },
+      tickformat: '%H:%M:%S',
+      tickvals: ['0', '3600000', '7200000', '10800000', '14400000', '18000000'],
+      ticktext: ['0:00:00', '1:00:00', '2:00:00', '3:00:00', '4:00:00', '5:00:00'],
+    }),
   },
 };
 
@@ -198,8 +235,14 @@ const data =
 function DetailGraph() {
   let detailgraph = [];
   detailgraph.push(
-    <div className="title">
-      {routinesets[routine][1]} <b>DETAILS</b>
+    <div>
+      <div className="title">
+        {routinesets[routine][1]} <b>DETAILS</b>
+      </div>
+      <div className="legend-container">
+        <div className="goal-color" style={{ backgroundColor: colorsets[timezone][1] }}></div>
+        <div className="legend-text">Goal</div>
+      </div>
     </div>
   );
 

@@ -4,6 +4,8 @@ import Plot from 'react-plotly.js';
 import morningRoutineResults from '../../routineInfos/morningRoutineResults';
 import dayRoutineResults from '../../routineInfos/dayRoutineResults';
 
+import './style.css';
+
 const URLSplit = window.document.URL.split('/');
 var timezone = 'morning';
 var routine = 'WakeUp';
@@ -17,7 +19,7 @@ const routinesets = {
   SNSUsage: ['totalTimeForeground', 'Daily SNS usage time'],
   UVExposure: ['UVExposureTime', 'Daily UV exposure time'],
   study: ['studyTime', 'Daily study time'],
-  step: ['totalStep', 'Daily Exercise time']
+  step: ['totalStep', 'Daily Step Count']
 };
 const routinename = routinesets[routine][0];
 
@@ -224,8 +226,14 @@ const data =
 function DetailGraph() {
   let detailgraph = [];
   detailgraph.push(
-    <div className="title">
-      {routinesets[routine][1]} <b>DETAILS</b>
+    <div>
+      <div className="title">
+        {routinesets[routine][1]} <b>DETAILS</b>
+      </div>
+      <div className="legend-container">
+        <div className="goal-color" style={{ backgroundColor: colorsets[timezone][1] }}></div>
+        <div className="legend-text">Goal</div>
+      </div>
     </div>
   );
 
