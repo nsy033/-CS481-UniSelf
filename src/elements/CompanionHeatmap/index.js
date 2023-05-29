@@ -106,8 +106,41 @@ function CompanionHeatmap(props) {
     return row;
   };
 
+  function capitalize(timezone) {
+    return timezone[0].toUpperCase() + timezone.slice(1);
+  }
+
+  const weekdays = ['WED', 'THU', 'FRI', 'SAT', 'SUN', 'MON', 'TUE'];
+  const displayWeekdays = () => {
+    let weekdayLabels = [
+      <div style={{ minWidth: '210px' }}>
+        {capitalize(selectedTimezone)} Routiners
+      </div>,
+      <div className="emptySpace" />,
+    ];
+    weekdays.forEach((weekday, index) => {
+      weekdayLabels.push(
+        <div
+          key={weekday}
+          className={
+            weekday === 'SUN'
+              ? 'sunday'
+              : weekday === 'SAT'
+              ? 'saturday'
+              : 'weekday'
+          }
+        >
+          {weekday}
+        </div>
+      );
+    });
+
+    return weekdayLabels;
+  };
+
   return (
     <div className="heatmapContainer">
+      <div className="heatmapLabel">{displayWeekdays()}</div>
       {list
         .filter((companion) => {
           return (

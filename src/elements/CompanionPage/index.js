@@ -116,6 +116,7 @@ function CompanionPage() {
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'flex-end',
+            marginTop: '-20px',
           }}
         >
           <div className="heatmapDate">19/05/08 - 19/05/14</div>

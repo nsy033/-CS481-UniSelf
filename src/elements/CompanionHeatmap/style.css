@@ -1,7 +1,7 @@
 .heatmapContainer {
     width: 700px;
     margin-left: 30px;
-    margin-top: 15px;
+    /* margin-top: 15px; */
 }
 
 .heatUnit {
@@ -26,4 +26,18 @@
     margin-left: 12px;
 
     cursor: pointer;
+}
+
+.heatmapLabel {
+    display: flex;
+    font-size: 14px;
+    font-weight: 700;
+}
+.heatmapLabel div{
+    width: calc(500px / 7);
+    float: left;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
 }
