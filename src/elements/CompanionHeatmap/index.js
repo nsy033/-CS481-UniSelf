@@ -1,5 +1,8 @@
 import './style.css';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
+import Popover from '@mui/material/Popover';
+import Box from '@mui/material/Box';
 
 import CompanionProfile from '../CompanionProfile';
 import morningRoutineResults from '../../routineInfos/morningRoutineResults';
@@ -8,6 +11,74 @@ import nightRoutineResults from '../../routineInfos/nightRoutineResults';
 
 function CompanionHeatmap(props) {
   const { list, fillings, selectedTimezone } = props;
+
+  function capitalize(timezone) {
+    return timezone[0].toUpperCase() + timezone.slice(1);
+  }
+
+  const datesPre = ['08', '09', '10', '11', '12', '13', '14'];
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [tooltipMsg, setTooltipMsg] = useState('hello world');
+  const handlePopoverOpen = (event) => {
+    const msg = event.target.id.split('\\');
+    const achievementLevel = msg[0] / msg[1];
+    const numColor =
+      achievementLevel === 0
+        ? fillings.gray.background
+        : achievementLevel === 1
+        ? fillings.deep.background
+        : fillings.light.background;
+
+    let whose = 'my';
+    for (let i = 1; i < list.length; i++) {
+      if (list[i].userID === msg[4]) {
+        whose = list[i].name + `'s`;
+        break;
+      }
+    }
+    setTooltipMsg(
+      <div>
+        <div className="tooltipTitle">
+          How was <b>{whose} </b>{' '}
+          {selectedTimezone === 'morning'
+            ? ' Morning 🌻'
+            : selectedTimezone === 'day'
+            ? ' Day 🌈'
+            : ' Night 🌙'}{' '}
+          on <b>{msg[3]}</b>
+        </div>
+        <table className="tooltipTable">
+          <tbody>
+            <tr>
+              <td className="firstCol"></td>
+              <td className="secondCol" style={{ width: '170px' }}>
+                <b>Actual Achievement</b>
+              </td>
+              <td className="thirdCol">
+                <b>Total # of routines</b>
+              </td>
+            </tr>
+            <tr>
+              <td className="firstCol">
+                <div className="tooltipIcon" style={{ background: numColor }}>
+                  {' '}
+                </div>
+              </td>
+              <td className="secondCol" style={{ width: '170px' }}>
+                Achieved {msg[0]}
+              </td>
+              <td className="thirdCol">out of {msg[1]}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    );
+    setAnchorEl(anchorEl ? null : event.currentTarget);
+  };
+  const handlePopoverClose = () => {
+    setAnchorEl(null);
+  };
+  const open = Boolean(anchorEl);
 
   const displayHeatRow = (rowForWhom) => {
     let routineResults;
@@ -40,8 +111,9 @@ function CompanionHeatmap(props) {
     for (let day = 0; day < 7; day++) {
       let achievement = 0;
       let achievementLevel = 0;
+      let target = [];
       if (selectedTimezone === 'morning') {
-        const target = list.filter(({ userID }) => userID === rowForWhom)[0][
+        target = list.filter(({ userID }) => userID === rowForWhom)[0][
           'morning'
         ];
         const targetWakeUpTime = target['WakeUp'];
@@ -59,9 +131,7 @@ function CompanionHeatmap(props) {
 
         achievementLevel = achievement / Object.keys(target).length;
       } else if (selectedTimezone === 'day') {
-        const target = list.filter(({ userID }) => userID === rowForWhom)[0][
-          'day'
-        ];
+        target = list.filter(({ userID }) => userID === rowForWhom)[0]['day'];
         const targetStudyTime = target['study'];
         const targetUVExposure = target['UVExposure'];
 
@@ -78,9 +148,7 @@ function CompanionHeatmap(props) {
         achievementLevel = achievement / Object.keys(target).length;
       } else {
         // console.log(rowForWhom, routineResults[day]);
-        const target = list.filter(({ userID }) => userID === rowForWhom)[0][
-          'night'
-        ];
+        target = list.filter(({ userID }) => userID === rowForWhom)[0]['night'];
         const targetStep = target['step'];
         const totalStep = routineResults[day]['totalStep'];
 
@@ -98,6 +166,11 @@ function CompanionHeatmap(props) {
               ? fillings.deep
               : fillings.light
           }
+          id={`${achievement}\\${Object.keys(target).length}\\${capitalize(
+            selectedTimezone
+          )} routines\\19/05/${datesPre[day]}\\${rowForWhom}`}
+          onMouseEnter={handlePopoverOpen}
+          onMouseLeave={handlePopoverClose}
           key={day}
         ></div>
       );
@@ -106,14 +179,10 @@ function CompanionHeatmap(props) {
     return row;
   };
 
-  function capitalize(timezone) {
-    return timezone[0].toUpperCase() + timezone.slice(1);
-  }
-
   const weekdays = ['WED', 'THU', 'FRI', 'SAT', 'SUN', 'MON', 'TUE'];
   const displayWeekdays = () => {
     let weekdayLabels = [
-      <div style={{ minWidth: '210px' }}>
+      <div style={{ minWidth: '210px', justifyContent: 'flex-start' }}>
         {capitalize(selectedTimezone)} Routiners
       </div>,
       <div className="emptySpace" />,
@@ -163,6 +232,36 @@ function CompanionHeatmap(props) {
             </div>
           </div>
         ))}
+
+      <Popover
+        id="mouse-over-popover"
+        sx={{
+          pointerEvents: 'none',
+        }}
+        open={open}
+        anchorEl={anchorEl}
+        anchorOrigin={{
+          vertical: 'center',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'left',
+        }}
+        onClose={handlePopoverClose}
+        disableRestoreFocus
+      >
+        <Box
+          sx={{
+            border: 0,
+            width: '450px',
+            height: '120px',
+            bgcolor: 'background.paper',
+          }}
+        >
+          <div className="tooltipContentsContainer">{tooltipMsg}</div>
+        </Box>
+      </Popover>
     </div>
   );
 }

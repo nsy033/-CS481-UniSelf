@@ -12,7 +12,6 @@ function CompanionProfile(props) {
       ? '#8CD735'
       : '#3F51B5';
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-  const [deleteHover, setDeleteHover] = useState(false);
 
   const closeDeletemodal = (willRemove) => {
     setDeleteModalOpen(false);
@@ -22,52 +21,38 @@ function CompanionProfile(props) {
   return (
     <div className="profileBox">
       {clickable ? (
-        <div>
-          <Icon
-            icon="mdi:user-circle"
-            color="#ccc"
-            className="userIcon"
-            onClick={() => {
-              if (clickable) setDeleteModalOpen(true);
-            }}
-            onMouseEnter={() => {
-              if (clickable) setDeleteHover(true);
-            }}
-            onMouseLeave={() => {
-              if (clickable) setDeleteHover(false);
-            }}
-          />
-          <Icon
-            icon="mdi:minus-circle"
-            color="#fff"
-            className="minusIcon"
-            onClick={() => {
-              if (clickable) setDeleteModalOpen(true);
-            }}
-            onMouseEnter={() => {
-              if (clickable) setDeleteHover(true);
-            }}
-            onMouseLeave={() => {
-              if (clickable) setDeleteHover(false);
-            }}
-          />
+        <div
+          className="clickable-profile"
+          onClick={() => {
+            if (clickable) setDeleteModalOpen(true);
+          }}
+        >
+          <div className="userIcon">
+            <Icon
+              icon="mdi:user-circle"
+              color="#ccc"
+              width={'40px'}
+              height={'40px'}
+            />
+          </div>
+          <div className="minusIcon">
+            <Icon
+              icon="mdi:minus-circle"
+              color="#fff"
+              width={'32px'}
+              height={'32px'}
+            />
+          </div>
+          {info.name}
         </div>
       ) : (
-        <div>
+        <div className="nonclickable-profile">
           <Icon
             icon="mdi:user-circle"
             color={isMe ? timezoneColor : '#ccc'}
             className="userIcon-nonclick"
-            onClick={() => {
-              if (clickable) setDeleteModalOpen(true);
-            }}
-            onMouseEnter={() => {
-              if (clickable) setDeleteHover(true);
-            }}
-            onMouseLeave={() => {
-              if (clickable) setDeleteHover(false);
-            }}
           />
+          {info.name}
         </div>
       )}
       {deleteModalOpen ? (
@@ -76,7 +61,6 @@ function CompanionProfile(props) {
           header={info.name}
         ></CompanionDeleteModal>
       ) : null}
-      {info.name}
     </div>
   );
 }

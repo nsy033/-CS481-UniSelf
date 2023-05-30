@@ -41,3 +41,30 @@
     align-items: center;
     justify-content: center;
 }
+
+
+.tooltipContentsContainer {
+    width: 450px;
+    height: 120px;
+    margin-top: 18px;
+    margin-left: 25px;
+
+    font-family: 'Pretendard';
+    font-size: 16px;
+    color: black
+}
+.tooltip-Achievement {
+    display: block;
+    margin-left: 50px;
+    color: #444444;
+    font-size: 20px;
+}
+.tooltip-Achievement .emphasized {
+    font-size: 40px;
+    font-weight: bolder;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+}
+.tooltipTable {
+    /* display: flex;
+    flex-direction: column; */
+}

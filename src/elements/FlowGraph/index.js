@@ -22,8 +22,8 @@ const routinesets = {
   SNSUsage: 'totalTimeForeground',
   UVExposure: 'UVExposureTime',
   study: 'studyTime',
-  step: 'totalStep'
-}
+  step: 'totalStep',
+};
 const routinename = routinesets[routine];
 
 const colorsets = {
@@ -36,15 +36,29 @@ let FilteredroutineResultsMy;
 let FilteredroutineResultsOthers;
 
 if (timezone === 'morning') {
-  FilteredroutineResultsMy = morningRoutineResults.filter(({ userID }) => userID === 'USER1');
-  FilteredroutineResultsOthers = morningRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
-} else if (timezone === 'day'){
-  FilteredroutineResultsMy = dayRoutineResults.filter(({ userID }) => userID === 'USER1');
-  FilteredroutineResultsOthers = dayRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
-}
-else {
-  FilteredroutineResultsMy = nightRoutineResults.filter(({ userID }) => userID === 'USER1');
-  FilteredroutineResultsOthers = nightRoutineResults.filter(({ userID }) => userID === 'USER2' || userID === 'USER3' || userID === 'USER4');
+  FilteredroutineResultsMy = morningRoutineResults.filter(
+    ({ userID }) => userID === 'USER1'
+  );
+  FilteredroutineResultsOthers = morningRoutineResults.filter(
+    ({ userID }) =>
+      userID === 'USER2' || userID === 'USER3' || userID === 'USER4'
+  );
+} else if (timezone === 'day') {
+  FilteredroutineResultsMy = dayRoutineResults.filter(
+    ({ userID }) => userID === 'USER1'
+  );
+  FilteredroutineResultsOthers = dayRoutineResults.filter(
+    ({ userID }) =>
+      userID === 'USER2' || userID === 'USER3' || userID === 'USER4'
+  );
+} else {
+  FilteredroutineResultsMy = nightRoutineResults.filter(
+    ({ userID }) => userID === 'USER1'
+  );
+  FilteredroutineResultsOthers = nightRoutineResults.filter(
+    ({ userID }) =>
+      userID === 'USER2' || userID === 'USER3' || userID === 'USER4'
+  );
 }
 
 const routineResultsMy = {};
@@ -63,8 +77,12 @@ FilteredroutineResultsOthers.forEach((obj) => {
 const practicedDatesMyStr = Object.keys(routineResultsMy);
 const practicedDatesOthersStr = Object.keys(routineResultsOthers);
 
-const practicedDatesMy = practicedDatesMyStr.map((str) => new Date(str).toISOString().split('T')[0]);
-const practicedDatesOthers = practicedDatesOthersStr.map((str) => new Date(str).toISOString().split('T')[0]);
+const practicedDatesMy = practicedDatesMyStr.map(
+  (str) => new Date(str).toISOString().split('T')[0]
+);
+const practicedDatesOthers = practicedDatesOthersStr.map(
+  (str) => new Date(str).toISOString().split('T')[0]
+);
 
 function getYearAndWeek(dateStr) {
   const date = new Date(dateStr);
@@ -76,11 +94,12 @@ function getYearAndWeek(dateStr) {
 
 function getWeekNumber(date) {
   const firstDayOfYear = new Date(date.getFullYear(), 0, 1);
-  const daysSinceFirstDay = Math.floor((date - firstDayOfYear) / (24 * 60 * 60 * 1000));
+  const daysSinceFirstDay = Math.floor(
+    (date - firstDayOfYear) / (24 * 60 * 60 * 1000)
+  );
   const weekNumber = Math.ceil((1 + daysSinceFirstDay) / 7);
   return weekNumber;
 }
-
 
 function FlowGraph() {
   const [toggleActive, setToggleActive] = useState(false);
@@ -130,39 +149,37 @@ function FlowGraph() {
           return true;
         }
         return false;
-      }
-      else if (timezone == 'day') {
+      } else if (timezone == 'day') {
         targetTimeHours = 3600;
         if (time >= targetTimeHours) {
           return true;
         }
         return false;
-      }
-      else {
+      } else {
         targetTimeHours = 3000;
         if (time >= targetTimeHours) {
           return true;
         }
-        return false;   
+        return false;
       }
     });
 
     return filteredWakeUpTimes.length; // Return the count of wake up times
+  });
+
+  const aggregatedWakeUpTimesOthers = practicedWeeks.map((week) => {
+    const weekNumber = week;
+    const weekDates = practicedDatesOthers.filter((date) => {
+      const [dateYear, dateWeek] = getYearAndWeek(date);
+      return dateWeek == weekNumber;
     });
 
-    const aggregatedWakeUpTimesOthers = practicedWeeks.map((week) => {
-      const weekNumber = week;
-      const weekDates = practicedDatesOthers.filter((date) => {
-        const [dateYear, dateWeek] = getYearAndWeek(date);
-        return dateWeek == weekNumber;
-      });
-  
     const weekWakeUpTimes = weekDates.map((date) => {
       const timeStr = routineResultsOthers[date][routinename];
       // const timeStr = routineResultsMy[date].WakeUpTime;
       return timeStr;
     });
-  
+
     const filteredWakeUpTimes = weekWakeUpTimes.filter((time) => {
       var targetTimeHours = 2700000;
       if (timezone == 'morning') {
@@ -170,15 +187,13 @@ function FlowGraph() {
           return true;
         }
         return false;
-      }
-      else if (timezone == 'day') {
+      } else if (timezone == 'day') {
         targetTimeHours = 3600;
         if (time >= targetTimeHours) {
           return true;
         }
         return false;
-      }
-      else {
+      } else {
         targetTimeHours = 3000;
         if (time >= targetTimeHours) {
           return true;
@@ -186,9 +201,9 @@ function FlowGraph() {
         return false;
       }
     });
-  
-      return filteredWakeUpTimes.length; // Return the count of wake up times
-    });
+
+    return filteredWakeUpTimes.length; // Return the count of wake up times
+  });
 
   const myplot = {
     x: practicedWeeks,
@@ -200,7 +215,7 @@ function FlowGraph() {
     name: 'Me',
     line: { shape: 'spline' },
   };
-  
+
   const othersplot = {
     x: practicedWeeks,
     y: aggregatedWakeUpTimesOthers,
@@ -240,18 +255,20 @@ function FlowGraph() {
   };
 
   const data = toggleActive ? [othersplot, myplot] : [myplot];
-  
+
   return (
     <div>
       <div className="title">
         <b>ACHIEVEMENT LEVEL</b> flow
-        <div className="subtitle">Move the slider to check your trend by period</div>
+        <div className="subtitle">
+          Move the slider to check your trend by period
+        </div>
       </div>
-  
+
       <div className="dateinfo">
         <b>2019/01/25 - 2019/05/14</b>
       </div>
-  
+
       <div className="toggle-container">
         <div className={`toggle-button ${toggleActive ? 'active' : ''}`}>
           <div className="inner-circle"></div>
@@ -259,22 +276,20 @@ function FlowGraph() {
         <div className="toggle-text">View Others</div>
         <div class="tooltip">
           <div className="toggle-question">
-            <Icon
-              icon="fe:question"
-              color="#666666"
-              className="userIcon"
-            />
+            <Icon icon="fe:question" color="#666666" className="questionIcon" />
           </div>
           <div class="tooltip-content">
-            <p>Who are <b>others</b>? <br></br>
-              : They are people who have <b>the same routine</b> with you. <br></br>
-              We give you the <b>average achievement</b> of them.</p>
+            <p>
+              Who are <b>others</b>? <br></br>: They are people who have{' '}
+              <b>the same routine</b> with you. <br></br>
+              We give you the <b>average achievement</b> of them.
+            </p>
           </div>
         </div>
       </div>
-  
+
       <Plot className="graphContainer" data={data} layout={layout} />
-  
+
       <div className="comment">* Aggregated by week</div>
     </div>
   );

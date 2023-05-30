@@ -416,7 +416,7 @@ function Calendar() {
         >
           <div className="tooltipContentsContainer">
             <div className="tooltipTitle">
-              How have your {timezoneStr} been on <b>{dateStr}</b>
+              How was your {timezoneStr} on <b>{dateStr}</b>
             </div>
             <table className="tooltipTable">
               <tbody>
