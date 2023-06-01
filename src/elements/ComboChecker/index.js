@@ -4,7 +4,7 @@ import allUsersRoutine from '../../routineInfos/allUsersRoutine.json';
 import ComboCheckerBar from '../ComboCheckerBar';
 
 function ComboChecker(props) {
-  const { myData } = props;
+  const { myData, month } = props;
   const URLSplit = window.document.URL.split('/');
   var timezone =
     URLSplit.length >= 5 ? URLSplit[URLSplit.length - 1] : 'morning';
@@ -44,7 +44,7 @@ function ComboChecker(props) {
         <div className="combocontainer-box">
           {/* <button onClick={onAddBtnClick}>test</button> */}
           {myData.map((name) => (
-            <ComboCheckerBar name={name} timezone={timezone} />
+            <ComboCheckerBar name={name} timezone={timezone} month={month}/>
           ))}
           {/* {myData} */}
         </div>
