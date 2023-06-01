@@ -1,18 +1,19 @@
 {
-  "USER1": {
+  "USER2": {
     "name": "Me",
-    "userID": "USER1",
-    "morning": { "WakeUp": "09:00:00", "SNSUsage": 2700000 },
-    "day": { "UVExposure": "18:00:00", "study": 3600 },
+    "userID": "USER2",
+    "morning": { "WakeUp": "06:00:00", "SNSUsage": 200000 },
+    "day": { "UVExposure": "12:30:00", "study": 4500 },
     "night": { "step": 2500 }
   },
-  "USER2": {
+  "USER1": {
     "name": "Harry",
-    "userID": "USER2",
-    "morning": { "WakeUp": "08:00:00" },
+    "userID": "USER1",
+    "morning": { "WakeUp": "09:00:00", "SNSUsage": 2700000 },
     "day": { "UVExposure": "18:00:00", "study": 2700 },
-    "night": { "step": 2000 }
+    "night": { "step": 800 }
   },
+
   "USER3": {
     "name": "Ronald",
     "userID": "USER3",
