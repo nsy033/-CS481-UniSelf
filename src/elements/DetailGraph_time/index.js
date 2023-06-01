@@ -175,9 +175,9 @@ var background = {
 var y_adj;
 if (timezone == 'morning') {
   y_adj = Array.from({ length:14 }, (_, i) => {
-    const time = new Date(`2019-01-01 ${'10:00:00'}`);
+    const time = new Date(`2019-01-01 ${'11:00:00'}`);
     // console.log(time.getHours());
-    time.setMinutes(time.getMinutes() - i * 5);
+    time.setMinutes(time.getMinutes() - i * 10);
     return '2019-01-01 ' + time.toLocaleTimeString('en-US', { hour12: false });
   });
 }
@@ -221,7 +221,7 @@ var layout = {
 };
 
 const data =
-  routine == 'morning' ? [background, adjustmentbackground, scatterplot] : [background, scatterplot];
+  timezone == 'morning' ? [background, adjustmentbackground, scatterplot] : [background, scatterplot];
 
 function DetailGraph() {
   let detailgraph = [];

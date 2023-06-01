@@ -228,7 +228,7 @@ var layout = {
 };
 
 const data =
-  routine == 'morning'
+  timezone == 'morning'
     ? [background, adjustmentbackground, scatterplot]
     : [background, whitebackground, scatterplot];
 
