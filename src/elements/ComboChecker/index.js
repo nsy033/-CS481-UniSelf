@@ -34,9 +34,8 @@ function ComboChecker(props) {
     <div className="container-box">
       <div className="combo-title">
         How many <b>COMBO 👊</b> did I succeed?
-        <div className="combo-subtitle">
-          Click on each routine and view its details
-        </div>
+        <div className='big-subtitle'>These <b>Combo-checker</b>s display the number of <b>days</b> the user executed the <b>routines in succession.</b></div>
+        <div className='combo-subtitle'>Click on each routine and view its details.</div>
       </div>
 
       <div className="combo">
