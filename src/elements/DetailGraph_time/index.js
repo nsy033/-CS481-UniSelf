@@ -6,6 +6,8 @@ import dayRoutineResults from '../../routineInfos/dayRoutineResults';
 
 import './style.css';
 
+morningRoutineResults = morningRoutineResults.slice(4, 18);
+
 const URLSplit = window.document.URL.split('/');
 var timezone = 'morning';
 var routine = 'WakeUp';
@@ -78,7 +80,8 @@ const markerColors = wakeUpTimes.map((time) => {
   // }
 
   if (timezone == 'morning') {
-    if (wakeUpTime < targetTime) {
+    if (wakeUpTime < new Date(2019, 0, 1, 10, 30, 0)) {return colorsets[timezone][0];} // for video: need to delete
+    else if (wakeUpTime < targetTime) {
       return colorsets[timezone][0]; // Use colorsets[timezone][0] if wakeUpTime is earlier than 08:30
     } else {
       return 'FFFFFF'; // Use FFFFFF if wakeUpTime is 08:30 or later
@@ -143,11 +146,11 @@ var scatterplot = {
 
 var y;
 if (timezone === 'morning') {
-  y = Array.from({ length: 110 }, () => '09:00:00').map(
+  y = Array.from({ length: wakeUpTimes.length }, () => '09:00:00').map(
     (time) => '2019-01-01 ' + time
   );
 } else if (timezone === 'day') {
-  y = Array.from({ length: 110 }, () => '18:00:00').map(
+  y = Array.from({ length: wakeUpTimes.length }, () => '18:00:00').map(
     (time) => '2019-01-01 ' + time
   );
 }
@@ -192,7 +195,10 @@ var adjustmentbackground = {
   name: 'Goal',
 };
 
-const initial_range = ['2019-04-14', '2019-05-15'];
+if (timezone == 'morning') {
+  var initial_range = ['2019-01-30', '2019-02-12'];
+}
+else var initial_range = ['2019-04-14', '2019-05-15'];
 
 var layout = {
   showlegend: false,

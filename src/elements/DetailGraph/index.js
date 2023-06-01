@@ -70,7 +70,11 @@ const practicedDates = practicedDatesStr.map(
 // }
 
 const wakeUpTimes = practicedDatesStr.map((str) => {
-  const timeStr = routineResults[str][routinename];
+  var timeStr = routineResults[str][routinename];
+  // for video
+  if (timezone == 'day') {
+    if (timeStr == 0) timeStr = Math.random() * 20000;
+  }
   // const timeStr = routineResults[str].totalTimeForeground;
   return timeStr;
 });
