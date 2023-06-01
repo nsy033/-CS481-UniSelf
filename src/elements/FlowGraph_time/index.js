@@ -273,6 +273,7 @@ function FlowGraph_time() {
     <div>
       <div className="title">
         <b>ACHIEVEMENT LEVEL</b> flow
+        <div className='big-subtitle'>This flow graph shows the number of times the user has achieved the routine goal per week.</div>
         <div className="subtitle">
           Move the slider to check your trend by period
         </div>

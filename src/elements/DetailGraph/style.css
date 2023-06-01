@@ -37,3 +37,10 @@
     height: 16px;
     margin-right: 8px;
 }
+
+.big-subtitle {
+    font-size: 20px;
+    margin-top: 8px;
+    margin-right: 50px;
+    color: #666666;
+}
