@@ -273,15 +273,16 @@ function FlowGraph_time() {
     <div>
       <div className="title">
         <b>ACHIEVEMENT LEVEL</b> flow
-        <div className='big-subtitle'>This flow graph shows the number of times the user has achieved the routine goal per week.</div>
-        <div className="subtitle">
-          Move the slider to check your trend by period
-        </div>
       </div>
 
       <div className="dateinfo">
         <b>2019/01/25 - 2019/05/14</b>
       </div>
+
+      <div className='big-subtitle'><br></br>This flow graph shows the number of times you have achieved the routine goal per week.</div>
+        <div className="big-subtitle">
+          Move the slider to check your trend by period.
+        </div>
 
       <div className="toggle-container">
         <div className={`toggle-button ${toggleActive ? 'active' : ''}`}>

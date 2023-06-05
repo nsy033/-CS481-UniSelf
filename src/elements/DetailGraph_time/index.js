@@ -235,7 +235,10 @@ function DetailGraph() {
     <div>
       <div className="title">
         {routinesets[routine][1]} <b>DETAILS</b>
-        <div className='big-subtitle'>This detail graph shows the user's routine achievement in specific figures on a daily basis.</div>
+        <div className='big-subtitle'><br></br>This detail graph shows your routine achievement in specific figures on a daily basis.</div>
+        <div className="big-subtitle">
+          Move the slider to check your achievement by period.
+        </div>
       </div>
       <div className="legend-container">
         <div className="goal-color" style={{ backgroundColor: colorsets[timezone][1] }}></div>

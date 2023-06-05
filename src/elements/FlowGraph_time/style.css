@@ -26,7 +26,8 @@
     font-size: 18px;
     margin-top: 8px;
     margin-right: 50px;
-    color: #666666;
+    /* color: #666666; */
+    color: #000000;
 }
 
 .comment {
@@ -134,7 +135,7 @@
 
 .big-subtitle {
   font-size: 20px;
-  margin-top: 8px;
+  margin-top: -8px;
   margin-right: 50px;
   color: #666666;
 }
