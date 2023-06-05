@@ -70,7 +70,11 @@ const practicedDates = practicedDatesStr.map(
 // }
 
 const wakeUpTimes = practicedDatesStr.map((str) => {
-  const timeStr = routineResults[str][routinename];
+  var timeStr = routineResults[str][routinename];
+  // for video
+  if (timezone == 'day') {
+    if (timeStr == 0) timeStr = Math.random() * 20000;
+  }
   // const timeStr = routineResults[str].totalTimeForeground;
   return timeStr;
 });
@@ -228,7 +232,7 @@ var layout = {
 };
 
 const data =
-  routine == 'morning'
+  timezone == 'morning'
     ? [background, adjustmentbackground, scatterplot]
     : [background, whitebackground, scatterplot];
 
@@ -238,6 +242,10 @@ function DetailGraph() {
     <div>
       <div className="title">
         {routinesets[routine][1]} <b>DETAILS</b>
+        <div className='big-subtitle'><br></br>This detail graph shows your routine achievement in specific figures on a daily basis.</div>
+        <div className="big-subtitle">
+          Move the slider to check your achievement by period.
+        </div>
       </div>
       <div className="legend-container">
         <div className="goal-color" style={{ backgroundColor: colorsets[timezone][1] }}></div>

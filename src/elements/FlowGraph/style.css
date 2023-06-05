@@ -130,3 +130,10 @@
     position: absolute;
     border-radius: 50px;
 }
+
+.big-subtitle {
+  font-size: 20px;
+  margin-top: 8px;
+  margin-right: 50px;
+  color: #666666;
+}

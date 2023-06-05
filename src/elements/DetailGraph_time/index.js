@@ -6,6 +6,8 @@ import dayRoutineResults from '../../routineInfos/dayRoutineResults';
 
 import './style.css';
 
+morningRoutineResults = morningRoutineResults.slice(4, 18);
+
 const URLSplit = window.document.URL.split('/');
 var timezone = 'morning';
 var routine = 'WakeUp';
@@ -78,7 +80,8 @@ const markerColors = wakeUpTimes.map((time) => {
   // }
 
   if (timezone == 'morning') {
-    if (wakeUpTime < targetTime) {
+    if (wakeUpTime < new Date(2019, 0, 1, 10, 30, 0)) {return colorsets[timezone][0];} // for video: need to delete
+    else if (wakeUpTime < targetTime) {
       return colorsets[timezone][0]; // Use colorsets[timezone][0] if wakeUpTime is earlier than 08:30
     } else {
       return 'FFFFFF'; // Use FFFFFF if wakeUpTime is 08:30 or later
@@ -143,11 +146,11 @@ var scatterplot = {
 
 var y;
 if (timezone === 'morning') {
-  y = Array.from({ length: 110 }, () => '09:00:00').map(
+  y = Array.from({ length: wakeUpTimes.length }, () => '09:00:00').map(
     (time) => '2019-01-01 ' + time
   );
 } else if (timezone === 'day') {
-  y = Array.from({ length: 110 }, () => '18:00:00').map(
+  y = Array.from({ length: wakeUpTimes.length }, () => '18:00:00').map(
     (time) => '2019-01-01 ' + time
   );
 }
@@ -175,9 +178,9 @@ var background = {
 var y_adj;
 if (timezone == 'morning') {
   y_adj = Array.from({ length:14 }, (_, i) => {
-    const time = new Date(`2019-01-01 ${'10:00:00'}`);
+    const time = new Date(`2019-01-01 ${'11:00:00'}`);
     // console.log(time.getHours());
-    time.setMinutes(time.getMinutes() - i * 5);
+    time.setMinutes(time.getMinutes() - i * 10);
     return '2019-01-01 ' + time.toLocaleTimeString('en-US', { hour12: false });
   });
 }
@@ -192,7 +195,10 @@ var adjustmentbackground = {
   name: 'Goal',
 };
 
-const initial_range = ['2019-04-14', '2019-05-15'];
+if (timezone == 'morning') {
+  var initial_range = ['2019-01-30', '2019-02-12'];
+}
+else var initial_range = ['2019-04-14', '2019-05-15'];
 
 var layout = {
   showlegend: false,
@@ -221,7 +227,7 @@ var layout = {
 };
 
 const data =
-  routine == 'morning' ? [background, adjustmentbackground, scatterplot] : [background, scatterplot];
+  timezone == 'morning' ? [background, adjustmentbackground, scatterplot] : [background, scatterplot];
 
 function DetailGraph() {
   let detailgraph = [];
@@ -229,6 +235,10 @@ function DetailGraph() {
     <div>
       <div className="title">
         {routinesets[routine][1]} <b>DETAILS</b>
+        <div className='big-subtitle'><br></br>This detail graph shows your routine achievement in specific figures on a daily basis.</div>
+        <div className="big-subtitle">
+          Move the slider to check your achievement by period.
+        </div>
       </div>
       <div className="legend-container">
         <div className="goal-color" style={{ backgroundColor: colorsets[timezone][1] }}></div>
