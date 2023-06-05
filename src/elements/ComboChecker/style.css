@@ -45,8 +45,15 @@
     float: left;
 }
 
+.big-subtitle {
+    font-size: 20px;
+    margin-top: 8px;
+    margin-right: 50px;
+    color: #666666;
+}
+
 .combo-subtitle {
-    font-size: 18px;
+    font-size: 16px;
     margin-top: 8px;
     margin-right: 50px;
     color: #666666;
