@@ -195,10 +195,7 @@ let adjustmentbackground = {
   name: 'Goal',
 };
 
-let initial_range = [];
-if (timezone == 'morning') {
-  initial_range = ['2019-01-30', '2019-02-12'];
-} else initial_range = ['2019-04-14', '2019-05-15'];
+let initial_range = ['2019-04-14', '2019-05-15'];
 
 let layout = {
   showlegend: false,
