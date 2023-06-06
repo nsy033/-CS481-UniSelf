@@ -29,6 +29,20 @@
     color: #666666;
 }
 
+.big-subtitle {
+    font-size: 20px;
+    margin-top: 8px;
+    margin-right: 50px;
+    color: #666666;
+}
+
+.sub-subtitle {
+    font-size: 16px;
+    margin-top: 8px;
+    margin-right: 50px;
+    color: #666666;
+}
+
 .comment {
     font-family: 'Pretendard';
     font-size: 16px;

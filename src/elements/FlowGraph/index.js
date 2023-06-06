@@ -260,13 +260,18 @@ function FlowGraph() {
     <div>
       <div className="title">
         <b>ACHIEVEMENT LEVEL</b> flow
-        <div className="subtitle">
-          Move the slider to check your trend by period
-        </div>
       </div>
 
       <div className="dateinfo">
         <b>2019/01/25 - 2019/05/14</b>
+      </div>
+
+      <div className="big-subtitle">
+        This <b>flow graph</b> shows the <b>number of times</b> you have
+        achieved the routine goal <b>per week</b>.
+      </div>
+      <div className="sub-subtitle">
+        Move the slider to check your trend by period.
       </div>
 
       <div className="toggle-container">

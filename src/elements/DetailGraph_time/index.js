@@ -239,7 +239,14 @@ function DetailGraph() {
   detailgraph.push(
     <div>
       <div className="title">
-        {routinesets[routine][1]} <b>DETAILS</b>
+        {routinesets[routine][1]} <b>DETAILS</b>{' '}
+        <div className="big-subtitle">
+          This <b>detail graph</b> shows your routine achievement{' '}
+          <b>in specific figures</b> on a <b>daily</b> basis.
+        </div>
+        <div className="sub-subtitle">
+          Move the slider to check your achievement by period.
+        </div>
       </div>
       <div className="legend-container">
         <div
