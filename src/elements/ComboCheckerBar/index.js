@@ -5,7 +5,7 @@ import * as ROUTES from '../../constants/routes';
 import allUsersRoutine from '../../routineInfos/allUsersRoutine';
 
 function ComboCheckerBar(props) {
-  const { name, timezone } = props;
+  const { name, timezone, month } = props;
 
   const URLSplit = window.document.URL.split('/');
 
@@ -33,17 +33,109 @@ function ComboCheckerBar(props) {
 
   if (timezone == 'night') deepFilling['color'] = '#FFFFFF';
 
-  const comboWakeUp = [7];
-  const comboSNS = [2, 5, 2];
-  const comboUV = [4, 2, 3];
-  const comboStudy = [3];
-  const comboExercise = [2, 3, 2];
-  const comboNew = [];
+  const combo = {
+    0: {
+      wakeUp: [2, 5, 3, 2],
+      sns: [2, 2],
+      uv: [4, 3],
+      study: [2, 3],
+      exercise: [2],
+      new: [],
+    },
+    1: {
+      wakeUp: [3, 4, 5],
+      sns: [2, 2],
+      uv: [5, 2, 2],
+      study: [4, 3],
+      exercise: [2, 2],
+      new: [],
+    },
+    2: {
+      wakeUp: [5, 2, 4],
+      sns: [3],
+      uv: [3, 4],
+      study: [4, 4, 2],
+      exercise: [3],
+      new: [],
+    },
+    3: {
+      wakeUp: [6, 2, 2],
+      sns: [3, 4],
+      uv: [2, 2, 3],
+      study: [5, 3, 6, 2],
+      exercise: [3, 2],
+      new: [],
+    },
+    4: {
+      wakeUp: [7, 2],
+      sns: [2, 5, 2],
+      uv: [4, 2, 3],
+      study: [5, 8, 7, 4],
+      exercise: [2, 3, 2],
+      new: [],
+    },
+    5: {
+      wakeUp: [],
+      sns: [],
+      uv: [],
+      study: [],
+      exercise: [],
+      new: [],
+    },
+    6: {
+      wakeUp: [],
+      sns: [],
+      uv: [],
+      study: [],
+      exercise: [],
+      new: [],
+    },
+    7: {
+      wakeUp: [],
+      sns: [],
+      uv: [],
+      study: [],
+      exercise: [],
+      new: [],
+    },
+    8: {
+      wakeUp: [],
+      sns: [],
+      uv: [],
+      study: [],
+      exercise: [],
+      new: [],
+    },
+    9: {
+      wakeUp: [],
+      sns: [],
+      uv: [],
+      study: [],
+      exercise: [],
+      new: [],
+    },
+    10: {
+      wakeUp: [],
+      sns: [],
+      uv: [],
+      study: [],
+      exercise: [],
+      new: [],
+    },
+    11: {
+      wakeUp: [],
+      sns: [],
+      uv: [],
+      study: [],
+      exercise: [],
+      new: [],
+    },
+  };
 
   const availablePages = ['WakeUp', 'SNSUsage', 'UVExposure', 'study', 'step'];
 
   const displayCombos = () => {
-    let combos = [];
+    const combos = [];
     combos.push(
       availablePages.includes(name) ? (
         <a className="text" href={ROUTES.ROUTINE + '/' + timezone + '/' + name}>
@@ -63,17 +155,17 @@ function ComboCheckerBar(props) {
     );
     var comboList = [];
     if (name == 'WakeUp') {
-      comboList = comboWakeUp;
+      comboList = combo[month].wakeUp;
     } else if (name == 'SNSUsage') {
-      comboList = comboSNS;
+      comboList = combo[month].sns;
     } else if (name == 'UVExposure') {
-      comboList = comboUV;
+      comboList = combo[month].uv;
     } else if (name == 'study') {
-      comboList = comboStudy;
+      comboList = combo[month].study;
     } else if (name == 'step') {
-      comboList = comboExercise;
+      comboList = combo[month].exercise;
     } else {
-      comboList = comboNew;
+      comboList = combo[month].new;
     }
 
     for (let i of comboList) {
@@ -98,11 +190,12 @@ function ComboCheckerBar(props) {
       );
     }
 
-    (comboList.length != 0) && combos.push(
-      <div className="combotext" style={deepText}>
-        {comboList[comboList.length - 1]} COMBO!
-      </div>
-    );
+    comboList.length != 0 &&
+      combos.push(
+        <div className="combotext" style={deepText}>
+          {comboList[comboList.length - 1]} COMBO!
+        </div>
+      );
 
     return combos;
   };

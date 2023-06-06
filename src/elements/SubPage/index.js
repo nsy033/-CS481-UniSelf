@@ -31,6 +31,7 @@ function SubPage() {
   const [myDataRaw, setMyDataRaw] = useState(timezoneRoutine);
   const [openSnackbar, setOpenSnackbar] = useState(false);
   const [message, setMessage] = useState("You've already added that routine!");
+  const [month, setMonth] = useState(4);
 
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
@@ -52,6 +53,14 @@ function SubPage() {
     }
   };
 
+  const PrevBtnClick = () => {
+    setMonth((month + 11) % 12);
+  };
+
+  const NextBtnClick = () => {
+    setMonth((month + 1) % 12);
+  };
+
   return (
     <div className="pageBox">
       <div className="pageTitle">
@@ -61,10 +70,10 @@ function SubPage() {
       </div>
 
       <div className="flexrow">
-        <Calendar />
+        <Calendar onPrevBtnClick={PrevBtnClick} onNextBtnClick={NextBtnClick} />
         <CreateButton onAddBtnClick={onAddBtnClick} />
       </div>
-      <ComboChecker myData={myData} />
+      <ComboChecker myData={myData} month={month} />
 
       <Snackbar
         open={openSnackbar}

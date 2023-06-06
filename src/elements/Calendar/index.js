@@ -9,7 +9,8 @@ import morningRoutineResults from '../../routineInfos/morningRoutineResults';
 import dayRoutineResults from '../../routineInfos/dayRoutineResults';
 import nightRoutineResults from '../../routineInfos/nightRoutineResults';
 
-function Calendar() {
+function Calendar(props) {
+  const { onPrevBtnClick, onNextBtnClick } = props;
   const URLSplit = window.document.URL.split('/');
   const timezone = URLSplit[URLSplit.length - 1];
 
@@ -237,6 +238,8 @@ function Calendar() {
     setSelectedMonth(newSelectedMonth);
     setSelectedYear(newSelectedYear);
     setDateTotalCount(newDateTotalCount);
+
+    onPrevBtnClick();
   };
   const goNextMonth = () => {
     let newSelectedYear, newSelectedMonth, newDateTotalCount;
@@ -260,6 +263,8 @@ function Calendar() {
     setSelectedMonth(newSelectedMonth);
     setSelectedYear(newSelectedYear);
     setDateTotalCount(newDateTotalCount);
+
+    onNextBtnClick();
   };
 
   const displayWeekdays = () => {
