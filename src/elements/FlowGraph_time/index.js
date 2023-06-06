@@ -265,6 +265,10 @@ function FlowGraph_time() {
         },
       },
     },
+    margin: {
+      t: 30,
+      b: 50,
+    },
   };
 
   const data = toggleActive ? [othersplot, myplot] : [myplot];

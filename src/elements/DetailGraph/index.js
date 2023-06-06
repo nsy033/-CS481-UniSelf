@@ -71,10 +71,6 @@ const practicedDates = practicedDatesStr.map(
 
 const wakeUpTimes = practicedDatesStr.map((str) => {
   let timeStr = routineResults[str][routinename];
-  // for video
-  if (timezone == 'day') {
-    if (timeStr == 0) timeStr = Math.random() * 20000;
-  }
   // const timeStr = routineResults[str].totalTimeForeground;
   return timeStr;
 });
@@ -241,6 +237,9 @@ var layout = {
         '5:00:00',
       ],
     }),
+  },
+  margin: {
+    t: 30,
   },
 };
 

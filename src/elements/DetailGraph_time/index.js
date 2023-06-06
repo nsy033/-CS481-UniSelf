@@ -7,7 +7,7 @@ import nightRoutineResults from '../../routineInfos/nightRoutineResults';
 
 import './style.css';
 
-const morningRoutineResultsSliced = morningRoutineResults.slice(4, 18);
+// const morningRoutineResultsSliced = morningRoutineResults.slice(4, 18);
 
 const URLSplit = window.document.URL.split('/');
 let timezone = 'morning';
@@ -35,7 +35,7 @@ const colorsets = {
 let FilteredroutineResults;
 
 if (timezone === 'morning') {
-  FilteredroutineResults = morningRoutineResultsSliced.filter(
+  FilteredroutineResults = morningRoutineResults.filter(
     ({ userID }) => userID === 'USER1'
   );
 } else if (timezone === 'day') {
@@ -81,10 +81,7 @@ const markerColors = wakeUpTimes.map((time) => {
   // }
 
   if (timezone == 'morning') {
-    if (wakeUpTime < new Date(2019, 0, 1, 10, 30, 0)) {
-      return colorsets[timezone][0];
-    } // for video: need to delete
-    else if (wakeUpTime < targetTime) {
+    if (wakeUpTime < targetTime) {
       return colorsets[timezone][0]; // Use colorsets[timezone][0] if wakeUpTime is earlier than 08:30
     } else {
       return 'FFFFFF'; // Use FFFFFF if wakeUpTime is 08:30 or later
@@ -149,11 +146,11 @@ let scatterplot = {
 
 let y;
 if (timezone === 'morning') {
-  y = Array.from({ length: wakeUpTimes.length }, () => '09:00:00').map(
+  y = Array.from({ length: 110 }, () => '09:00:00').map(
     (time) => '2019-01-01 ' + time
   );
 } else if (timezone === 'day') {
-  y = Array.from({ length: wakeUpTimes.length }, () => '18:00:00').map(
+  y = Array.from({ length: 110 }, () => '18:00:00').map(
     (time) => '2019-01-01 ' + time
   );
 }
@@ -181,9 +178,9 @@ let background = {
 let y_adj;
 if (timezone == 'morning') {
   y_adj = Array.from({ length: 14 }, (_, i) => {
-    const time = new Date(`2019-01-01 ${'11:00:00'}`);
+    const time = new Date(`2019-01-01 ${'10:00:00'}`);
     // console.log(time.getHours());
-    time.setMinutes(time.getMinutes() - i * 10);
+    time.setMinutes(time.getMinutes() - i * 5);
     return '2019-01-01 ' + time.toLocaleTimeString('en-US', { hour12: false });
   });
 }
@@ -226,6 +223,9 @@ let layout = {
         size: 16,
       },
     },
+  },
+  margin: {
+    t: 30,
   },
 };
 

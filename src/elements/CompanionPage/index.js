@@ -1,6 +1,6 @@
 import './style.css';
-import allUsersRoutine from '../../routineInfos/allUsersRoutine_demo';
-// import allUsersRoutine from '../../routineInfos/allUsersRoutine';
+// import allUsersRoutine from '../../routineInfos/allUsersRoutine_demo';
+import allUsersRoutine from '../../routineInfos/allUsersRoutine';
 import companionList from '../../routineInfos/companionList';
 
 import React, { useEffect, useState } from 'react';
