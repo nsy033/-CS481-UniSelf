@@ -3,12 +3,15 @@ import Plot from 'react-plotly.js';
 // import routineResults from '../../routineInfos/routineResults';
 import morningRoutineResults from '../../routineInfos/morningRoutineResults';
 import dayRoutineResults from '../../routineInfos/dayRoutineResults';
+import nightRoutineResults from '../../routineInfos/nightRoutineResults';
 
 import './style.css';
 
+const morningRoutineResultsSliced = morningRoutineResults.slice(4, 18);
+
 const URLSplit = window.document.URL.split('/');
-var timezone = 'morning';
-var routine = 'WakeUp';
+let timezone = 'morning';
+let routine = 'WakeUp';
 if (URLSplit.length >= 6) {
   timezone = URLSplit[URLSplit.length - 2];
   routine = URLSplit[URLSplit.length - 1];
@@ -19,7 +22,7 @@ const routinesets = {
   SNSUsage: ['totalTimeForeground', 'Daily SNS usage time'],
   UVExposure: ['UVExposureTime', 'Daily UV exposure time'],
   study: ['studyTime', 'Daily study time'],
-  step: ['totalStep', 'Daily Step Count']
+  step: ['totalStep', 'Daily Step Count'],
 };
 const routinename = routinesets[routine][0];
 
@@ -32,7 +35,7 @@ const colorsets = {
 let FilteredroutineResults;
 
 if (timezone === 'morning') {
-  FilteredroutineResults = morningRoutineResults.filter(
+  FilteredroutineResults = morningRoutineResultsSliced.filter(
     ({ userID }) => userID === 'USER1'
   );
 } else if (timezone === 'day') {
@@ -40,7 +43,7 @@ if (timezone === 'morning') {
     ({ userID }) => userID === 'USER1'
   );
 } else {
-  FilteredroutineResults = morningRoutineResults.filter(
+  FilteredroutineResults = nightRoutineResults.filter(
     ({ userID }) => userID === 'USER1'
   );
 }
@@ -68,8 +71,8 @@ const wakeUpTimes = practicedDatesStr.map((str) => {
 });
 
 const markerColors = wakeUpTimes.map((time) => {
-  var wakeUpTime = new Date(time);
-  var targetTime = new Date(2019, 0, 1, 9, 0, 0); // Target wake up time at 09:00
+  let wakeUpTime = new Date(time);
+  let targetTime = new Date(2019, 0, 1, 9, 0, 0); // Target wake up time at 09:00
 
   // if (wakeUpTime < targetTime) {
   //   return colorsets[timezone][0]; // Use colorsets[timezone][0] if wakeUpTime is earlier than 08:30
@@ -78,7 +81,10 @@ const markerColors = wakeUpTimes.map((time) => {
   // }
 
   if (timezone == 'morning') {
-    if (wakeUpTime < targetTime) {
+    if (wakeUpTime < new Date(2019, 0, 1, 10, 30, 0)) {
+      return colorsets[timezone][0];
+    } // for video: need to delete
+    else if (wakeUpTime < targetTime) {
       return colorsets[timezone][0]; // Use colorsets[timezone][0] if wakeUpTime is earlier than 08:30
     } else {
       return 'FFFFFF'; // Use FFFFFF if wakeUpTime is 08:30 or later
@@ -110,7 +116,7 @@ const markerlineColors = wakeUpTimes.map((time) => {
 
 const mode = routine == 'morning' ? 'markers+lines' : 'markers+lines';
 
-var scatterplot = {
+let scatterplot = {
   height: '1000px',
   type: 'scatter',
   x: practicedDates,
@@ -131,7 +137,7 @@ var scatterplot = {
   name: 'My Data',
 };
 
-// var background = {
+// let background = {
 // x: practicedDates,
 // y: Array.from({ length: 110 }, () => "09:00:00").map(time => '2019-01-01 ' + time),
 // fill: 'tozeroy',
@@ -141,18 +147,18 @@ var scatterplot = {
 // name: 'Goal'
 // }
 
-var y;
+let y;
 if (timezone === 'morning') {
-  y = Array.from({ length: 110 }, () => '09:00:00').map(
+  y = Array.from({ length: wakeUpTimes.length }, () => '09:00:00').map(
     (time) => '2019-01-01 ' + time
   );
 } else if (timezone === 'day') {
-  y = Array.from({ length: 110 }, () => '18:00:00').map(
+  y = Array.from({ length: wakeUpTimes.length }, () => '18:00:00').map(
     (time) => '2019-01-01 ' + time
   );
 }
 
-var background = {
+let background = {
   x: practicedDates,
   y: y,
   fill: 'tozeroy',
@@ -162,7 +168,7 @@ var background = {
   name: 'Goal',
 };
 
-// var whitebackground = {
+// let whitebackground = {
 //   x: practicedDates,
 //   y: Array.from({ length: 110 }, () => "12:00:00").map(time => '2019-01-01 ' + time),
 //   fill: 'tozeroy',
@@ -172,17 +178,17 @@ var background = {
 //   name: 'Goal'
 // }
 
-var y_adj;
+let y_adj;
 if (timezone == 'morning') {
-  y_adj = Array.from({ length:14 }, (_, i) => {
-    const time = new Date(`2019-01-01 ${'10:00:00'}`);
+  y_adj = Array.from({ length: 14 }, (_, i) => {
+    const time = new Date(`2019-01-01 ${'11:00:00'}`);
     // console.log(time.getHours());
-    time.setMinutes(time.getMinutes() - i * 5);
+    time.setMinutes(time.getMinutes() - i * 10);
     return '2019-01-01 ' + time.toLocaleTimeString('en-US', { hour12: false });
   });
 }
 
-var adjustmentbackground = {
+let adjustmentbackground = {
   x: practicedDates,
   y: y_adj,
   fill: 'tozeroy',
@@ -192,9 +198,12 @@ var adjustmentbackground = {
   name: 'Goal',
 };
 
-const initial_range = ['2019-04-14', '2019-05-15'];
+let initial_range = [];
+if (timezone == 'morning') {
+  initial_range = ['2019-01-30', '2019-02-12'];
+} else initial_range = ['2019-04-14', '2019-05-15'];
 
-var layout = {
+let layout = {
   showlegend: false,
   font: {
     size: 12,
@@ -221,7 +230,9 @@ var layout = {
 };
 
 const data =
-  routine == 'morning' ? [background, adjustmentbackground, scatterplot] : [background, scatterplot];
+  timezone == 'morning'
+    ? [background, adjustmentbackground, scatterplot]
+    : [background, scatterplot];
 
 function DetailGraph() {
   let detailgraph = [];
@@ -231,7 +242,10 @@ function DetailGraph() {
         {routinesets[routine][1]} <b>DETAILS</b>
       </div>
       <div className="legend-container">
-        <div className="goal-color" style={{ backgroundColor: colorsets[timezone][1] }}></div>
+        <div
+          className="goal-color"
+          style={{ backgroundColor: colorsets[timezone][1] }}
+        ></div>
         <div className="legend-text">Goal</div>
       </div>
     </div>

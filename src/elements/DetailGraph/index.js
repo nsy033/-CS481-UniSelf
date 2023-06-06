@@ -20,7 +20,7 @@ const routinesets = {
   SNSUsage: ['totalTimeForeground', 'Daily SNS usage time'],
   UVExposure: ['UVExposureTime', 'Daily UV exposure time'],
   study: ['studyTime', 'Daily study time'],
-  step: ['totalStep', 'Daily Step Count']
+  step: ['totalStep', 'Daily Step Count'],
 };
 // console.log(routinesets[WakeUp]);
 
@@ -70,7 +70,11 @@ const practicedDates = practicedDatesStr.map(
 // }
 
 const wakeUpTimes = practicedDatesStr.map((str) => {
-  const timeStr = routineResults[str][routinename];
+  let timeStr = routineResults[str][routinename];
+  // for video
+  if (timezone == 'day') {
+    if (timeStr == 0) timeStr = Math.random() * 20000;
+  }
   // const timeStr = routineResults[str].totalTimeForeground;
   return timeStr;
 });
@@ -145,8 +149,7 @@ var background = {
 var y_white;
 if (timezone === 'day') {
   y_white = Array.from({ length: 110 }, () => 3600);
-}
-else if (timezone === 'night') {
+} else if (timezone === 'night') {
   y_white = Array.from({ length: 110 }, () => 3000);
 }
 
@@ -163,7 +166,7 @@ var whitebackground = {
 var y_adj;
 if (timezone == 'morning') {
   y_adj = Array.from({ length: 14 }, (_, i) => {
-    const t = i / (14 - 1);  // Normalized value between 0 and 1
+    const t = i / (14 - 1); // Normalized value between 0 and 1
     return 2700000 + (3600000 - 2700000) * (1 - t);
   });
 }
@@ -211,7 +214,14 @@ var layout = {
       },
       tickformat: '%H:%M:%S',
       tickvals: ['0', '3600', '7200', '10800', '14400', '18000'],
-      ticktext: ['0:00:00', '1:00:00', '2:00:00', '3:00:00', '4:00:00', '5:00:00'],
+      ticktext: [
+        '0:00:00',
+        '1:00:00',
+        '2:00:00',
+        '3:00:00',
+        '4:00:00',
+        '5:00:00',
+      ],
     }),
     ...(timezone === 'morning' && {
       title: {
@@ -222,13 +232,20 @@ var layout = {
       },
       tickformat: '%H:%M:%S',
       tickvals: ['0', '3600000', '7200000', '10800000', '14400000', '18000000'],
-      ticktext: ['0:00:00', '1:00:00', '2:00:00', '3:00:00', '4:00:00', '5:00:00'],
+      ticktext: [
+        '0:00:00',
+        '1:00:00',
+        '2:00:00',
+        '3:00:00',
+        '4:00:00',
+        '5:00:00',
+      ],
     }),
   },
 };
 
 const data =
-  routine == 'morning'
+  timezone == 'morning'
     ? [background, adjustmentbackground, scatterplot]
     : [background, whitebackground, scatterplot];
 
@@ -240,7 +257,10 @@ function DetailGraph() {
         {routinesets[routine][1]} <b>DETAILS</b>
       </div>
       <div className="legend-container">
-        <div className="goal-color" style={{ backgroundColor: colorsets[timezone][1] }}></div>
+        <div
+          className="goal-color"
+          style={{ backgroundColor: colorsets[timezone][1] }}
+        ></div>
         <div className="legend-text">Goal</div>
       </div>
     </div>
